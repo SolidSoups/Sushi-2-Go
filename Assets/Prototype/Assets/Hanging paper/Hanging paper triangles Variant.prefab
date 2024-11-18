@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &43224470828434816
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7280056839948426890}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 3128d1a96acb857468fdca6288d0e45e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3128d1a96acb857468fdca6288d0e45e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3128d1a96acb857468fdca6288d0e45e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3128d1a96acb857468fdca6288d0e45e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3128d1a96acb857468fdca6288d0e45e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3128d1a96acb857468fdca6288d0e45e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3128d1a96acb857468fdca6288d0e45e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3128d1a96acb857468fdca6288d0e45e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3128d1a96acb857468fdca6288d0e45e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3128d1a96acb857468fdca6288d0e45e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3128d1a96acb857468fdca6288d0e45e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b13b02debe8d42947ae9360cc8b13f8b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 3128d1a96acb857468fdca6288d0e45e, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2a65848740c1523438c728268ab49dee, type: 2}
+    - target: {fileID: 919132149155446097, guid: 3128d1a96acb857468fdca6288d0e45e, type: 3}
+      propertyPath: m_Name
+      value: Hanging paper triangles
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3128d1a96acb857468fdca6288d0e45e, type: 3}
+--- !u!4 &509796332121629291 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3128d1a96acb857468fdca6288d0e45e, type: 3}
+  m_PrefabInstance: {fileID: 43224470828434816}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3446410667072972906
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1378552707380807742, guid: c6bf8482f29344a4ca969a6f419cf40f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c7bb0cefbc040bc4fad89c7deb1183af, type: 2}
+    - target: {fileID: 5391909511278048992, guid: c6bf8482f29344a4ca969a6f419cf40f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391909511278048992, guid: c6bf8482f29344a4ca969a6f419cf40f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391909511278048992, guid: c6bf8482f29344a4ca969a6f419cf40f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391909511278048992, guid: c6bf8482f29344a4ca969a6f419cf40f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391909511278048992, guid: c6bf8482f29344a4ca969a6f419cf40f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391909511278048992, guid: c6bf8482f29344a4ca969a6f419cf40f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391909511278048992, guid: c6bf8482f29344a4ca969a6f419cf40f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391909511278048992, guid: c6bf8482f29344a4ca969a6f419cf40f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391909511278048992, guid: c6bf8482f29344a4ca969a6f419cf40f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391909511278048992, guid: c6bf8482f29344a4ca969a6f419cf40f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8828865393565191979, guid: c6bf8482f29344a4ca969a6f419cf40f, type: 3}
+      propertyPath: m_Name
+      value: Hanging paper triangles Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 585861654520637931, guid: c6bf8482f29344a4ca969a6f419cf40f, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5391909511278048992, guid: c6bf8482f29344a4ca969a6f419cf40f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 509796332121629291}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c6bf8482f29344a4ca969a6f419cf40f, type: 3}
+--- !u!4 &7280056839948426890 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5391909511278048992, guid: c6bf8482f29344a4ca969a6f419cf40f, type: 3}
+  m_PrefabInstance: {fileID: 3446410667072972906}
+  m_PrefabAsset: {fileID: 0}

@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6c02237d-a19f-41f0-959f-a883ec2c6048" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Prototype/Materials/Sushis.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prototype/Materials/Sushis/Avocado_Roll.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prototype/Materials/Sushis/Avocado_Roll.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prototype/Materials/Sushis/Roe_Roll.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prototype/Materials/Sushis/Roe_Roll.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prototype/Prefabs/Obstacles/Plates Stacked.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prototype/Prefabs/Obstacles/Plates Stacked.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set 2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set 2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set 3.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set 3.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set 4.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set 4.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable Left 3.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable Left 3.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable Left 4.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable Left 4.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right 1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right 1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with both jumpable 1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with both jumpable 1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with far jumpable 2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with far jumpable 2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with near jumpable 2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with near jumpable 2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with near jumpable 3.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with near jumpable 3.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with near jumpable 4.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with near jumpable 4.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left Middle Non-Passable with Near Jumpable 2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left Middle Non-Passable with Near Jumpable 2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left Middle Non-Passable with Near Jumpable 3.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left Middle Non-Passable with Near Jumpable 3.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Passable Right 1 with soy 2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Passable Right 1 with soy 2.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Assets/Sushis/Avocado_Roll.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Assets/Sushis/Avocado_Roll.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Assets/Sushis/Roe_Roll.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Assets/Sushis/Roe_Roll.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Assets/Sushis/Salmon_Roll.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Materials/Sushis/Salmon_Roll.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Assets/Sushis/Salmon_Roll.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Materials/Sushis/Salmon_Roll.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Assets/Sushis/Tuna_Roll.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Materials/Sushis/Tuna_Roll.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Assets/Sushis/Tuna_Roll.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Materials/Sushis/Tuna_Roll.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Scripts/DifficultyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Scripts/DifficultyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Placable Test.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Placable Test.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable All 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable All 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable All 1.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable All 1.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable All 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable All 2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable All 2.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable All 2.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable Left 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable Left 2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable Left 2.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable Left 2.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable Right 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable Right 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable Right 1.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Jumpable Right 1.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right Middle Non-Passable with Far Jumpable.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right Middle Non-Passable with Far Jumpable.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right Middle Non-Passable with Far Jumpable.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right Middle Non-Passable with Far Jumpable.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with both jumpable.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with both jumpable.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with both jumpable.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with both jumpable.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with far jumpable 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with far jumpable 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with far jumpable 1.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with far jumpable 1.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with far jumpable.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with far jumpable.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with far jumpable.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with far jumpable.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with near jumpable 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with near jumpable 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with near jumpable 1.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with near jumpable 1.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with near jumpable.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with near jumpable.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with near jumpable.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right with near jumpable.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left-Right.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Left.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left Middle Non-Passable with Near Jumpable 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left Middle Non-Passable with Near Jumpable 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left Middle Non-Passable with Near Jumpable 1.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left Middle Non-Passable with Near Jumpable 1.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left with Both Jumpable.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left with Both Jumpable.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left with Both Jumpable.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left with Both Jumpable.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left with Far Jumpable.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left with Far Jumpable.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left with Far Jumpable.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left with Far Jumpable.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left with Near Jumpable.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left with Near Jumpable.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left with Near Jumpable.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left with Near Jumpable.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right-Left.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Jumpable Right.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Passable Left.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Passable Left.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Passable Left.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Passable Left.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Passable Right 1 with soy 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Passable Right 1 with soy 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Passable Right 1 with soy 1.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Passable Right 1 with soy 1.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Passable Right Jumpable Left.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Passable Right Jumpable Left.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Passable Right Jumpable Left.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sets/Set Non-Passable Right Jumpable Left.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Testing Something.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sets/Set Testing Something.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Speed_Lines.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Speed_Lines.meta" afterDir="false" />
+    </list>
+    <list id="bf4d7ab8-c068-42da-8011-9dfd61ee7c0d" name="FIXING FIXING FIXING" comment="FIXING FIXING FIXING">
+      <change afterPath="$PROJECT_DIR$/Assets/HandController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prototype/Assets/Hand/Animations.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Assets/Paper Lamp/New Folder/New Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Assets/Paper Lamp/New Folder/New Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Assets/Paper Lamp/New Folder/New Material.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Assets/Paper Lamp/New Folder/New Material.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Assets/Tunnel/T_Tunnel_Glass.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Assets/Tunnel/T_Tunnel_Glass.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prefabs/Testing Obstacles/Conveyor Belt 1.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prefabs/Testing Obstacles/Conveyor Belt MAIN.prefab.meta" afterDir="false" />
+    </list>
+    <list id="2d124d27-60ea-4cfb-98ba-77a3a72a9ee4" name="Submitting :c" comment="Submitting :c">
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Baking Prototype.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Baking Prototype.lighting" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prefabs/Lighting/Hanging Light.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prefabs/Lighting/Hanging Light.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prefabs/Testing Obstacles/Conveyor Belt MAIN.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prefabs/Testing Obstacles/Conveyor Belt MAIN.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/LightingData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/LightingData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/LightingData.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-0_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-0_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-0_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-0_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-0_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-0_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-0_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-10_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-10_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-10_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-10_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-10_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-10_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-10_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-10_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-11_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-11_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-11_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-11_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-11_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-11_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-11_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-11_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-12_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-12_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-12_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-12_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-12_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-12_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-12_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-12_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-13_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-13_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-13_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-13_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-13_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-13_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-13_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-13_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-14_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-14_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-14_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-14_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-14_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-14_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-14_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-14_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-15_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-15_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-15_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-15_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-15_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-15_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-15_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-15_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-16_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-16_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-16_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-16_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-16_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-16_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-16_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-16_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-17_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-17_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-17_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-17_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-17_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-17_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-17_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-17_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-18_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-18_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-18_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-18_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-18_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-18_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-18_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-18_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-19_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-19_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-19_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-19_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-19_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-19_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-19_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-19_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-1_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-1_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-1_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-1_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-1_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-1_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-1_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-1_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-20_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-20_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-20_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-20_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-20_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-20_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-20_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-20_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-21_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-21_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-21_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-21_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-21_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-21_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-21_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-21_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-22_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-22_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-22_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-22_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-22_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-22_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-22_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-22_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-23_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-23_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-23_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-23_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-23_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-23_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-23_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-23_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-24_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-24_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-24_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-24_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-24_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-24_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-24_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-24_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-25_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-25_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-25_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-25_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-25_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-25_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-25_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-25_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-26_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-26_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-26_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-26_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-26_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-26_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-26_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-26_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-27_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-27_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-27_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-27_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-27_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-27_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-27_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-27_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-28_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-28_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-28_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-28_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-28_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-28_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-28_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-28_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-29_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-29_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-29_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-29_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-29_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-29_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-29_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-29_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-2_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-2_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-2_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-2_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-2_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-2_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-2_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-2_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-30_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-30_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-30_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-30_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-30_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-30_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-30_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-30_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-31_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-31_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-31_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-31_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-31_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-31_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-31_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-31_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-32_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-32_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-32_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-32_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-32_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-32_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-32_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-32_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-33_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-33_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-33_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-33_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-33_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-33_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-33_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-33_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-3_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-3_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-3_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-3_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-3_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-3_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-3_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-3_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-4_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-4_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-4_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-4_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-4_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-4_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-4_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-4_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-5_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-5_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-5_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prototype/Prototype Scene/Lightmap-5_comp_dir.png.meta" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/47/7cf932d6/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CameraMover.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DebugSpeedUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/HandController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/HandDelegator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/HandEndAnimation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/AlignBottomWithYPlane.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/BoundGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/DifficultyController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/IControllable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/Obstacle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/PlayerMovementController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/Set.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/SetDifficulty.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/SetSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/States/GameStates/GameOverState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/States/GameStates/IntroState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/States/GameStates/PauseState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/States/GameStates/PlayingState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/States/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/TimerScore.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/UI/MainMenuUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/UI/PlayerUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/UI/UI button Functions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prototype/Scripts/WorldMover.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/EliasBrown/Perforce/Elias.Brown_GroupProject1_Team3/Sushi 2 Go/Assets/Prototype/Scripts/WorldMover.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/EliasBrown/Perforce/Elias.Brown_GroupProject1_Team3/Sushi 2 Go/Assets/Prototype/Scripts/WorldMover.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Passes/AdditionalLightsShadowCasterPass.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="PerforceDirect.Settings">
+    <option name="useP4CONFIG" value="false" />
+    <option name="useP4IGNORE" value="false" />
+    <option name="port" value="fgsrv:1666" />
+    <option name="client" value="Elias.Brown_GroupProject1_Team3" />
+    <option name="user" value="elias.brown" />
+    <option name="pathToIgnore" value="C:\Users\EliasBrown\Perforce\Elias.Brown_GroupProject1_Team3\Sushi 2 Go\.p4ignore" />
+  </component>
+  <component name="PerforceNumberNameSynchronizer">
+    <option name="listMappings">
+      <map>
+        <entry>
+          <key>
+            <ConnectionKeyBean>
+              <option name="server" value="fgsrv:1666" />
+              <option name="client" value="Elias.Brown_GroupProject1_Team3" />
+              <option name="user" value="elias.brown" />
+            </ConnectionKeyBean>
+          </key>
+          <value>
+            <PerforceNumberNameMap />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2oFHvMoWAavZoHaF7AwShtkzKkk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.build.unityPlugin&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Build\Sushi 2 Go.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\EliasBrown\Perforce\Elias.Brown_GroupProject1_Team3\Sushi 2 Go\Build" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.24f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;C:\Users\EliasBrown\Perforce\Elias.Brown_GroupProject1_Team3\Sushi 2 Go&quot; -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\EliasBrown\Perforce\Elias.Brown_GroupProject1_Team3\Sushi 2 Go" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.24f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Users\EliasBrown\Perforce\Elias.Brown_GroupProject1_Team3\Sushi 2 Go&quot; -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\EliasBrown\Perforce\Elias.Brown_GroupProject1_Team3\Sushi 2 Go" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6c02237d-a19f-41f0-959f-a883ec2c6048" name="Changes" comment="" />
+      <created>1730458633961</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730458633961</updated>
+      <workItem from="1730458636295" duration="3566000" />
+      <workItem from="1730464185259" duration="136000" />
+      <workItem from="1730464344781" duration="7063000" />
+      <workItem from="1730720550033" duration="253000" />
+      <workItem from="1730720814154" duration="82000" />
+      <workItem from="1730720904801" duration="10867000" />
+      <workItem from="1730803381473" duration="99000" />
+      <workItem from="1730803491239" duration="2053000" />
+      <workItem from="1730807779878" duration="5937000" />
+      <workItem from="1730815638225" duration="1190000" />
+      <workItem from="1730816850988" duration="43000" />
+      <workItem from="1730816902016" duration="3034000" />
+      <workItem from="1730826985876" duration="806000" />
+      <workItem from="1730893526934" duration="8675000" />
+      <workItem from="1730976796932" duration="8631000" />
+      <workItem from="1731073429889" duration="7307000" />
+      <workItem from="1731331281180" duration="18997000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+    <option name="unityProject" value="true" />
+    <option name="unityProjectFolder" value="true" />
+  </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
