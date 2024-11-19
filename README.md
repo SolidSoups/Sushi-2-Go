@@ -1,4 +1,5 @@
 # Sushi-2-Go
+![poster](/readme_images/poster.png)
 
 ## Information
 ### Description
@@ -18,6 +19,6 @@ To install this project on your own computer, you will need these dependencies (
    1. Make sure **Github Desktop** and **Git** are installed.
    2. Open up the command prompt by searching for "cmd" in the *start menu*.
    3. Verify **Git** installation by writing the prompt `git` and pressing enter
-      ![command prompt](/readme_images/gitverification.png)
+      ![command prompt git verification](/readme_images/gitverification.png)
    4. Write `git lfs install` into the command prompt and press enter
-      ![command prompt](/readme_images/gitlfsinstall.png)
+      ![command prompt git lfs install](/readme_images/gitlfsinstall.png)
