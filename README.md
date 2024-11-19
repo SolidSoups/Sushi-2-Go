@@ -23,6 +23,14 @@ To install this project on your own computer, you will need these dependencies (
    4. Write `git lfs install` into the command prompt and press enter
       ![command prompt git lfs install](/readme_images/gitlfsinstall.png)
 
+Then you can set up the workspace on the computer.
+1. Start by opening up **Github Desktop**
+2. Click on *Clone an existing repository*
+3. Select `Sushi-2-Go` and clone it.
+4. Once it's finished, open up **Unity Hub** and in Projects click on *Add project from disk*
+5. Find the location where the `Sushi-2-Go` repository was installed and select the root folder.
+6. You should now be able to open up the project on your computer! :D
+
 ## Rules and workflow
 ### Branches
 Github uses branches to create copies of the repository. This is useful when adding new features, game mechanics vice versa. You should definitely read up on branching [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches). 
