@@ -32,6 +32,8 @@ Then you can set up the workspace on the computer.
 6. You should now be able to open up the project on your computer! :D
 
 ## Rules and workflow
+### Commits
+Please make sure to keep your commits short. When you make changes on your own branch, and you add for example *new assets*, *changes to scene* or *rearranging the hierarchy*, commit those first and then 
 ### Branches
 Github uses branches to create copies of the repository. This is useful when adding new features, game mechanics vice versa. You should definitely read up on branching [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches). 
 
