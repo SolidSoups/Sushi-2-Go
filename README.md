@@ -22,3 +22,9 @@ To install this project on your own computer, you will need these dependencies (
       ![command prompt git verification](/readme_images/gitverification.png)
    4. Write `git lfs install` into the command prompt and press enter
       ![command prompt git lfs install](/readme_images/gitlfsinstall.png)
+
+## Rules and workflow
+### Branches
+Github uses branches to create copies of the repository. This is useful when adding new features, game mechanics vice versa. You should definitely read up on branching [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches). 
+
+One of the most important branches in the repository is the `main` or `master` branch. **Work should never be done on this branch**. Instead of working directly, changes should be merged via *pull requests* from other feature branches.
