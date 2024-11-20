@@ -1,4 +1,4 @@
-using Prototype.Scripts;
+using Controllers;
 using UnityEngine;
 
 public class ParticleEffectController : MonoBehaviour, IControllable

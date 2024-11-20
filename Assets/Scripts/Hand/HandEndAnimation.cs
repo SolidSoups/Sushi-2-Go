@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class HandEndAnimation : MonoBehaviour
+namespace Hand
 {
-    [SerializeField] private HandController _handController;
+    public class HandEndAnimation : MonoBehaviour
+    {
+        [SerializeField] private HandController _handController;
     
 //...
-    public void EndHandAnimation() => _handController.OnHandAnimationEnd();
-    public void DoObstacleThing() => _handController.DoObstacleThing();
-    public void HideObstacle() => _handController.HideObstacle();
+        public void EndHandAnimation() => _handController.OnHandAnimationEnd();
+        public void DoObstacleThing() => _handController.DoObstacleThing();
+        public void HideObstacle() => _handController.HideObstacle();
+    }
 }

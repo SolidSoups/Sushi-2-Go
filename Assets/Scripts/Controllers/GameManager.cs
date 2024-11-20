@@ -1,29 +1,32 @@
-using System;
-using UnityEngine;
+using State_Machine;
+using State_Machine.GameStates;
 
-public class GameManager : StateMachine
+namespace Controllers
 {
-    public static GameManager Instance;
-
-
-    private void Awake()
+    public class GameManager : StateMachine
     {
-        Instance = this;
-    }
-
-    private void Start()
-    {
-        SwitchState<IntroState>();
-    }
-
-    private void Update()
-    {
-        UpdateStateMachine();
-    }
+        public static GameManager Instance;
 
 
-    private void FixedUpdate()
-    {
-        FixedUpdateStateMachine();
+        private void Awake()
+        {
+            Instance = this;
+        }
+
+        private void Start()
+        {
+            SwitchState<IntroState>();
+        }
+
+        private void Update()
+        {
+            UpdateStateMachine();
+        }
+
+
+        private void FixedUpdate()
+        {
+            FixedUpdateStateMachine();
+        }
     }
 }

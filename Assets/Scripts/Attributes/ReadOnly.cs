@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace WIP
+namespace Attributes
 {
   public class ReadOnlyAttribute : PropertyAttribute
   {

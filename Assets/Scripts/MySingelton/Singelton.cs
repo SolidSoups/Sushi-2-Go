@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Controllers;
+using UnityEngine;
 
-namespace WIP
+namespace MySingelton
 {
   public class Singelton : MonoBehaviour
   {

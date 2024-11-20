@@ -1,53 +1,55 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Prototype.Scripts;
+using Controllers;
+using Sets;
 using UnityEngine;
 
-public class HandDelegator : MonoBehaviour, IControllable
+namespace Hand
 {
-    [Header("Hands")]
-    [SerializeField] private HandController _leftHand;
-    [SerializeField] private HandController _rightHand;
-
-
-
-    public void Initialize()
+    public class HandDelegator : MonoBehaviour, IControllable
     {
-        _leftHand.Initialize();
-        _rightHand.Initialize();
-    }
+        [Header("Hands")]
+        [SerializeField] private HandController _leftHand;
+        [SerializeField] private HandController _rightHand;
 
-    public void DoUpdate()
-    {
-       _leftHand.DoUpdate();
-       _rightHand.DoUpdate();
-    }
 
-    public void DoFixedUpdate()
-    {
-        
-    }
-    
-    public bool DelegateToHands(List<Obstacle> obstacles)
-    {
-        bool delegatedLeft = false;
-        bool delegatedRight = false;
-        
-        foreach (Obstacle obstacle in obstacles)
+
+        public void Initialize()
         {
-            if (delegatedLeft && delegatedRight)
-                return true;
-            if (!delegatedLeft && obstacle.HandSide == HandSide.LEFT)
-            {
-                delegatedLeft = _leftHand.TryAttachObstacle(obstacle);
-            }
-            else if (!delegatedRight && obstacle.HandSide == HandSide.RIGHT)
-            {
-                delegatedRight = _rightHand.TryAttachObstacle(obstacle);
-            }
+            _leftHand.Initialize();
+            _rightHand.Initialize();
         }
 
-        return delegatedLeft || delegatedRight;
-    } 
+        public void DoUpdate()
+        {
+            _leftHand.DoUpdate();
+            _rightHand.DoUpdate();
+        }
+
+        public void DoFixedUpdate()
+        {
+        
+        }
+    
+        public bool DelegateToHands(List<Obstacle> obstacles)
+        {
+            bool delegatedLeft = false;
+            bool delegatedRight = false;
+        
+            foreach (Obstacle obstacle in obstacles)
+            {
+                if (delegatedLeft && delegatedRight)
+                    return true;
+                if (!delegatedLeft && obstacle.HandSide == HandSide.LEFT)
+                {
+                    delegatedLeft = _leftHand.TryAttachObstacle(obstacle);
+                }
+                else if (!delegatedRight && obstacle.HandSide == HandSide.RIGHT)
+                {
+                    delegatedRight = _rightHand.TryAttachObstacle(obstacle);
+                }
+            }
+
+            return delegatedLeft || delegatedRight;
+        } 
+    }
 }

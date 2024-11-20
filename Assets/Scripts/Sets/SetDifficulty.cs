@@ -1,4 +1,4 @@
-﻿namespace Prototype.Scripts
+﻿namespace Sets
 {
     public enum SetDifficulty
     {
