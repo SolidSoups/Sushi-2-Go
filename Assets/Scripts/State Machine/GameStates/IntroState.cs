@@ -12,7 +12,6 @@ namespace State_Machine.GameStates
     {
         [Header("References")]
         [SerializeField] private PlayerMovementController _playerMovement;
-        [SerializeField] private TimerScore _timer;
         [SerializeField] private WorldMover _worldMover;
         [SerializeField] private SetSpawner _setSpawner;
         [SerializeField] private CameraController _cameraController;
@@ -38,7 +37,6 @@ namespace State_Machine.GameStates
             _myObjectPool.Initialize();
             _cameraController.Initialize();
             _playerMovement.Initialize();
-            _timer.Initialize();
             //_difficultyController.Initialize();
             _handDelegator.Initialize();
 

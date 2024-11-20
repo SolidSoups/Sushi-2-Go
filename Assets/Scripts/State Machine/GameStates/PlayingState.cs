@@ -9,8 +9,10 @@ namespace State_Machine.GameStates
 {
     public class PlayingState : State
     {
+        private ScoreTimer _scoreTimer = new();
+        [SerializeField] private float _scorePerSecond => _scoreTimer.ScorePerSecond;
+
         [SerializeField] private PlayerMovementController _playerMovement;
-        [SerializeField] private TimerScore _timer;
         [SerializeField] private WorldMover _worldMover;
         [SerializeField] private SetSpawner _setSpawner;
         [SerializeField] private CameraController _cameraController;
@@ -63,14 +65,13 @@ namespace State_Machine.GameStates
         {
             base.UpdateState();
         
-            _timer.DoUpdate();
             _setSpawner.DoUpdate();
             _playerMovement.DoUpdate();
     //            _difficultyController.DoUpdate();
             _handDelegator.DoUpdate();
             _particleEffectController.DoUpdate();
 
-            uiPlayerCanvas.SetHighScore(_timer.Score);
+            //uiPlayerCanvas.SetHighScore(scoreTimer.Score);
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {

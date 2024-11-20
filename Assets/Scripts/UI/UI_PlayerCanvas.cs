@@ -11,7 +11,7 @@ namespace UI
         [SerializeField] private TextMeshProUGUI _highScoreText;
         [SerializeField] private TextMeshProUGUI _countDownText;
         [SerializeField] private GameObject _countDownObj;
-        [SerializeField] private TimerScore _timerScore;
+        [SerializeField] private ScoreTimer scoreTimer;
 
         public void SetHighScore(int score) => _scoreText.text = "HIGHSCORE: " + score.ToString();
 
@@ -21,21 +21,21 @@ namespace UI
             if (PlayerPrefs.HasKey("SavedHighScore"))
             {
                 //If the new score is higher then the saved one
-                if(_timerScore.Score > PlayerPrefs.GetInt("SavedHighScore"))
+                if(scoreTimer.Score > PlayerPrefs.GetInt("SavedHighScore"))
                 {
                     //Sets the new highscore
-                    PlayerPrefs.SetInt("SavedHighScore", _timerScore.Score);
+                    PlayerPrefs.SetInt("SavedHighScore", scoreTimer.Score);
                 }   
             }
             else
             {
                 //if there is no highscore. set it
-                PlayerPrefs.SetInt("SavedHighScore", _timerScore.Score);
+                PlayerPrefs.SetInt("SavedHighScore", scoreTimer.Score);
             }
         
             PlayerPrefs.Save();
             //updating the TMP
-            _finalScoreText.text = _timerScore.Score.ToString();
+            _finalScoreText.text = scoreTimer.Score.ToString();
             _highScoreText.text =  PlayerPrefs.GetInt("SavedHighScore").ToString();
         }
     }
