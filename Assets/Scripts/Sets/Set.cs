@@ -26,11 +26,11 @@ namespace Sets
 
         private bool AlignWithConveyor()
         {
-            WorldMover mover = TryGetWorldMover();
-            if (!mover)
+            ConveyorBelt convBelt = GameObject.FindGameObjectWithTag("ConveyorBelt").GetComponent<ConveyorBelt>();
+            if (!convBelt)
                 return false;
         
-            transform.position = mover.AlignWithConveyor(transform.position.z);
+            transform.position = convBelt.AlignWithConveyor(transform.position.z);
             return true;
         }
 

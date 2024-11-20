@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Hand;
+using MySingelton;
 using Sets;
 using UnityEngine;
 
@@ -31,6 +32,8 @@ namespace Controllers
         private HandDelegator _handDelegator;
     
     
+        // cached singelton components
+        private ConveyorBelt _conveyorBelt;
     
     
         private Set _latestSpawnedSet;
@@ -41,7 +44,8 @@ namespace Controllers
         {
             _handDelegator = GameObject.FindGameObjectWithTag(_handDelegatorTag).GetComponent<HandDelegator>();
             _setParent = new GameObject("Set Parent");
-            TryFindWorldMover();
+            _conveyorBelt = GameObject.FindGameObjectWithTag("ConveyorBelt").GetComponent<ConveyorBelt>();
+            TryFindConveyorBelt();
 
             // load all sets
         }
@@ -81,7 +85,7 @@ namespace Controllers
             if(_latestSpawnedSet != null)
                 diff = (_latestSpawnedSet.transform.position.z + _latestSpawnedSet.Length) - _lengthToSpawnPoint;
 
-            set.transform.position = _worldMover.AlignWithConveyor(_lengthToSpawnPoint) + Vector3.forward * diff;
+            set.transform.position = _conveyorBelt.AlignWithConveyor(_lengthToSpawnPoint) + Vector3.forward * diff;
             set.Initialize();
             set.CheckChildren();
         
@@ -105,16 +109,12 @@ namespace Controllers
             _worldMover.AddSet(_latestSpawnedSet);
         }
 
-        private bool TryFindWorldMover()
+        private bool TryFindConveyorBelt()
         {
-            WorldMover mover = WorldMover.Instance;
-            if(!mover)
-                mover = GameObject.FindGameObjectWithTag("WorldMover").GetComponent<WorldMover>();
-            if(mover)
-                _worldMover = mover;
-            else
+            _conveyorBelt = GameObject.FindGameObjectWithTag("ConveyorBelt").GetComponent<ConveyorBelt>();
+            if(!_conveyorBelt)
             {
-                Debug.LogError("WorldMover could not be found");
+                Debug.LogError("Conveyor Belt could not be found");
                 return false;
             }
 
@@ -123,13 +123,13 @@ namespace Controllers
     
         private void OnDrawGizmos()
         {
-            if (!TryFindWorldMover())
+            if (!TryFindConveyorBelt())
                 return;
         
             Gizmos.color = Color.green;
             float length = _worldMover.GetWidth();
-            Vector3 startPosition = _worldMover.AlignWithConveyor(_lengthToSpawnPoint); 
-            Vector3 endPosition = _worldMover.AlignWithConveyor(_lengthToSpawnPoint) + Vector3.right * length;
+            Vector3 startPosition = _conveyorBelt.AlignWithConveyor(_lengthToSpawnPoint); 
+            Vector3 endPosition = _conveyorBelt.AlignWithConveyor(_lengthToSpawnPoint) + Vector3.right * length;
             Gizmos.DrawSphere(startPosition, 0.5f);
             Gizmos.DrawLine(startPosition, endPosition);
             Gizmos.DrawSphere(endPosition, 0.5f);

@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &26844021 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6847682112886290651, guid: 397a94b137e66dd49ba81852c4d76772, type: 3}
-  m_PrefabInstance: {fileID: 6529361485297883685}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d10b74e7069cfe546b4bb68c7bd109c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &157569141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -694,7 +683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &415584127
 Transform:
   m_ObjectHideFlags: 0
@@ -976,53 +965,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8476860152904853958, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
   m_PrefabInstance: {fileID: 7865405535571740407}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &660811355
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 660811356}
-  - component: {fileID: 660811357}
-  m_Layer: 0
-  m_Name: ObjectPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &660811356
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 660811355}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -120.36808, y: -43.877472, z: 357.8306}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &660811357
+--- !u!114 &660811357 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3192506486829449668, guid: f62ebfde1b918144aa0eb91b97f0d4ac, type: 3}
+  m_PrefabInstance: {fileID: 6921550663802349576}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 660811355}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e343556dd385966468247c784426ec4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _setSpawner: {fileID: 727662353}
-  poolSizePerSet: 10
-  _overWriteSets: []
 --- !u!1 &667297576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,7 +1066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lengthToSpawnPoint: 245
-  _worldMover: {fileID: 26844021}
+  _worldMover: {fileID: 0}
   _setPool: {fileID: 660811357}
   _handDelegatorTag: Handdelegator
 --- !u!4 &727662354
@@ -1395,53 +1348,6 @@ MonoBehaviour:
     rgba: 4282670325
   textStyle: 3
   textAlignment: 1
---- !u!1 &1435983340
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1435983341}
-  - component: {fileID: 1435983342}
-  m_Layer: 0
-  m_Name: DifficultyController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1435983341
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435983340}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1435983342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435983340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 641ea52b2f3b3d843aa6673cd4d6356a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startingSpeed: 30
-  _targetSpeed: 70
-  _timeToTargetInSeconds: 420
 --- !u!4 &1447604127 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8348797882044165656, guid: ddde6e8b28f942747b9caa1208d1ff74, type: 3}
@@ -2217,7 +2123,7 @@ PrefabInstance:
     - target: {fileID: 707666037588368751, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
       propertyPath: _worldMover
       value: 
-      objectReference: {fileID: 26844021}
+      objectReference: {fileID: 0}
     - target: {fileID: 707666037588368751, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
       propertyPath: OptionsCanvas
       value: 
@@ -2241,7 +2147,7 @@ PrefabInstance:
     - target: {fileID: 707666037588368751, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
       propertyPath: _difficultyController
       value: 
-      objectReference: {fileID: 1435983342}
+      objectReference: {fileID: 0}
     - target: {fileID: 707666037588368751, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
       propertyPath: _riceEffectController
       value: 
@@ -2277,7 +2183,7 @@ PrefabInstance:
     - target: {fileID: 7183462822938341495, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
       propertyPath: _worldMover
       value: 
-      objectReference: {fileID: 26844021}
+      objectReference: {fileID: 0}
     - target: {fileID: 7183462822938341495, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
       propertyPath: _myObjectPool
       value: 
@@ -2309,7 +2215,7 @@ PrefabInstance:
     - target: {fileID: 7183462822938341495, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
       propertyPath: _difficultyController
       value: 
-      objectReference: {fileID: 1435983342}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2436,9 +2342,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 454931062089111176, guid: 397a94b137e66dd49ba81852c4d76772, type: 3}
+      propertyPath: m_TagString
+      value: ConveyorBelt
+      objectReference: {fileID: 0}
     - target: {fileID: 1650095714888032768, guid: 397a94b137e66dd49ba81852c4d76772, type: 3}
       propertyPath: m_Name
-      value: WorldMover
+      value: Conveyor Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677286745030903710, guid: 397a94b137e66dd49ba81852c4d76772, type: 3}
+      propertyPath: _moveZPosition
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677286745030903710, guid: 397a94b137e66dd49ba81852c4d76772, type: 3}
+      propertyPath: _conveyorPrefab
+      value: 
+      objectReference: {fileID: 20453288955963836, guid: a2084f156ff853d4c8138e98674a68ec, type: 3}
+    - target: {fileID: 1677286745030903710, guid: 397a94b137e66dd49ba81852c4d76772, type: 3}
+      propertyPath: _conveyorDespawnDistance
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6806966946497532038, guid: 397a94b137e66dd49ba81852c4d76772, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2501,6 +2423,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Master Singelton
       objectReference: {fileID: 0}
+    - target: {fileID: 3192506486829449668, guid: f62ebfde1b918144aa0eb91b97f0d4ac, type: 3}
+      propertyPath: _setSpawner
+      value: 
+      objectReference: {fileID: 727662353}
     - target: {fileID: 3362242079466075694, guid: f62ebfde1b918144aa0eb91b97f0d4ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.93311
@@ -3100,9 +3026,7 @@ SceneRoots:
   - {fileID: 363294585}
   - {fileID: 6529361485297883685}
   - {fileID: 1164217413}
-  - {fileID: 1435983341}
   - {fileID: 6921550663802349576}
-  - {fileID: 660811356}
   - {fileID: 1855366427}
   - {fileID: 1326796488}
   - {fileID: 8544117620710873210}

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Attributes;
 using Controllers.Controller;
 using MySingelton;
 using UnityEngine;
@@ -13,16 +14,18 @@ namespace Controllers
     [SerializeField] private GameObject _conveyorPrefab;
     [SerializeField] private int _conveyorLength = 10;
     [SerializeField] private int _numberOfBelts = 3;
-    [SerializeField] private float _moveZPosition;
+    [SerializeField, Range(0, -5)] private int _conveyorDespawnDistance = -1;
+    [SerializeField, ReadOnly] private float _moveZPosition;
 
     private void OnValidate()
     {
       Bounds currentBounds = GenerateConveyorBounds();
-      _moveZPosition = (Mathf.RoundToInt(_moveZPosition / currentBounds.size.z) * currentBounds.size.z);
+      _moveZPosition = (_conveyorDespawnDistance * currentBounds.size.z);
     }
 
     private Bounds _conveyorBounds;
     private float[] _xPositions;
+    public float[] XPositions => _xPositions;
     private float _conveyorRespawnZ;
 
     private List<GameObject> _conveyors = new List<GameObject>();
@@ -62,6 +65,11 @@ namespace Controllers
       MoveConveyors();
     }
 
+    public Vector3 AlignWithConveyor(float z)
+    {
+      return new Vector3(-_conveyorBounds.extents.x, _conveyorBounds.extents.y, z);
+    }
+
     private void MoveConveyors()
     {
       float currentSpeed = Singelton.Instance.SpeedController.Speed;
@@ -88,6 +96,7 @@ namespace Controllers
         return;
       }
 
+      Vector3 pos = new Vector3(5f,0,0);
       for (int i = -1; i < _conveyorLength; i++)
       {
         float newZ = i * _conveyorBounds.size.x;
@@ -98,7 +107,7 @@ namespace Controllers
 
         GameObject newConveyor = Instantiate(
           _conveyorPrefab,
-          Vector3.zero + Vector3.forward * newZ,
+          pos + Vector3.forward * newZ,
           Quaternion.identity
         );
         _conveyors.Add(newConveyor);        
@@ -109,10 +118,14 @@ namespace Controllers
     private void GenerateXPositions()
     {
       _xPositions = new float[_numberOfBelts];
+      Debug.Log($"ConveyorBounds.Size.x/6 : {_conveyorBounds.size.x/6f}");
+      float conveyorLength = _conveyorBounds.size.x / 3f;
       for (int i = 0; i < _numberOfBelts; i++)
       {
-        _xPositions[i] = i * _conveyorBounds.size.x; 
+        _xPositions[i] = i * conveyorLength; 
+        Debug.Log($"i * _conveyorBoudnds.extents.x: {i} * {_conveyorBounds.size.x}");
       }      
+      Debug.Log($"Conveyor positions generated: {_xPositions[0]}, {_xPositions[1]}, {_xPositions[2]}, ");
     }
 
     private Bounds GenerateConveyorBounds()

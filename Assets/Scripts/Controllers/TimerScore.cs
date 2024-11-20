@@ -19,7 +19,7 @@ namespace Controllers
     
         public void DoUpdate()
         {
-            _timerScore += (_pointsPerSecond * DifficultyController.Instance.DifficultyScale) * Time.deltaTime;
+            //_timerScore += (_pointsPerSecond * DifficultyController.Instance.DifficultyScale) * Time.deltaTime;
         }
     }
 }

@@ -56,7 +56,8 @@ namespace Player
     
         public void Initialize()
         {
-            _lanePositions = WorldMover.Instance.GetConveyorXPositions();
+            ConveyorBelt convBelt = GameObject.FindGameObjectWithTag("ConveyorBelt").GetComponent<ConveyorBelt>(); 
+            _lanePositions = convBelt.XPositions;
             _currentGravityScale = _gravityScale;
             _currentPlayerSpeed = _playerSpeed;
         }
@@ -67,9 +68,9 @@ namespace Player
     
         public void DoUpdate()
         {
-            _currentGravityScale = _gravityScale * DifficultyController.Instance.DifficultyScale;
-            _currentPlayerSpeed = _playerSpeed * DifficultyController.Instance.DifficultyScale;
-            _animator.speed = DifficultyController.Instance.DifficultyScale;
+            _currentGravityScale = _gravityScale; // * DifficultyController.Instance.DifficultyScale;
+            _currentPlayerSpeed = _playerSpeed; // * DifficultyController.Instance.DifficultyScale;
+            //_animator.speed = DifficultyController.Instance.DifficultyScale;
         
             GetHorizontalInput();
             GetVerticalInput();

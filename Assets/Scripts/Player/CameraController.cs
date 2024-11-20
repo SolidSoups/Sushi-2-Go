@@ -14,14 +14,17 @@ namespace Player
         public float zOffset; // how close or far away from player the camera is
 
         private int currentLane;
+        private float[] _lanePositions;
 
 
         public void Initialize()
         {
 
-            float[] lanePositions = WorldMover.Instance.GetConveyorXPositions();
+            ConveyorBelt convBelt = GameObject.FindGameObjectWithTag("ConveyorBelt").GetComponent<ConveyorBelt>();
+            _lanePositions = convBelt.XPositions;
+            
             // find middle position
-            float middle = lanePositions[lanePositions.Length-1];
+            float middle = _lanePositions[^1];
             middle /= 2f;
 
             // move camera transform x to middle position
@@ -76,13 +79,12 @@ namespace Player
         // calculate the nearest lane index based on player position
         private int GetNearestLane(float playerX)
         {
-            float[] lanePositions = WorldMover.Instance.GetConveyorXPositions();
             int nearestIndex = 0;
-            float minDistance = Mathf.Abs(playerX - lanePositions[0]);
+            float minDistance = Mathf.Abs(playerX - _lanePositions[0]);
 
-            for (int i = 1; i < lanePositions.Length; i++)
+            for (int i = 1; i < _lanePositions.Length; i++)
             {
-                float distance = Mathf.Abs(playerX - lanePositions[i]);
+                float distance = Mathf.Abs(playerX - _lanePositions[i]);
                 if(distance < minDistance)
                 {
                     minDistance = distance;
@@ -96,11 +98,10 @@ namespace Player
         // calculate the camera x target position
         private float CalculateTargetX(float playerX, int laneIndex)
         {
-            float[] lanePositions = WorldMover.Instance.GetConveyorXPositions();
-            float middle = lanePositions[lanePositions.Length - 1];
+            float middle = _lanePositions[^1];
             middle /= 2f;
 
-            float laneX = lanePositions[laneIndex];
+            float laneX = _lanePositions[laneIndex];
 
             // calculate how far the player is from the middle
             float distanceFromMid = Mathf.Abs(playerX - middle);

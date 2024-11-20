@@ -56,7 +56,7 @@ namespace State_Machine.GameStates
         public override void FixedUpdateState()
         {
             base.FixedUpdateState();
-            _worldMover.DoFixedUpdate();
+            //_worldMover.DoFixedUpdate();
         }
 
         public override void UpdateState()

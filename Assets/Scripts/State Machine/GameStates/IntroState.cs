@@ -34,13 +34,12 @@ namespace State_Machine.GameStates
             Time.timeScale = 1f;
         
             // initialize
-            _worldMover.Initialize(); // THIS MUST BE INITIALIZED FIRST
             _setSpawner.Initialize();
             _myObjectPool.Initialize();
             _cameraController.Initialize();
             _playerMovement.Initialize();
             _timer.Initialize();
-            _difficultyController.Initialize();
+            //_difficultyController.Initialize();
             _handDelegator.Initialize();
 
             if(_playPosterIntro && PlayerPrefs.HasKey("PlayPosterIntro") && PlayerPrefs.GetInt("PlayPosterIntro") == 1)

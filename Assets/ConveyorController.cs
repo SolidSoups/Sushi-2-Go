@@ -1,6 +1,6 @@
 using Controllers.Controller;
 using UnityEngine;
 
-public class Mover : Controller
+public class ConveyorController : Controller
 {
 }

@@ -1,5 +1,6 @@
 ﻿using Controllers;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace MySingelton
 {
@@ -9,6 +10,7 @@ namespace MySingelton
     
     // References
     public SpeedController SpeedController { get; private set; }
+    public MyObjectPool ObjectPool { get; private set; }
 
     private void Awake()
     {
@@ -25,6 +27,7 @@ namespace MySingelton
     private void InitializeReferences()
     {
       SpeedController = GetComponentInChildren<SpeedController>(); 
+      ObjectPool = GetComponentInChildren<MyObjectPool>();
     }
   }
   
