@@ -66,7 +66,7 @@ namespace State_Machine.GameStates
             _timer.DoUpdate();
             _setSpawner.DoUpdate();
             _playerMovement.DoUpdate();
-            _difficultyController.DoUpdate();
+    //            _difficultyController.DoUpdate();
             _handDelegator.DoUpdate();
             _particleEffectController.DoUpdate();
 

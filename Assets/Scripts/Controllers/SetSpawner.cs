@@ -25,7 +25,8 @@ namespace Controllers
         private void OnValidate() => _lengthToSpawnPoint = Mathf.Clamp(_lengthToSpawnPoint, 0f, Mathf.Infinity);
 
         [Header("References")] 
-        [SerializeField] private WorldMover _worldMover;
+        //[SerializeField] private WorldMover _worldMover;
+        private SetMover _setMover;
         [SerializeField] private MyObjectPool _setPool;
 
         [SerializeField] private string _handDelegatorTag = "Handdelegator";
@@ -43,6 +44,7 @@ namespace Controllers
         public void Initialize()
         {
             _handDelegator = GameObject.FindGameObjectWithTag(_handDelegatorTag).GetComponent<HandDelegator>();
+            _setMover = GameObject.FindGameObjectWithTag("SetMover").GetComponent<SetMover>();
             _setParent = new GameObject("Set Parent");
             _conveyorBelt = GameObject.FindGameObjectWithTag("ConveyorBelt").GetComponent<ConveyorBelt>();
             TryFindConveyorBelt();
@@ -106,7 +108,7 @@ namespace Controllers
         
             set.transform.parent = _setParent.transform;
             _latestSpawnedSet = set;
-            _worldMover.AddSet(_latestSpawnedSet);
+            _setMover.AddSet(_latestSpawnedSet.gameObject);
         }
 
         private bool TryFindConveyorBelt()
@@ -127,7 +129,7 @@ namespace Controllers
                 return;
         
             Gizmos.color = Color.green;
-            float length = _worldMover.GetWidth();
+            float length = _conveyorBelt.ConveyorWidth;
             Vector3 startPosition = _conveyorBelt.AlignWithConveyor(_lengthToSpawnPoint); 
             Vector3 endPosition = _conveyorBelt.AlignWithConveyor(_lengthToSpawnPoint) + Vector3.right * length;
             Gizmos.DrawSphere(startPosition, 0.5f);

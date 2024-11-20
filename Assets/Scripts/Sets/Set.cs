@@ -35,25 +35,23 @@ namespace Sets
         }
 
 
-        private WorldMover TryGetWorldMover()
+        private ConveyorBelt TryGetConveyorBelt()
         {
-            WorldMover mover = WorldMover.Instance;
-            if (!mover)
-                mover = GameObject.FindGameObjectWithTag("WorldMover").GetComponent<WorldMover>();
-            if (!mover)
+            ConveyorBelt convBelt = GameObject.FindGameObjectWithTag("ConveyorBelt").GetComponent<ConveyorBelt>();
+            if (!convBelt)
             {
-                Debug.LogError("No world mover has been found");
+                Debug.LogError("No conveyor belt component has been found");
                 return null;
             }
-            return mover;
+            return convBelt;
         }
 
         private void GenerateMyBounds()
         {
-            WorldMover mover = TryGetWorldMover();
-            if (!mover)
+            ConveyorBelt convBelt = TryGetConveyorBelt();
+            if (!convBelt)
                 return;
-            Vector3 size = new Vector3(mover.GetWidth(), mover.GetHeight(), Length);
+            Vector3 size = new Vector3(convBelt.ConveyorWidth, convBelt.ConveyorHeight, Length);
             Vector3 center = new Vector3(size.x / 2f, size.y / 2f, size.z / 2f);
             _myBounds = new Bounds(center + transform.position, size);
         }
@@ -70,7 +68,7 @@ namespace Sets
                 Gizmos.color = Color.red;
                 Gizmos.DrawWireCube(_myBounds.center, _myBounds.size);
             
-                int laneCount = TryGetWorldMover().GetLaneCount();
+                int laneCount = TryGetConveyorBelt().NumberOfBelts;
                 Vector3 size = new Vector3(_myBounds.size.x / laneCount, 0, _myBounds.size.z);
                 Vector3 center = new Vector3(_myBounds.center.x - _myBounds.extents.x + size.x/2, _myBounds.center.y - _myBounds.extents.y, _myBounds.center.z);
                 for (int i = 0; i < laneCount; i++)

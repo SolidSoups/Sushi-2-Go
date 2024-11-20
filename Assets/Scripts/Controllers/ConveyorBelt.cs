@@ -14,6 +14,7 @@ namespace Controllers
     [SerializeField] private GameObject _conveyorPrefab;
     [SerializeField] private int _conveyorLength = 10;
     [SerializeField] private int _numberOfBelts = 3;
+    public int NumberOfBelts => _numberOfBelts;
     [SerializeField, Range(0, -5)] private int _conveyorDespawnDistance = -1;
     [SerializeField, ReadOnly] private float _moveZPosition;
 
@@ -24,6 +25,17 @@ namespace Controllers
     }
 
     private Bounds _conveyorBounds;
+
+    public float ConveyorWidth
+    {
+      get
+      {
+        _conveyorBounds = GenerateConveyorBounds();
+        return _conveyorBounds.size.x;
+      }
+    }
+
+    public float ConveyorHeight => 15f;
     private float[] _xPositions;
     public float[] XPositions => _xPositions;
     private float _conveyorRespawnZ;
@@ -67,7 +79,7 @@ namespace Controllers
 
     public Vector3 AlignWithConveyor(float z)
     {
-      return new Vector3(-_conveyorBounds.extents.x, _conveyorBounds.extents.y, z);
+      return new Vector3(-_conveyorBounds.extents.x/3f, _conveyorBounds.extents.y, z);
     }
 
     private void MoveConveyors()
@@ -118,14 +130,11 @@ namespace Controllers
     private void GenerateXPositions()
     {
       _xPositions = new float[_numberOfBelts];
-      Debug.Log($"ConveyorBounds.Size.x/6 : {_conveyorBounds.size.x/6f}");
       float conveyorLength = _conveyorBounds.size.x / 3f;
       for (int i = 0; i < _numberOfBelts; i++)
       {
         _xPositions[i] = i * conveyorLength; 
-        Debug.Log($"i * _conveyorBoudnds.extents.x: {i} * {_conveyorBounds.size.x}");
       }      
-      Debug.Log($"Conveyor positions generated: {_xPositions[0]}, {_xPositions[1]}, {_xPositions[2]}, ");
     }
 
     private Bounds GenerateConveyorBounds()

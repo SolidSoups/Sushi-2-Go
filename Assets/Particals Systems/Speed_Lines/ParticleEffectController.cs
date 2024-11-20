@@ -41,8 +41,8 @@ public class ParticleEffectController : MonoBehaviour, IControllable
 
     public void DoUpdate()
     {
-        _CurrentSpeed = _startSpeed + (_endSpeed - _startSpeed) * DifficultyController.Instance.Change;
-        _CurrentRate = _startRate + (_endRate - _startRate) * DifficultyController.Instance.Change;
+        _CurrentSpeed = _startSpeed + (_endSpeed - _startSpeed);// * DifficultyController.Instance.Change;
+        _CurrentRate = _startRate + (_endRate - _startRate);// * DifficultyController.Instance.Change;
     }
 
     public void DoFixedUpdate()

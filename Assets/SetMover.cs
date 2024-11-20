@@ -70,5 +70,6 @@ public class SetMover : Controllable
   {
     _spawnedSets.Remove(set.gameObject);
     // should be adding back to pool here 
+    Singelton.Instance.ObjectPool.AddBackToPool(set);
   }
 }

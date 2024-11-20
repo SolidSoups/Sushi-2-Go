@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Controllers;
 using Events;
+using MySingelton;
 using Sets;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -39,12 +40,12 @@ namespace Hand
                 switch (_nextGrabType)
                 {
                     case GrabType.PLACED:
-                        return _placeTiming / _diffC.DifficultyScale;
+                        return _placeTiming;// / _diffC.DifficultyScale;
                     case GrabType.GRABBED:
-                        return _animationTiming / _diffC.DifficultyScale;
+                        return _animationTiming;// / _diffC.DifficultyScale;
                 }
 
-                return Mathf.Max(_animationTiming, _placeTiming) / _diffC.DifficultyScale;
+                return Mathf.Max(_animationTiming, _placeTiming);// / _diffC.DifficultyScale;
             }
         }
         private float _currentAnimationTiming;
@@ -63,20 +64,20 @@ namespace Hand
         private Renderer _obstacleCopyRenderer;
         private LinkedList<Obstacle> ObstacleList = new LinkedList<Obstacle>();
     
-        private DifficultyController _diffC;
+        //private DifficultyController _diffC;
 
         public void Initialize()
         {
             _mesh.enabled = false;
             _currentHiddenToIdleSpeed = _hiddenToIdleSpeed;
             _currentAnimationTiming = _animationTiming;
-            _diffC = DifficultyController.Instance;
+            //_diffC = 1f;// DifficultyController.Instance;
         }
 
         public void DoUpdate()
         {
-            _currentHiddenToIdleSpeed = _hiddenToIdleSpeed * _diffC.DifficultyScale;
-            _animator.speed = _diffC.DifficultyScale;
+            _currentHiddenToIdleSpeed = _hiddenToIdleSpeed;// * _diffC.DifficultyScale;
+            //_animator.speed = _diffC.DifficultyScale;
         
         
         }
@@ -145,8 +146,8 @@ namespace Hand
         
             // calculate time until impact
             float d = Mathf.Abs(distance);
-            float a = _diffC.Acceleration;
-            float v = _diffC.WorldSpeed;
+            float a = Singelton.Instance.SpeedController.Acceleration;
+            float v = Singelton.Instance.SpeedController.Speed;
 
             float p = v / a;
             float q = -2 * d / a;
@@ -154,7 +155,7 @@ namespace Hand
             float timeTillImpact = -p + Mathf.Sqrt(p * p - q);
 
             float animationSpeed = grabType == GrabType.GRABBED ? _animationTiming : _placeTiming;
-            float timingNeeded = animationSpeed / _diffC.DifficultyScale + secondsToCover*2;
+            float timingNeeded = animationSpeed;// / _diffC.DifficultyScale + secondsToCover*2;
 
             if (timeTillImpact <= timingNeeded)
             {
@@ -183,8 +184,8 @@ namespace Hand
 
         private bool IsReadyForGrab(Obstacle obstacle)
         {
-            float d = _diffC.WorldSpeed * _currentAnimationTiming +
-                      (_diffC.Acceleration * _currentAnimationTiming * _currentAnimationTiming) / 2f;
+            float d = Singelton.Instance.SpeedController.Speed * _currentAnimationTiming +
+                      (Singelton.Instance.SpeedController.Acceleration * _currentAnimationTiming * _currentAnimationTiming) / 2f;
             float zPos = transform.position.z;
             float oZPos = obstacle.transform.position.z;
             if (oZPos - zPos <= d)
@@ -199,9 +200,9 @@ namespace Hand
                 Debug.Log("Obstacle doesn't exist");
                 return false;
             }
-            float zPos = transform.position.z;
-            float oZPos = obstacle.transform.position.z;
-            return (oZPos - zPos) > 0;
+            float myZPosition = transform.position.z;
+            float obstacleZPosition = obstacle.transform.position.z;
+            return (obstacleZPosition - myZPosition) >= 0;
         }
 
         private bool _timeToDoObjectThing = false;
