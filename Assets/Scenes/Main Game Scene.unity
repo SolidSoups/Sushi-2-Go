@@ -1052,7 +1052,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &727662353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1066,7 +1066,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lengthToSpawnPoint: 245
-  _worldMover: {fileID: 0}
   _setPool: {fileID: 660811357}
   _handDelegatorTag: Handdelegator
 --- !u!4 &727662354
@@ -2361,6 +2360,10 @@ PrefabInstance:
     - target: {fileID: 1677286745030903710, guid: 397a94b137e66dd49ba81852c4d76772, type: 3}
       propertyPath: _conveyorDespawnDistance
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437058293172984686, guid: 397a94b137e66dd49ba81852c4d76772, type: 3}
+      propertyPath: m_TagString
+      value: SetMover
       objectReference: {fileID: 0}
     - target: {fileID: 6806966946497532038, guid: 397a94b137e66dd49ba81852c4d76772, type: 3}
       propertyPath: m_LocalPosition.x
