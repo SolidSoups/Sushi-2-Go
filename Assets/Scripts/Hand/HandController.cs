@@ -155,7 +155,7 @@ namespace Hand
             float timeTillImpact = -p + Mathf.Sqrt(p * p - q);
 
             float animationSpeed = grabType == GrabType.GRABBED ? _animationTiming : _placeTiming;
-            float timingNeeded = animationSpeed;// / _diffC.DifficultyScale + secondsToCover*2;
+            float timingNeeded = animationSpeed + secondsToCover*2;// / _diffC.DifficultyScale + secondsToCover*2;
 
             if (timeTillImpact <= timingNeeded)
             {
