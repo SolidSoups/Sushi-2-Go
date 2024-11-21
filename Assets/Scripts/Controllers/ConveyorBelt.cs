@@ -68,6 +68,7 @@ namespace Controllers
       _conveyorParent.transform.parent = transform;
       SpawnConveyors();
       GenerateXPositions();
+      Debug.Log("Generated positions");
     }
 
     public override void DoFixedUpdate()

@@ -1,5 +1,6 @@
 using System.Collections;
 using Controllers;
+using Controllers.Controller;
 using Hand;
 using Player;
 using UI;
@@ -8,11 +9,13 @@ using UnityEngine.Serialization;
 
 namespace State_Machine.GameStates
 {
-    public class IntroState : State
+    public class SetupState : State
     {
         [Header("References")]
         [SerializeField] private PlayerMovementController _playerMovement;
-        [SerializeField] private WorldMover _worldMover;
+
+        [SerializeField] private ConveyorController _conveyorController;
+        
         [SerializeField] private SetSpawner _setSpawner;
         [SerializeField] private CameraController _cameraController;
         [SerializeField] private DifficultyController _difficultyController;
@@ -33,6 +36,9 @@ namespace State_Machine.GameStates
             Time.timeScale = 1f;
         
             // initialize
+            _conveyorController.Initialize();
+            _conveyorController.DisableControllables();
+            
             _setSpawner.Initialize();
             _myObjectPool.Initialize();
             _cameraController.Initialize();

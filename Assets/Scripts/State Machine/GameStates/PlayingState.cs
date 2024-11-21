@@ -12,6 +12,7 @@ namespace State_Machine.GameStates
         private ScoreTimer _scoreTimer = new();
         [SerializeField] private float _scorePerSecond => _scoreTimer.ScorePerSecond;
 
+        [SerializeField] private ConveyorController _conveyorController;
         [SerializeField] private PlayerMovementController _playerMovement;
         [SerializeField] private WorldMover _worldMover;
         [SerializeField] private SetSpawner _setSpawner;
@@ -25,7 +26,7 @@ namespace State_Machine.GameStates
         [SerializeField] private GameObject PauseCanvas;
         [SerializeField] private GameObject OptionsCanvas;
 
-        [Header("Events")]
+    [Header("Events")]
         public GameEvent OnPlayAudio;
         public GameEvent OnStopAudio;
 
@@ -37,6 +38,7 @@ namespace State_Machine.GameStates
         public override void EnterState()
         {
             base.EnterState();
+            _conveyorController.EnableControllables();
             _player.Initialize();
             _particleEffectController.Initialize();
             _riceEffectController.Initialize();
@@ -59,12 +61,14 @@ namespace State_Machine.GameStates
         {
             base.FixedUpdateState();
             //_worldMover.DoFixedUpdate();
+            _conveyorController.DoFixedUpdate();
         }
 
         public override void UpdateState()
         {
             base.UpdateState();
         
+            _conveyorController.DoUpdate();
             _setSpawner.DoUpdate();
             _playerMovement.DoUpdate();
     //            _difficultyController.DoUpdate();

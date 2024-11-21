@@ -15,7 +15,7 @@ namespace Controllers
 
         private void Start()
         {
-            SwitchState<IntroState>();
+            SwitchState<SetupState>();
         }
 
         private void Update()

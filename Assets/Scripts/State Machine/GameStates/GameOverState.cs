@@ -35,7 +35,7 @@ namespace State_Machine.GameStates
             if(_deathSounds.Length != 0)
                 OnPlaySounds?.Raise(this, _deathSounds[randomIndex]);
 
-            uiPlayerCanvas.HighScoreUpdate();
+            //uiPlayerCanvas.HighScoreUpdate();
             StartCoroutine(TimedGameOverCanvas());
         }
 

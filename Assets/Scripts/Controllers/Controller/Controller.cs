@@ -6,28 +6,44 @@ namespace Controllers.Controller
   public class Controller : MonoBehaviour
   {
     [SerializeField] private Controllable[] _controllables;
-    protected virtual void Awake()
+
+    public void DisableControllables()
+    {
+      foreach (Controllable c in _controllables)
+      {
+        c.enabled = false;
+      }
+    }
+    public void EnableControllables()
+    {
+      foreach (Controllable c in _controllables)
+      {
+        c.enabled = false;
+      }
+    }
+
+    public virtual void Initialize()
     {
       foreach (Controllable c in _controllables)
       {
         c.Initialize();
       }  
     }
-    protected virtual void Update()
+    public virtual void DoUpdate()
     {
       foreach (Controllable c in _controllables)
       {
         c.DoUpdate();      
       }
     }
-    protected virtual void FixedUpdate()
+    public virtual void DoFixedUpdate()
     {
       foreach (Controllable c in _controllables)
       {
         c.DoFixedUpdate();      
       }
     }
-    protected virtual void LateUpdate()
+    public virtual void DoLateUpdate()
     {
       foreach (Controllable c in _controllables)
       {

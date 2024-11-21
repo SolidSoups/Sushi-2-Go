@@ -17,28 +17,19 @@ namespace Controllers
     /// </summary>
     public class SetSpawner : MonoBehaviour, IControllable
     {
-
-    
+        [Header("References")] 
+        [SerializeField] private string _handDelegatorTag = "Handdelegator";
+        // cached references
+        private SetMover _setMover;
+        private HandDelegator _handDelegator;
+        private ConveyorBelt _conveyorBelt;
+        
         [Header("Settings")]
         [SerializeField] private float _lengthToSpawnPoint = 5f;
-
         private void OnValidate() => _lengthToSpawnPoint = Mathf.Clamp(_lengthToSpawnPoint, 0f, Mathf.Infinity);
 
-        [Header("References")] 
-        //[SerializeField] private WorldMover _worldMover;
-        private SetMover _setMover;
-        [SerializeField] private MyObjectPool _setPool;
-
-        [SerializeField] private string _handDelegatorTag = "Handdelegator";
-        private HandDelegator _handDelegator;
-    
-    
-        // cached singelton components
-        private ConveyorBelt _conveyorBelt;
-    
-    
-        private Set _latestSpawnedSet;
-        public Set LatestSpawnedSet => _latestSpawnedSet;
+        // cached variables 
+        public Set LatestSpawnedSet { get; private set; }
         private GameObject _setParent;
 
         public void Initialize()
@@ -52,31 +43,28 @@ namespace Controllers
             // load all sets
         }
 
-        public void DoUpdate()
-        {
-            LoopSpawning();
-        }
-    
+        public void DoUpdate() => LoopSpawning();
+
         public void DoFixedUpdate(){}
 
         // Test method
         private void LoopSpawning()
         {
-            if (!_latestSpawnedSet)
+            if (!LatestSpawnedSet)
             {
                 SpawnRandomSet();
                 return;
             }
         
             // check distance to spawnPoint
-            float setZ = _latestSpawnedSet.transform.position.z + _latestSpawnedSet.Length;
+            float setZ = LatestSpawnedSet.transform.position.z + LatestSpawnedSet.Length;
             if (setZ <= _lengthToSpawnPoint)
                 SpawnRandomSet();
         }
 
         private void SpawnRandomSet()
         {
-            Set setToSpawn = _setPool.GetRandomSet();
+            Set setToSpawn = Singelton.Instance.ObjectPool.GetRandomSet();
             if(setToSpawn!=null)
                 SpawnSet(setToSpawn);
         }
@@ -84,8 +72,8 @@ namespace Controllers
         private void SpawnSet(Set set)
         {
             float diff = 0f;
-            if(_latestSpawnedSet != null)
-                diff = (_latestSpawnedSet.transform.position.z + _latestSpawnedSet.Length) - _lengthToSpawnPoint;
+            if(LatestSpawnedSet != null)
+                diff = (LatestSpawnedSet.transform.position.z + LatestSpawnedSet.Length) - _lengthToSpawnPoint;
 
             set.transform.position = _conveyorBelt.AlignWithConveyor(_lengthToSpawnPoint) + Vector3.forward * diff;
             set.Initialize();
@@ -102,13 +90,13 @@ namespace Controllers
 
             if (!handsCanDelegate && set.ContainsHandActions && set.NeedsHands)
             {
-                _setPool.AddBackToPool(set); 
+                Singelton.Instance.ObjectPool.AddBackToPool(set); 
                 return;
             }
         
             set.transform.parent = _setParent.transform;
-            _latestSpawnedSet = set;
-            _setMover.AddSet(_latestSpawnedSet.gameObject);
+            LatestSpawnedSet = set;
+            _setMover.AddSet(LatestSpawnedSet.gameObject);
         }
 
         private bool TryFindConveyorBelt()

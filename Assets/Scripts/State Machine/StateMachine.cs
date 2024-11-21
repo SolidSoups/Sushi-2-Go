@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +8,7 @@ namespace State_Machine
     {
         public List<State> states = new List<State>();
         public State CurrentState = null;
-    
-
+        
         //Switching State
         public void SwitchState<aState>()
         {
