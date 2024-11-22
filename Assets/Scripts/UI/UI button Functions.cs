@@ -18,7 +18,7 @@ namespace UI
 
         public void MainMenu()
         {
-            SceneManager.LoadScene("StarterMenu");
+            SceneManager.LoadScene(0);
         }
 
         public void ResetGame()
