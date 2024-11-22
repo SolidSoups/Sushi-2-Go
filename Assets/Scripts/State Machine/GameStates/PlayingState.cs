@@ -1,20 +1,24 @@
+using System;
+using System.Timers;
 using Controllers;
 using Events;
 using Hand;
 using Player;
 using UI;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 namespace State_Machine.GameStates
 {
     public class PlayingState : State
     {
         private ScoreTimer _scoreTimer = new();
-        [SerializeField] private float _scorePerSecond => _scoreTimer.ScorePerSecond;
+        [SerializeField] private int ScorePerSecond = 10;
+
+        private void OnValidate() => _scoreTimer.ScorePerSecond = ScorePerSecond;
 
         [SerializeField] private ConveyorController _conveyorController;
         [SerializeField] private PlayerMovementController _playerMovement;
-        [SerializeField] private WorldMover _worldMover;
         [SerializeField] private SetSpawner _setSpawner;
         [SerializeField] private CameraController _cameraController;
         [SerializeField] private DifficultyController _difficultyController;
@@ -26,7 +30,7 @@ namespace State_Machine.GameStates
         [SerializeField] private GameObject PauseCanvas;
         [SerializeField] private GameObject OptionsCanvas;
 
-    [Header("Events")]
+        [Header("Events")]
         public GameEvent OnPlayAudio;
         public GameEvent OnStopAudio;
 
@@ -45,6 +49,8 @@ namespace State_Machine.GameStates
             OnPlayAudio?.Raise(this, _Music);
             OnPlayAudio?.Raise(this, _BackgroundSounds);
             Time.timeScale = 1f;
+            
+            _scoreTimer.Initialize();
 
             PauseCanvas.SetActive(false);
             OptionsCanvas.SetActive(false);
@@ -67,6 +73,12 @@ namespace State_Machine.GameStates
         public override void UpdateState()
         {
             base.UpdateState();
+            _scoreTimer.Tick();
+            
+            Debug.Log($"Score per second {ScorePerSecond}\n" +
+                      $"Score per second in timer {_scoreTimer.ScorePerSecond}\n" +
+                      $"Time passed: {_scoreTimer.Time}\n" +
+                      $"Score gained: {_scoreTimer.Score}\n");
         
             _conveyorController.DoUpdate();
             _setSpawner.DoUpdate();
@@ -75,7 +87,7 @@ namespace State_Machine.GameStates
             _handDelegator.DoUpdate();
             _particleEffectController.DoUpdate();
 
-            //uiPlayerCanvas.SetHighScore(scoreTimer.Score);
+            uiPlayerCanvas.SetHighScore(_scoreTimer.Score);
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {

@@ -667,50 +667,6 @@ MonoBehaviour:
     rgba: 1440730624
   textStyle: 3
   textAlignment: 1
---- !u!1 &415584126
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 415584127}
-  - component: {fileID: 415584128}
-  m_Layer: 0
-  m_Name: TimerScore
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &415584127
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415584126}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &415584128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415584126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba4a5a16bcba3c3489e6c2df1edc7885, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &480065277 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6625986997387435500, guid: 8082a3e8db436d046bc84b3fe19c7f4d, type: 3}
@@ -1915,10 +1871,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3111523777676657164, guid: 1ec8e300c76d1ea42a5825e29f7e175c, type: 3}
-      propertyPath: _timerScore
-      value: 
-      objectReference: {fileID: 415584128}
-    - target: {fileID: 3111523777676657164, guid: 1ec8e300c76d1ea42a5825e29f7e175c, type: 3}
       propertyPath: _highScoreText
       value: 
       objectReference: {fileID: 1718790409}
@@ -1929,14 +1881,6 @@ PrefabInstance:
     - target: {fileID: 4151587540201211588, guid: 1ec8e300c76d1ea42a5825e29f7e175c, type: 3}
       propertyPath: m_Name
       value: PlayerCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 4151587540201211588, guid: 1ec8e300c76d1ea42a5825e29f7e175c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4457232120661604458, guid: 1ec8e300c76d1ea42a5825e29f7e175c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2115,7 +2059,7 @@ PrefabInstance:
     - target: {fileID: 707666037588368751, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
       propertyPath: _timer
       value: 
-      objectReference: {fileID: 415584128}
+      objectReference: {fileID: 0}
     - target: {fileID: 707666037588368751, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
       propertyPath: _player
       value: 
@@ -2136,6 +2080,10 @@ PrefabInstance:
       propertyPath: OptionsCanvas
       value: 
       objectReference: {fileID: 480065277}
+    - target: {fileID: 707666037588368751, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
+      propertyPath: ScorePerSecond
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 707666037588368751, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
       propertyPath: _handDelegator
       value: 
@@ -2187,7 +2135,7 @@ PrefabInstance:
     - target: {fileID: 7183462822938341495, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
       propertyPath: _timer
       value: 
-      objectReference: {fileID: 415584128}
+      objectReference: {fileID: 0}
     - target: {fileID: 7183462822938341495, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
       propertyPath: _setSpawner
       value: 
@@ -3057,7 +3005,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 667297577}
   - {fileID: 3710640631991367177}
-  - {fileID: 415584127}
   - {fileID: 727662354}
   - {fileID: 363294585}
   - {fileID: 6921550663802349576}

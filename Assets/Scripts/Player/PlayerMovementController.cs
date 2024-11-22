@@ -146,7 +146,7 @@ namespace Player
     
         private void GetVerticalInput()
         {
-            if(_isJumping) return;
+            if(_isJumping || !_isGrounded) return;
 
             int vertical = (int)Input.GetAxisRaw("Vertical");
             if ( vertical == 0) return;
@@ -157,6 +157,8 @@ namespace Player
                 _isJumping = true;
                 _isGrounded = false;
                 _animator.SetTrigger("DoJump");
+                _animator.SetBool("IsJumping", true);
+                _animator.SetBool("IsGoingDown", false);
                 _animator.SetBool("HasLanded", false);
                 int randomIndex = UnityEngine.Random.Range(0, _jumpSounds.Length);
                 OnPlayerJump?.Raise(this, null);
@@ -201,7 +203,7 @@ namespace Player
                 jumpVelocity = 0;
                 _isGrounded = true;
                 _animator.SetBool("HasLanded", true);
-                _animator.SetBool("IsGoingDown", false);
+                _animator.SetBool("IsJumping", false);
             }
             else
             {
