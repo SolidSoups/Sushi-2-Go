@@ -14,6 +14,8 @@ namespace State_Machine.GameStates
     {
         [Header("Settings")]
         private ScoreTimer _scoreTimer = new();
+
+        public ScoreTimer ScoreTimer => _scoreTimer;
         [SerializeField] private int ScorePerSecond = 10;
         private void OnValidate() => _scoreTimer.ScorePerSecond = ScorePerSecond;
 
@@ -58,6 +60,7 @@ namespace State_Machine.GameStates
             base.UpdateState();
             _scoreTimer.Tick();
             uiPlayerCanvas.SetHighScore(_scoreTimer.Score);
+            uiPlayerCanvas.HighScoreUpdate(_scoreTimer.Score);
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 GameManager.Instance.SwitchState<PauseState>();

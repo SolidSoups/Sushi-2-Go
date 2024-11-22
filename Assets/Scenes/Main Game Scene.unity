@@ -1418,6 +1418,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1768886136}
   m_SourcePrefab: {fileID: 100100000, guid: 82602d5b6e467984faecf9cd853b0531, type: 3}
+--- !u!114 &1639642063 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4309514523715315743, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
+  m_PrefabInstance: {fileID: 7865405535571740407}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1642521205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1914,7 +1925,7 @@ PrefabInstance:
     - target: {fileID: 3111523777676657164, guid: 1ec8e300c76d1ea42a5825e29f7e175c, type: 3}
       propertyPath: _finalScoreText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1639642063}
     - target: {fileID: 4151587540201211588, guid: 1ec8e300c76d1ea42a5825e29f7e175c, type: 3}
       propertyPath: m_Name
       value: PlayerCanvas
@@ -2202,6 +2213,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 707666037588368751, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
+      propertyPath: _fixedUpdaters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 707666037588368751, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
       propertyPath: _particleEffectController
       value: 
       objectReference: {fileID: 157569143}
@@ -2219,6 +2234,10 @@ PrefabInstance:
       objectReference: {fileID: 157569143}
     - target: {fileID: 707666037588368751, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
       propertyPath: '_FixedUpdaters.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1845768541}
+    - target: {fileID: 707666037588368751, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
+      propertyPath: '_fixedUpdaters.Array.data[0]'
       value: 
       objectReference: {fileID: 1845768541}
     - target: {fileID: 2661331583131314474, guid: 09af16122fbca76499f9934cac9c4730, type: 3}
@@ -2695,11 +2714,11 @@ PrefabInstance:
       objectReference: {fileID: 1164217412}
     - target: {fileID: 2178656823012289150, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2178656823012289150, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2178656823012289150, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2707,7 +2726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2178656823012289150, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 108.177246
       objectReference: {fileID: 0}
     - target: {fileID: 4736970689514679744, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
       propertyPath: m_Pivot.x
@@ -2796,6 +2815,10 @@ PrefabInstance:
     - target: {fileID: 8476860152904853958, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
       propertyPath: m_Name
       value: DeathScreenCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8476860152904853958, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

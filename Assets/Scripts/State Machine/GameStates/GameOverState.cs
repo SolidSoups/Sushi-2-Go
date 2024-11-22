@@ -9,7 +9,8 @@ namespace State_Machine.GameStates
 {
     public class GameOverState : State
     {
-        [Header("References")]
+        [Header("References")] [SerializeField]
+        private State _playingState;
         [SerializeField] private GameObject _gameOverCanvas;
         [SerializeField] private UI_PlayerCanvas uiPlayerCanvas;
         [SerializeField] private CameraController _cameraController;
@@ -35,7 +36,6 @@ namespace State_Machine.GameStates
             if(_deathSounds.Length != 0)
                 OnPlaySounds?.Raise(this, _deathSounds[randomIndex]);
 
-            //uiPlayerCanvas.HighScoreUpdate();
             StartCoroutine(TimedGameOverCanvas());
         }
 
