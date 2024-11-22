@@ -1278,17 +1278,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 247079554}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1321211917 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4309514523715315743, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
-  m_PrefabInstance: {fileID: 7865405535571740407}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1326796487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1925,7 +1914,7 @@ PrefabInstance:
     - target: {fileID: 3111523777676657164, guid: 1ec8e300c76d1ea42a5825e29f7e175c, type: 3}
       propertyPath: _finalScoreText
       value: 
-      objectReference: {fileID: 1321211917}
+      objectReference: {fileID: 0}
     - target: {fileID: 4151587540201211588, guid: 1ec8e300c76d1ea42a5825e29f7e175c, type: 3}
       propertyPath: m_Name
       value: PlayerCanvas
@@ -2692,10 +2681,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 570646550748787309, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 817494582673950306, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00012207031
+      objectReference: {fileID: 0}
     - target: {fileID: 1587376279445676145, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1164217412}
+    - target: {fileID: 2178656823012289150, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178656823012289150, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178656823012289150, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178656823012289150, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4736970689514679744, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2783,10 +2796,6 @@ PrefabInstance:
     - target: {fileID: 8476860152904853958, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
       propertyPath: m_Name
       value: DeathScreenCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8476860152904853958, guid: 6a325ec92d74d194c8848c0aba247601, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
