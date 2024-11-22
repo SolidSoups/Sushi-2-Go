@@ -1,11 +1,12 @@
 using System.Collections;
 using Controllers;
+using Controllers.Controller;
 using Events;
 using UnityEngine;
 
 namespace Player
 {
-    public class Player : MonoBehaviour, IControllable
+    public class Player : Controllable
     {
         // this is a player script
         [Header("References")]
@@ -50,12 +51,10 @@ namespace Player
             } 
         }
 
-        public void Initialize()
+        public override void Initialize()
         {
             StartCoroutine(PlayRandomSounds());
         }
-        public void DoUpdate(){}
-        public void DoFixedUpdate(){}
 
         private IEnumerator PlayRandomSounds()
         {

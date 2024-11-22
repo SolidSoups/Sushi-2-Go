@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Controllers.Controller;
 using Hand;
 using MySingelton;
 using Sets;
@@ -15,11 +16,8 @@ namespace Controllers
     /// lastest spawned set
     /// Refrence mover
     /// </summary>
-    public class SetSpawner : MonoBehaviour, IControllable
+    public class SetSpawner : Controllable
     {
-        [Header("References")] 
-        [SerializeField] private string _handDelegatorTag = "Handdelegator";
-        // cached references
         private SetMover _setMover;
         private HandDelegator _handDelegator;
         private ConveyorBelt _conveyorBelt;
@@ -32,9 +30,9 @@ namespace Controllers
         public Set LatestSpawnedSet { get; private set; }
         private GameObject _setParent;
 
-        public void Initialize()
+        public override void Initialize()
         {
-            _handDelegator = GameObject.FindGameObjectWithTag(_handDelegatorTag).GetComponent<HandDelegator>();
+            _handDelegator = GameObject.FindGameObjectWithTag("Handdelegator").GetComponent<HandDelegator>();
             _setMover = GameObject.FindGameObjectWithTag("SetMover").GetComponent<SetMover>();
             _setParent = new GameObject("Set Parent");
             _conveyorBelt = GameObject.FindGameObjectWithTag("ConveyorBelt").GetComponent<ConveyorBelt>();
@@ -43,9 +41,11 @@ namespace Controllers
             // load all sets
         }
 
-        public void DoUpdate() => LoopSpawning();
-
-        public void DoFixedUpdate(){}
+        public override void DoUpdate()
+        {
+            base.DoUpdate();
+            LoopSpawning();
+        }
 
         // Test method
         private void LoopSpawning()

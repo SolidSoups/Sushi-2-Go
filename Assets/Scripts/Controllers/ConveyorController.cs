@@ -8,4 +8,9 @@ using UnityEngine;
 
 public class ConveyorController : Controller
 {
+  public override void Initialize()
+  {
+    base.Initialize();
+    EnableControllables();
+  }
 }

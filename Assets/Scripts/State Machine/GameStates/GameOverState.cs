@@ -39,12 +39,14 @@ namespace State_Machine.GameStates
             StartCoroutine(TimedGameOverCanvas());
         }
 
+        private bool _isGameResetting = false;
         public override void UpdateState()
         {
             base.UpdateState();
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !_isGameResetting)
             {
+                _isGameResetting = true;
                 _uibuttonFunctions.ResetGame(); 
             }
             else if (Input.GetKeyDown(KeyCode.Escape))

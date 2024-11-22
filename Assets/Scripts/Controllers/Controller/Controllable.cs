@@ -10,6 +10,5 @@ namespace Controllers.Controller
 
     public virtual void DoFixedUpdate(){}
     
-    public virtual void DoLateUpdate(){}
   }
 }

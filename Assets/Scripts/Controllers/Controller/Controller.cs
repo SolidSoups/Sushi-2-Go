@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Controllers.Controller
 {
-  public class Controller : MonoBehaviour
+  public class Controller : Controllable
   {
     [SerializeField] private Controllable[] _controllables;
 
@@ -22,32 +22,25 @@ namespace Controllers.Controller
       }
     }
 
-    public virtual void Initialize()
+    public override void Initialize()
     {
       foreach (Controllable c in _controllables)
       {
         c.Initialize();
       }  
     }
-    public virtual void DoUpdate()
+    public override void DoUpdate()
     {
       foreach (Controllable c in _controllables)
       {
         c.DoUpdate();      
       }
     }
-    public virtual void DoFixedUpdate()
+    public override void DoFixedUpdate()
     {
       foreach (Controllable c in _controllables)
       {
         c.DoFixedUpdate();      
-      }
-    }
-    public virtual void DoLateUpdate()
-    {
-      foreach (Controllable c in _controllables)
-      {
-        c.DoLateUpdate();      
       }
     }
   }

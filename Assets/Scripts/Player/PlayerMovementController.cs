@@ -1,10 +1,11 @@
 using Controllers;
+using Controllers.Controller;
 using Events;
 using UnityEngine;
 
 namespace Player
 {
-    public class PlayerMovementController : MonoBehaviour, IControllable
+    public class PlayerMovementController : Controllable
     {
         [Header("References")] 
         [SerializeField] private Animator _animator;
@@ -54,19 +55,15 @@ namespace Player
             MoveRight
         }
     
-        public void Initialize()
+        public override void Initialize()
         {
             ConveyorBelt convBelt = GameObject.FindGameObjectWithTag("ConveyorBelt").GetComponent<ConveyorBelt>(); 
             _lanePositions = convBelt.XPositions;
             _currentGravityScale = _gravityScale;
             _currentPlayerSpeed = _playerSpeed;
         }
-
-        public void DoFixedUpdate()
-        {
-        }
     
-        public void DoUpdate()
+        public override void DoUpdate()
         {
             _currentGravityScale = _gravityScale; // * DifficultyController.Instance.DifficultyScale;
             _currentPlayerSpeed = _playerSpeed; // * DifficultyController.Instance.DifficultyScale;
@@ -149,6 +146,8 @@ namespace Player
             if(_isJumping || !_isGrounded) return;
 
             int vertical = (int)Input.GetAxisRaw("Vertical");
+            if (Input.GetKey(KeyCode.Space))
+                vertical = 1;
             if ( vertical == 0) return;
             _isJumping = false;
 

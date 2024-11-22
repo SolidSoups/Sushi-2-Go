@@ -1,33 +1,27 @@
 using System.Collections.Generic;
 using Controllers;
+using Controllers.Controller;
 using Sets;
 using UnityEngine;
 
 namespace Hand
 {
-    public class HandDelegator : MonoBehaviour, IControllable
+    public class HandDelegator : Controllable 
     {
         [Header("Hands")]
         [SerializeField] private HandController _leftHand;
         [SerializeField] private HandController _rightHand;
 
-
-
-        public void Initialize()
+        public override void Initialize()
         {
             _leftHand.Initialize();
             _rightHand.Initialize();
         }
 
-        public void DoUpdate()
+        public override void DoUpdate()
         {
             _leftHand.DoUpdate();
             _rightHand.DoUpdate();
-        }
-
-        public void DoFixedUpdate()
-        {
-        
         }
     
         public bool DelegateToHands(List<Obstacle> obstacles)
