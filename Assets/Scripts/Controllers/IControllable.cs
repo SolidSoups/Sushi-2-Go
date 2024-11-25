@@ -1,4 +1,4 @@
-﻿namespace Prototype.Scripts
+﻿namespace Controllers
 {
     public interface IControllable
     {

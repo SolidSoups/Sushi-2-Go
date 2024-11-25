@@ -1,25 +1,25 @@
+using Controllers.Controller;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class State : MonoBehaviour
+namespace State_Machine
 {
-       
-    public virtual void EnterState()
+    public class State : MonoBehaviour
     {
+        public virtual void EnterState()
+        {
+        }
 
-    }
+        public virtual void ExitState()
+        {
+        }
 
-    public virtual void ExitState()
-    {
+        public virtual void UpdateState()
+        {
+        }
 
-    }
-
-    public virtual void UpdateState()
-    {
-
-    }
-
-    public virtual void FixedUpdateState()
-    {
-        
+        public virtual void FixedUpdateState()
+        {
+        }
     }
 }

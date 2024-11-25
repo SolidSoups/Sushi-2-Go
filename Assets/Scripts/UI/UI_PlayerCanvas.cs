@@ -1,41 +1,41 @@
-using System.Data.Common;
+using Controllers;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
-using UnityEngine.UI;
 
-public class UI_PlayerCanvas : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private TextMeshProUGUI _scoreText;
-    [SerializeField] private TextMeshProUGUI _finalScoreText;
-    [SerializeField] private TextMeshProUGUI _highScoreText;
-    [SerializeField] private TextMeshProUGUI _countDownText;
-    [SerializeField] private GameObject _countDownObj;
-    [SerializeField] private TimerScore _timerScore;
-
-    public void SetHighScore(int score) => _scoreText.text = "HIGHSCORE: " + score.ToString();
-
-    public void HighScoreUpdate()
+    public class UI_PlayerCanvas : MonoBehaviour
     {
-        //Checks if there are a highscore
-        if (PlayerPrefs.HasKey("SavedHighScore"))
+        [SerializeField] private TextMeshProUGUI _scoreText;
+        [SerializeField] private TextMeshProUGUI _finalScoreText;
+        [SerializeField] private TextMeshProUGUI _highScoreText;
+        [SerializeField] private TextMeshProUGUI _countDownText;
+        [SerializeField] private GameObject _countDownObj;
+
+        public void SetHighScore(int score) => _scoreText.text = "HIGHSCORE: " + score.ToString();
+
+        public void HighScoreUpdate(int score)
         {
-            //If the new score is higher then the saved one
-            if(_timerScore.Score > PlayerPrefs.GetInt("SavedHighScore"))
+            //Checks if there are a highscore
+            if (PlayerPrefs.HasKey("SavedHighScore"))
             {
-                //Sets the new highscore
-                PlayerPrefs.SetInt("SavedHighScore", _timerScore.Score);
-            }   
-        }
-        else
-        {
-            //if there is no highscore. set it
-            PlayerPrefs.SetInt("SavedHighScore", _timerScore.Score);
-        }
+                //If the new score is higher then the saved one
+                if(score > PlayerPrefs.GetInt("SavedHighScore"))
+                {
+                    //Sets the new highscore
+                    PlayerPrefs.SetInt("SavedHighScore", score);
+                }   
+            }
+            else
+            {
+                //if there is no highscore. set it
+                PlayerPrefs.SetInt("SavedHighScore", score);
+            }
         
-        PlayerPrefs.Save();
-        //updating the TMP
-        _finalScoreText.text = _timerScore.Score.ToString();
-        _highScoreText.text =  PlayerPrefs.GetInt("SavedHighScore").ToString();
+            PlayerPrefs.Save();
+            //updating the TMP
+            _finalScoreText.text = score.ToString();
+            _highScoreText.text =  PlayerPrefs.GetInt("SavedHighScore").ToString();
+        }
     }
 }

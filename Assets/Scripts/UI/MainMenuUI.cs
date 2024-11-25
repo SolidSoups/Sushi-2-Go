@@ -1,59 +1,61 @@
-using System;
-using Unity.VisualScripting;
+using AudioScripts;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
-public class MainMenuUI : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private GameObject _optionCanvas;
-    [SerializeField] private GameObject _creditCanvas;
-    [SerializeField] private GameObject _controllCanvas;
-    [SerializeField] private AudioManager _audioManager;
-    public void StartGame()
+    public class MainMenuUI : MonoBehaviour
     {
-        PlayerPrefs.SetInt("PlayPosterIntro", 1);
-        SceneManager.LoadScene(1);
-    }
-
-    private void Start()
-    {
-        if (!PlayerPrefs.HasKey("NotFirstTime"))
+        [SerializeField] private GameObject _optionCanvas;
+        [SerializeField] private GameObject _creditCanvas;
+        [SerializeField] private GameObject _controllCanvas;
+        [SerializeField] private AudioManager _audioManager;
+        public void StartGame()
         {
-            PlayerPrefs.SetInt("SavedHighScore", 0);
-            _audioManager.ResetSliders();
-            PlayerPrefs.Save();
+            PlayerPrefs.SetInt("PlayPosterIntro", 1);
+            SceneManager.LoadScene(1);
         }
-        _audioManager.Play(this, "MainMenu");        
-    }
 
-    public void OpenSettings()
-    {
-        _optionCanvas.SetActive(true);
-    }
-    public void CloseSettings()
-    {
-        _optionCanvas.SetActive(false);
-    }
-    public void OpenCredits()
-    {
-        _creditCanvas.SetActive(true);
-    }
-    public void CloseCredits()
-    {
-        _creditCanvas.SetActive(false);
-    }
-    public void OpenCrontroll()
-    {
-        _controllCanvas.SetActive(true);
-    }
-    public void CloseControll()
-    {
-        _controllCanvas.SetActive(false);
-    }
-    public void ExitGame()
-    {
-        Application.Quit();
+        private void Start()
+        {
+            if (!PlayerPrefs.HasKey("NotFirstTime"))
+            {
+                PlayerPrefs.SetInt("NotFirstTime", 1);
+                PlayerPrefs.SetInt("SavedHighScore", 0);
+                _audioManager.ResetSliders();
+                PlayerPrefs.Save();
+            }
+            _audioManager.Play(this, "MainMenu");        
+        }
+
+        public void OpenSettings()
+        {
+            _optionCanvas.SetActive(true);
+        }
+        public void CloseSettings()
+        {
+            _optionCanvas.SetActive(false);
+        }
+        public void OpenCredits()
+        {
+            _creditCanvas.SetActive(true);
+        }
+        public void CloseCredits()
+        {
+            _creditCanvas.SetActive(false);
+        }
+        public void OpenCrontroll()
+        {
+            _controllCanvas.SetActive(true);
+        }
+        public void CloseControll()
+        {
+            _controllCanvas.SetActive(false);
+        }
+        public void ExitGame()
+        {
+            Application.Quit();
+        }
     }
 }
 

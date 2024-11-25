@@ -7,6 +7,10 @@ TagManager:
   - WorldMover
   - Obstacle
   - Handdelegator
+  - ConveyorBelt
+  - SetMover
+  - ConveyorController
+  - SetSpawner
   layers:
   - Default
   - TransparentFX

@@ -1,53 +1,37 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Prototype.Scripts;
+using Controllers;
+using Controllers.Controller;
+using Sets;
 using UnityEngine;
 
-public class HandDelegator : MonoBehaviour, IControllable
+namespace Hand
 {
-    [Header("Hands")]
-    [SerializeField] private HandController _leftHand;
-    [SerializeField] private HandController _rightHand;
-
-
-
-    public void Initialize()
+    public class HandDelegator : MonoBehaviour
     {
-        _leftHand.Initialize();
-        _rightHand.Initialize();
-    }
-
-    public void DoUpdate()
-    {
-       _leftHand.DoUpdate();
-       _rightHand.DoUpdate();
-    }
-
-    public void DoFixedUpdate()
-    {
-        
-    }
+        [Header("Hands")]
+        [SerializeField] private HandController _leftHand;
+        [SerializeField] private HandController _rightHand;
     
-    public bool DelegateToHands(List<Obstacle> obstacles)
-    {
-        bool delegatedLeft = false;
-        bool delegatedRight = false;
-        
-        foreach (Obstacle obstacle in obstacles)
+        public bool DelegateToHands(List<Obstacle> obstacles)
         {
-            if (delegatedLeft && delegatedRight)
-                return true;
-            if (!delegatedLeft && obstacle.HandSide == HandSide.LEFT)
+            bool delegatedLeft = false;
+            bool delegatedRight = false;
+        
+            foreach (Obstacle obstacle in obstacles)
             {
-                delegatedLeft = _leftHand.TryAttachObstacle(obstacle);
+                if (delegatedLeft && delegatedRight)
+                    return true;
+                if (!delegatedLeft && obstacle.HandSide == HandSide.LEFT)
+                {
+                    delegatedLeft = _leftHand.TryAttachObstacle(obstacle);
+                }
+                else if (!delegatedRight && obstacle.HandSide == HandSide.RIGHT)
+                {
+                    delegatedRight = _rightHand.TryAttachObstacle(obstacle);
+                }
             }
-            else if (!delegatedRight && obstacle.HandSide == HandSide.RIGHT)
-            {
-                delegatedRight = _rightHand.TryAttachObstacle(obstacle);
-            }
-        }
 
-        return delegatedLeft || delegatedRight;
-    } 
+            return delegatedLeft || delegatedRight;
+        } 
+    }
 }

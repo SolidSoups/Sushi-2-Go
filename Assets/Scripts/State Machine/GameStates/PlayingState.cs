@@ -1,90 +1,103 @@
-using System.Collections;
+using System;
+using System.Timers;
+using Controllers;
+using Events;
+using Hand;
+using Player;
+using UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.XR;
+using UnityEngine.SocialPlatforms.Impl;
 
-public class PlayingState : State
+namespace State_Machine.GameStates
 {
-    [SerializeField] private PlayerMovementController _playerMovement;
-    [SerializeField] private TimerScore _timer;
-    [SerializeField] private WorldMover _worldMover;
-    [SerializeField] private SetSpawner _setSpawner;
-    [SerializeField] private CameraController _cameraController;
-    [SerializeField] private DifficultyController _difficultyController;
-    [SerializeField] private HandDelegator _handDelegator;
-    [SerializeField] private UI_PlayerCanvas uiPlayerCanvas;
-    [SerializeField] private Player _player;
-    [SerializeField] private ParticleEffectController _particleEffectController;
-    [SerializeField] private RiceEffectController _riceEffectController;
-    [SerializeField] private GameObject PauseCanvas;
-    [SerializeField] private GameObject OptionsCanvas;
-
-    [Header("Events")]
-    public GameEvent OnPlayAudio;
-    public GameEvent OnStopAudio;
-
-    [Header("Sounds")]
-    [SerializeField] private string _Music;
-    [SerializeField] private string _BackgroundSounds;
-
-
-    public override void EnterState()
+    public class PlayingState : State
     {
-        base.EnterState();
-        _player.Initialize();
-        _particleEffectController.Initialize();
-        _riceEffectController.Initialize();
-        OnPlayAudio?.Raise(this, _Music);
-        OnPlayAudio?.Raise(this, _BackgroundSounds);
-        Time.timeScale = 1f;
-
-        PauseCanvas.SetActive(false);
-        OptionsCanvas.SetActive(false);
-    }
-
-    public override void ExitState()
-    {
-        base.ExitState();
-        OnStopAudio?.Raise(this, _Music);
-        OnStopAudio?.Raise(this, _BackgroundSounds);
-    }
-
-    public override void FixedUpdateState()
-    {
-        base.FixedUpdateState();
-        _worldMover.DoFixedUpdate();
-    }
-
-    public override void UpdateState()
-    {
-        base.UpdateState();
+        [Header("Settings")]
+        [SerializeField] private int ScorePerSecond = 10;
+        private void OnValidate() => _scoreTimer.ScorePerSecond = ScorePerSecond;
+        private ScoreTimer _scoreTimer = new();
+        public ScoreTimer ScoreTimer => _scoreTimer;
         
-        _timer.DoUpdate();
-        _setSpawner.DoUpdate();
-        _playerMovement.DoUpdate();
-        _difficultyController.DoUpdate();
-        _handDelegator.DoUpdate();
-        _particleEffectController.DoUpdate();
+        [Header("References")]
+        private ConveyorController _conveyorController; 
+        
 
-        uiPlayerCanvas.SetHighScore(_timer.Score);
+        
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        [Header("UI")]
+        [SerializeField] private UI_PlayerCanvas uiPlayerCanvas;
+        [SerializeField] private GameObject PauseCanvas;
+        [SerializeField] private GameObject OptionsCanvas;
+
+        [Header("Events")]
+        public GameEvent OnPlayAudio;
+        public GameEvent OnStopAudio;
+
+        [Header("Sounds")]
+        [SerializeField] private string _Music;
+        [SerializeField] private string _BackgroundSounds;
+
+        private void Awake()
         {
-            GameManager.Instance.SwitchState<PauseState>();
+            _conveyorController = GameObject.FindGameObjectWithTag("ConveyorController").GetComponent<ConveyorController>();
         }
-    }
 
-    public void OnPlayerHitObstacle(Component sender, object data)
-    {
-        if (sender is not Player)
-            return;
 
-        // we died
-        GameManager.Instance.SwitchState<GameOverState>();
-    }
+        public override void EnterState()
+        {
+            base.EnterState();
+            _scoreTimer.Initialize();
+            Time.timeScale = 1f;
+            
+            // setup audio
+            OnPlayAudio?.Raise(this, _Music);
+            OnPlayAudio?.Raise(this, _BackgroundSounds);
+
+            // enable ui
+            PauseCanvas.SetActive(false);
+            OptionsCanvas.SetActive(false);
+        }
+
+        public override void ExitState()
+        {
+            base.ExitState();
+            OnStopAudio?.Raise(this, _Music);
+            OnStopAudio?.Raise(this, _BackgroundSounds);
+        }
+
+        public override void UpdateState()
+        {
+            base.UpdateState();
+            _scoreTimer.Tick();
+            
+            _conveyorController.UpdateController();
+            
+            uiPlayerCanvas.SetHighScore(_scoreTimer.Score);
+            uiPlayerCanvas.HighScoreUpdate(_scoreTimer.Score);
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                GameManager.Instance.SwitchState<PauseState>();
+            }
+        }
+
+        public override void FixedUpdateState()
+        {
+            base.FixedUpdateState();
+            _conveyorController.FixedUpdateController();
+        }
+
+        public void OnPlayerHitObstacle(Component sender, object data)
+        {
+            if (sender is not Player.Player)
+                return;
+
+            // we died
+            GameManager.Instance.SwitchState<GameOverState>();
+        }
     
-    public void PauseMenu()
-    {
-        GameManager.Instance.SwitchState<PauseState>();    
+        public void PauseMenu()
+        {
+            GameManager.Instance.SwitchState<PauseState>();    
+        }
     }
 }

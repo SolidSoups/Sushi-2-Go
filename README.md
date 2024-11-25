@@ -3,9 +3,11 @@
 
 ## Information
 ### Description
-Sushi 2 Go is a endless runner where you play as a shrimp sushi running on a conveyor belt trying to avoid obstacles and stay alive.
+Tuna, Salmon, Squid... your three dearest friends, gone—devoured by the merciless machine of hunger. Now, it’s just you. A lone shrimp sushi on a conveyor belt of doom. Run... RUN FAST. Escape this endless nightmare, defy your fate, and avenge the fallen. Break the cycle, dodge every obstacle, and fight to survive. Don’t let them eat you. This is your story. This is Sushi 2 Go.
 ### History
-During our first year at Future Games Malmö, we were tasked with creating an endless runner for Game Project 1. The project would take 3 weeks and we felt very satisfied with the finished project. And so we decided to continue working on it on our own time.
+In our first year at Future Games Malmö, we faced a challenge: create an endless runner for Game Project 1 in just three weeks. We poured ourselves into it, every detail reflecting our determination.
+
+When the deadline arrived, we were proud but not satisfied. The project felt unfinished, brimming with potential. We couldn’t walk away. Despite school and limited time, we kept working on it, turning an assignment into a true passion.
 
 ## Setting up and installation (Windows)
 Please begin by creating a github account and messaging *Elias* to be added to the project as a collaborator.
@@ -32,6 +34,8 @@ Then you can set up the workspace on the computer.
 6. You should now be able to open up the project on your computer! :D
 
 ## Rules and workflow
+### Commits
+Please make sure to keep your commits short. When you make changes on your own branch, and you add for example *new assets*, *changes to scene* or *rearranging the hierarchy*, commit those first and then 
 ### Branches
 Github uses branches to create copies of the repository. This is useful when adding new features, game mechanics vice versa. You should definitely read up on branching [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches). 
 
