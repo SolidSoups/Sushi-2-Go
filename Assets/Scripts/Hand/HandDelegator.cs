@@ -6,23 +6,11 @@ using UnityEngine;
 
 namespace Hand
 {
-    public class HandDelegator : Controllable 
+    public class HandDelegator : MonoBehaviour
     {
         [Header("Hands")]
         [SerializeField] private HandController _leftHand;
         [SerializeField] private HandController _rightHand;
-
-        public override void Initialize()
-        {
-            _leftHand.Initialize();
-            _rightHand.Initialize();
-        }
-
-        public override void DoUpdate()
-        {
-            _leftHand.DoUpdate();
-            _rightHand.DoUpdate();
-        }
     
         public bool DelegateToHands(List<Obstacle> obstacles)
         {

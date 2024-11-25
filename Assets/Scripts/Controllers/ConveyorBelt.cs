@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Attributes;
 using Controllers.Controller;
+using Events;
 using MySingelton;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ namespace Controllers
 {
   public class ConveyorBelt : Controllable
   {
+    [Header("Events")] public GameEvent OnLanePositionsGenerated; 
+    
     [Header("Conveyor Settings")] [SerializeField]
     private bool _drawGizmos = true;
     [SerializeField] private GameObject _conveyorPrefab;
@@ -58,9 +61,9 @@ namespace Controllers
       }      
     }
 
-    public override void Initialize()
+    public override void InitializeController()
     {
-      base.Initialize();
+      base.InitializeController();
       
       // spawn conveyor belts
       _conveyorBounds = GenerateConveyorBounds();
@@ -68,12 +71,13 @@ namespace Controllers
       _conveyorParent.transform.parent = transform;
       SpawnConveyors();
       GenerateXPositions();
-      Debug.Log("Generated positions");
+      OnLanePositionsGenerated?.Raise(this, _xPositions);      
+      Debug.Log($"Generated {_xPositions.Length} positions ");
     }
 
-    public override void DoFixedUpdate()
+    public override void FixedUpdateController()
     {
-      base.DoFixedUpdate();
+      base.FixedUpdateController();
 
       MoveConveyors();
     }

@@ -13,11 +13,16 @@ namespace State_Machine.GameStates
     public class PlayingState : State
     {
         [Header("Settings")]
-        private ScoreTimer _scoreTimer = new();
-
-        public ScoreTimer ScoreTimer => _scoreTimer;
         [SerializeField] private int ScorePerSecond = 10;
         private void OnValidate() => _scoreTimer.ScorePerSecond = ScorePerSecond;
+        private ScoreTimer _scoreTimer = new();
+        public ScoreTimer ScoreTimer => _scoreTimer;
+        
+        [Header("References")]
+        private ConveyorController _conveyorController; 
+        
+
+        
 
         [Header("UI")]
         [SerializeField] private UI_PlayerCanvas uiPlayerCanvas;
@@ -31,6 +36,11 @@ namespace State_Machine.GameStates
         [Header("Sounds")]
         [SerializeField] private string _Music;
         [SerializeField] private string _BackgroundSounds;
+
+        private void Awake()
+        {
+            _conveyorController = GameObject.FindGameObjectWithTag("ConveyorController").GetComponent<ConveyorController>();
+        }
 
 
         public override void EnterState()
@@ -59,12 +69,21 @@ namespace State_Machine.GameStates
         {
             base.UpdateState();
             _scoreTimer.Tick();
+            
+            _conveyorController.UpdateController();
+            
             uiPlayerCanvas.SetHighScore(_scoreTimer.Score);
             uiPlayerCanvas.HighScoreUpdate(_scoreTimer.Score);
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 GameManager.Instance.SwitchState<PauseState>();
             }
+        }
+
+        public override void FixedUpdateState()
+        {
+            base.FixedUpdateState();
+            _conveyorController.FixedUpdateController();
         }
 
         public void OnPlayerHitObstacle(Component sender, object data)

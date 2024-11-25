@@ -30,17 +30,17 @@ public class SetMover : Controllable
       Gizmos.DrawLine(new Vector3(-size.x/2, size.y/2, _despawnZPosition), new Vector3(size.x/2, -size.y/2, _despawnZPosition));
     }      
   }
-  public override void Initialize()
+  public override void InitializeController()
   {
-    base.Initialize();
+    base.InitializeController();
     
     _setParent = new GameObject("SetParent");   
     _setParent.transform.parent = transform; 
   }
 
-  public override void DoFixedUpdate()
+  public override void FixedUpdateController()
   {
-    base.DoFixedUpdate();
+    base.FixedUpdateController();
     MoveSets();
   }
 

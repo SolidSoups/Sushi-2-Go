@@ -11,6 +11,7 @@ namespace MySingelton
     // References
     public SpeedController SpeedController { get; private set; }
     public MyObjectPool ObjectPool { get; private set; }
+    public DifficultyController DifficultyController { get; private set; }
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ namespace MySingelton
     {
       SpeedController = GetComponentInChildren<SpeedController>(); 
       ObjectPool = GetComponentInChildren<MyObjectPool>();
+      DifficultyController = GetComponentInChildren<DifficultyController>();
     }
   }
   

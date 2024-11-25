@@ -1,9 +1,14 @@
+using System;
 using Controllers;
+using State_Machine;
+using State_Machine.GameStates;
+using Unity.VisualScripting;
 using UnityEngine;
+using State = State_Machine.State;
 
 namespace Player
 {
-    public class CameraController : MonoBehaviour, IControllable
+    public class CameraController : MonoBehaviour, IStateAware
     {
 
         public Transform player;
@@ -15,13 +20,15 @@ namespace Player
 
         private int currentLane;
         private float[] _lanePositions;
+        
+        public bool IsInitialized { get; private set; }
 
-
-        public void Initialize()
+        public void Initialize(Component sender, object lanePositions)
         {
-
-            ConveyorBelt convBelt = GameObject.FindGameObjectWithTag("ConveyorBelt").GetComponent<ConveyorBelt>();
-            _lanePositions = convBelt.XPositions;
+            if (sender is not ConveyorBelt || lanePositions is not float[])
+                return;
+            
+            _lanePositions = (float[])lanePositions;
             
             // find middle position
             float middle = _lanePositions[^1];
@@ -31,20 +38,16 @@ namespace Player
             Vector3 position = transform.position;
             position.x = middle;
             transform.position = position;
-        }
-
-        public void DoUpdate()
-        {
-
-        }
-
-        public void DoFixedUpdate()
-        {
-        
+            
+            Debug.Log("Initialized Camera Controller");
+            IsInitialized = true;
         }
 
         public void Update()
         {
+            if (!IsInitialized)
+                return;
+            
             // find current lane based on player x position
             currentLane = GetNearestLane(player.position.x);
 
@@ -111,5 +114,21 @@ namespace Player
             return targetX;
         }
 
+        public void OnEnterState(State state)
+        {
+            if (state.GetType() == typeof(PlayingState))
+            {
+                enabled = true;
+            }
+        }
+
+        public void OnExitState(State state)
+        {
+            if (state.GetType() == typeof(PlayingState))
+            {
+                enabled = false;
+            }
+            
+        }
     }
 }

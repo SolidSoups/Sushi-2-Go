@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
 using Attributes;
+using State_Machine.GameStates;
 
 namespace Controllers
 {
@@ -22,10 +23,13 @@ namespace Controllers
       get => _acceleration;
       private set => _acceleration = value;
     }
+    public float TargetSpeed  { get; private set; }
 
     [Header("Speed Settings")]
     [SerializeField, Tooltip("The starting speed of the game [m/s]")] private float _startSpeed = 30f;
     [SerializeField, Tooltip("The max speed of the game [m/s]")] private float _maxSpeed = 70f;
+    [Header("Time")]
+    [SerializeField, Tooltip("The time to reach the max speed [s]")] private float _time = 300;
     
     [Header("Acceleration Settings")]
     [SerializeField, Tooltip("The min acceleration of the game [m/s]")] private float _minAcceleration = 0;
@@ -35,11 +39,21 @@ namespace Controllers
     
     private void Awake()
     {
-      Speed = _startSpeed;  
+      Speed = _startSpeed;
+      TargetSpeed = Speed;
       Acceleration = 0f;
     }
 
-    public void SetTargetSpeed(float targetSpeed, float time) => StartCoroutine(AccelerateToTargetSpeed(targetSpeed, time));
+    private void Start()
+    {
+      SetTargetSpeed(_maxSpeed, _time);   
+    }
+
+    public void SetTargetSpeed(float targetSpeed, float time)
+    {
+      TargetSpeed = targetSpeed;
+      StartCoroutine(AccelerateToTargetSpeed(targetSpeed, time));
+    }
 
     private IEnumerator AccelerateToTargetSpeed(float targetSpeed, float time)
     {
@@ -47,6 +61,8 @@ namespace Controllers
       _isAccelerating = true;
       while (true)
       {
+        if (GameManager.Instance.IsState<GameOverState>())
+          yield break;
         yield return null;
         Speed += Acceleration * Time.deltaTime;
         

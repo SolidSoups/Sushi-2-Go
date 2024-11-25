@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using Controllers;
 using Controllers.Controller;
 using Events;
+using State_Machine.GameStates;
 using UnityEngine;
 
 namespace Player
 {
-    public class Player : Controllable
+    public class Player : MonoBehaviour
     {
         // this is a player script
         [Header("References")]
@@ -51,8 +53,9 @@ namespace Player
             } 
         }
 
-        public override void Initialize()
+        private IEnumerator  Start()
         {
+            yield return new WaitUntil( () => GameManager.Instance.IsState<PlayingState>());
             StartCoroutine(PlayRandomSounds());
         }
 
@@ -60,6 +63,9 @@ namespace Player
         {
             while (true)
             {
+                if (GameManager.Instance.IsState<PlayingState>())
+                    yield break;
+                
                 float randomTime = _minTimeBetweenSounds + (_maxTimeBetweenSounds - _minTimeBetweenSounds) * UnityEngine.Random.value; 
                 int randomIndex = UnityEngine.Random.Range(0, _randomSounds.Length);
                 yield return new WaitForSeconds(randomTime);

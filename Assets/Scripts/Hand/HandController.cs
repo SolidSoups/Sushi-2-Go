@@ -9,7 +9,7 @@ using UnityEngine.Serialization;
 
 namespace Hand
 {
-    public class HandController : MonoBehaviour, IControllable
+    public class HandController : MonoBehaviour
     {
         [Header("References")]
         [SerializeField] private Animator _animator;
@@ -40,12 +40,12 @@ namespace Hand
                 switch (_nextGrabType)
                 {
                     case GrabType.PLACED:
-                        return _placeTiming;// / _diffC.DifficultyScale;
+                        return _placeTiming / _diffC.SpeedScale;
                     case GrabType.GRABBED:
-                        return _animationTiming;// / _diffC.DifficultyScale;
+                        return _animationTiming / _diffC.SpeedScale;
                 }
 
-                return Mathf.Max(_animationTiming, _placeTiming);// / _diffC.DifficultyScale;
+                return Mathf.Max(_animationTiming, _placeTiming) / _diffC.SpeedScale;
             }
         }
         private float _currentAnimationTiming;
@@ -64,27 +64,20 @@ namespace Hand
         private Renderer _obstacleCopyRenderer;
         private LinkedList<Obstacle> ObstacleList = new LinkedList<Obstacle>();
     
-        //private DifficultyController _diffC;
+        private DifficultyController _diffC;
 
-        public void Initialize()
+        private void Awake()
         {
             _mesh.enabled = false;
             _currentHiddenToIdleSpeed = _hiddenToIdleSpeed;
             _currentAnimationTiming = _animationTiming;
-            //_diffC = 1f;// DifficultyController.Instance;
+            _diffC = Singelton.Instance.DifficultyController;
         }
 
-        public void DoUpdate()
+        private void Update()
         {
-            _currentHiddenToIdleSpeed = _hiddenToIdleSpeed;// * _diffC.DifficultyScale;
-            //_animator.speed = _diffC.DifficultyScale;
-        
-        
-        }
-
-        public void DoFixedUpdate()
-        {
-        
+            _currentHiddenToIdleSpeed = _hiddenToIdleSpeed * _diffC.SpeedScale;
+            _animator.speed = _diffC.SpeedScale;
         }
 
         public bool TryAttachObstacle(Obstacle obstacle)
@@ -155,7 +148,7 @@ namespace Hand
             float timeTillImpact = -p + Mathf.Sqrt(p * p - q);
 
             float animationSpeed = grabType == GrabType.GRABBED ? _animationTiming : _placeTiming;
-            float timingNeeded = animationSpeed + secondsToCover*2;// / _diffC.DifficultyScale + secondsToCover*2;
+            float timingNeeded = animationSpeed / _diffC.SpeedScale + secondsToCover*2;
 
             if (timeTillImpact <= timingNeeded)
             {

@@ -9,8 +9,7 @@ namespace State_Machine.GameStates
 {
     public class GameOverState : State
     {
-        [Header("References")] [SerializeField]
-        private State _playingState;
+        [Header("References")] 
         [SerializeField] private GameObject _gameOverCanvas;
         [SerializeField] private UI_PlayerCanvas uiPlayerCanvas;
         [SerializeField] private CameraController _cameraController;

@@ -1,11 +1,14 @@
+using System;
 using Controllers;
 using Controllers.Controller;
 using Events;
+using MySingelton;
+using State_Machine.GameStates;
 using UnityEngine;
 
 namespace Player
 {
-    public class PlayerMovementController : Controllable
+    public class PlayerMovementController : MonoBehaviour
     {
         [Header("References")] 
         [SerializeField] private Animator _animator;
@@ -18,6 +21,7 @@ namespace Player
         private float _currentGravityScale;
         private float _currentPlayerSpeed;
 
+        private DifficultyController _difficultyController;
 
 
         // private fields
@@ -54,20 +58,37 @@ namespace Player
             MoveLeft,
             MoveRight
         }
-    
-        public override void Initialize()
+
+        private void Awake()
         {
-            ConveyorBelt convBelt = GameObject.FindGameObjectWithTag("ConveyorBelt").GetComponent<ConveyorBelt>(); 
-            _lanePositions = convBelt.XPositions;
-            _currentGravityScale = _gravityScale;
-            _currentPlayerSpeed = _playerSpeed;
+           _currentGravityScale = _gravityScale;
+           _currentPlayerSpeed = _playerSpeed;
         }
-    
-        public override void DoUpdate()
+
+        private void Start()
         {
-            _currentGravityScale = _gravityScale; // * DifficultyController.Instance.DifficultyScale;
-            _currentPlayerSpeed = _playerSpeed; // * DifficultyController.Instance.DifficultyScale;
-            //_animator.speed = DifficultyController.Instance.DifficultyScale;
+            _difficultyController = Singelton.Instance.DifficultyController;
+        }
+
+        public bool IsInitialized  { get; private set; }
+        public void Initialize(Component sender, object data)
+        {
+            if (sender is not ConveyorBelt || data is not float[])
+                return;
+            
+            _lanePositions = (float[])data;
+            
+            IsInitialized = true;
+        } 
+
+        private void Update()
+        {
+            if (!IsInitialized || !GameManager.Instance.IsState<PlayingState>())
+                return;
+
+            _currentGravityScale = _gravityScale * _difficultyController.SpeedScale; 
+            _currentPlayerSpeed = _playerSpeed * _difficultyController.SpeedScale;
+            _animator.speed = _difficultyController.SpeedScale;
         
             GetHorizontalInput();
             GetVerticalInput();
@@ -79,11 +100,7 @@ namespace Player
             CheckXPositionToLane();
         }
 
-        //TODO will execute the buffer order in an que style.
-        private void InputBufferCheck()
-        {
-
-        }
+      
 
 
         private void CheckXPositionToLane()

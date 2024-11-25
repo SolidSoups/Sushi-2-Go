@@ -9,6 +9,7 @@ TagManager:
   - Handdelegator
   - ConveyorBelt
   - SetMover
+  - ConveyorController
   layers:
   - Default
   - TransparentFX

@@ -1,8 +1,9 @@
 using Controllers;
 using Controllers.Controller;
+using MySingelton;
 using UnityEngine;
 
-public class ParticleEffectController : Controllable
+public class ParticleEffectController : MonoBehaviour
 {
     [Header("References")]
     private ParticleSystem _particleSystem;
@@ -31,7 +32,7 @@ public class ParticleEffectController : Controllable
         } 
     }
 
-    public override void Initialize()
+    private void Awake()
     {
         _particleSystem = GetComponent<ParticleSystem>();
         _particleSystemMainModule = _particleSystem.main;
@@ -40,9 +41,9 @@ public class ParticleEffectController : Controllable
         _CurrentRate = _startRate; 
     }
 
-    public override void DoUpdate()
+    private void Update()
     {
-        _CurrentSpeed = _startSpeed + (_endSpeed - _startSpeed);// * DifficultyController.Instance.Change;
-        _CurrentRate = _startRate + (_endRate - _startRate);// * DifficultyController.Instance.Change;
+        _CurrentSpeed = _startSpeed + (_endSpeed - _startSpeed) * Singelton.Instance.DifficultyController.Change;
+        _CurrentRate = _startRate + (_endRate - _startRate) * Singelton.Instance.DifficultyController.Change;
     }
 }

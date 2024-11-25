@@ -12,14 +12,7 @@ namespace State_Machine.GameStates
     public class SetupState : State
     {
         [Header("References")]
-        [SerializeField] private PlayerMovementController _playerMovement;
-
         [SerializeField] private ConveyorController _conveyorController;
-        
-        [SerializeField] private SetSpawner _setSpawner;
-        [SerializeField] private CameraController _cameraController;
-        [SerializeField] private DifficultyController _difficultyController;
-        [SerializeField] private HandDelegator _handDelegator;
         [SerializeField] private MyObjectPool _myObjectPool;
 
         [FormerlySerializedAs("_posterUI")]
@@ -36,15 +29,8 @@ namespace State_Machine.GameStates
             Time.timeScale = 1f;
         
             // initialize
-            _conveyorController.Initialize();
-            _conveyorController.DisableControllables();
-            
-            _setSpawner.Initialize();
+            _conveyorController.InitializeController();
             _myObjectPool.Initialize();
-            _cameraController.Initialize();
-            _playerMovement.Initialize();
-            //_difficultyController.Initialize();
-            _handDelegator.Initialize();
 
             if(_playPosterIntro && PlayerPrefs.HasKey("PlayPosterIntro") && PlayerPrefs.GetInt("PlayPosterIntro") == 1)
                 StartCoroutine(PlayPosterIntro());

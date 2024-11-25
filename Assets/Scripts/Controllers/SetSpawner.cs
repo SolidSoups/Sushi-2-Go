@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using Controllers.Controller;
 using Hand;
 using MySingelton;
 using Sets;
+using State_Machine.GameStates;
 using UnityEngine;
 
 
@@ -16,7 +18,7 @@ namespace Controllers
     /// lastest spawned set
     /// Refrence mover
     /// </summary>
-    public class SetSpawner : Controllable
+    public class SetSpawner : MonoBehaviour 
     {
         private SetMover _setMover;
         private HandDelegator _handDelegator;
@@ -30,20 +32,19 @@ namespace Controllers
         public Set LatestSpawnedSet { get; private set; }
         private GameObject _setParent;
 
-        public override void Initialize()
+        private void Awake()
         {
             _handDelegator = GameObject.FindGameObjectWithTag("Handdelegator").GetComponent<HandDelegator>();
             _setMover = GameObject.FindGameObjectWithTag("SetMover").GetComponent<SetMover>();
             _setParent = new GameObject("Set Parent");
             _conveyorBelt = GameObject.FindGameObjectWithTag("ConveyorBelt").GetComponent<ConveyorBelt>();
-            TryFindConveyorBelt();
-
-            // load all sets
         }
 
-        public override void DoUpdate()
+        private void Update()
         {
-            base.DoUpdate();
+            if (!GameManager.Instance.IsState<PlayingState>())
+                return;
+            
             LoopSpawning();
         }
 
@@ -99,27 +100,28 @@ namespace Controllers
             _setMover.AddSet(LatestSpawnedSet.gameObject);
         }
 
-        private bool TryFindConveyorBelt()
+        private ConveyorBelt TryFindConveyorBelt()
         {
-            _conveyorBelt = GameObject.FindGameObjectWithTag("ConveyorBelt").GetComponent<ConveyorBelt>();
-            if(!_conveyorBelt)
+            ConveyorBelt belt = GameObject.FindGameObjectWithTag("ConveyorBelt").GetComponent<ConveyorBelt>();
+            if(!belt)
             {
                 Debug.LogError("Conveyor Belt could not be found");
-                return false;
+                return null;
             }
 
-            return true;
+            return belt;
         }
     
         private void OnDrawGizmos()
         {
-            if (!TryFindConveyorBelt())
+            ConveyorBelt belt = TryFindConveyorBelt();
+            if (!belt)
                 return;
         
             Gizmos.color = Color.green;
-            float length = _conveyorBelt.ConveyorWidth;
-            Vector3 startPosition = _conveyorBelt.AlignWithConveyor(_lengthToSpawnPoint); 
-            Vector3 endPosition = _conveyorBelt.AlignWithConveyor(_lengthToSpawnPoint) + Vector3.right * length;
+            float length = belt.ConveyorWidth;
+            Vector3 startPosition = belt.AlignWithConveyor(_lengthToSpawnPoint); 
+            Vector3 endPosition = belt.AlignWithConveyor(_lengthToSpawnPoint) + Vector3.right * length;
             Gizmos.DrawSphere(startPosition, 0.5f);
             Gizmos.DrawLine(startPosition, endPosition);
             Gizmos.DrawSphere(endPosition, 0.5f);

@@ -22,25 +22,25 @@ namespace Controllers.Controller
       }
     }
 
-    public override void Initialize()
+    public override void InitializeController()
     {
       foreach (Controllable c in _controllables)
       {
-        c.Initialize();
+        c.InitializeController();
       }  
     }
-    public override void DoUpdate()
+    public override void UpdateController()
     {
       foreach (Controllable c in _controllables)
       {
-        c.DoUpdate();      
+        c.UpdateController();      
       }
     }
-    public override void DoFixedUpdate()
+    public override void FixedUpdateController()
     {
       foreach (Controllable c in _controllables)
       {
-        c.DoFixedUpdate();      
+        c.FixedUpdateController();      
       }
     }
   }
