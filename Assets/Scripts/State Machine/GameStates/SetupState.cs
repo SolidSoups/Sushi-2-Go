@@ -11,10 +11,6 @@ namespace State_Machine.GameStates
 {
     public class SetupState : State
     {
-        [Header("References")]
-        [SerializeField] private ConveyorController _conveyorController;
-        [SerializeField] private MyObjectPool _myObjectPool;
-
         [FormerlySerializedAs("_posterUI")]
         [Header("Poster intro")] 
         [SerializeField] private PanelIntroTimer _panelIntroTimer;
@@ -27,10 +23,6 @@ namespace State_Machine.GameStates
         {
             base.EnterState();
             Time.timeScale = 1f;
-        
-            // initialize
-            _conveyorController.InitializeController();
-            _myObjectPool.Initialize();
 
             if(_playPosterIntro && PlayerPrefs.HasKey("PlayPosterIntro") && PlayerPrefs.GetInt("PlayPosterIntro") == 1)
                 StartCoroutine(PlayPosterIntro());

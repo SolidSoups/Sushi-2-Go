@@ -11,3 +11,4 @@ namespace Controllers
         public float Change => (Singelton.Instance.SpeedController.Speed - 25f) / (Singelton.Instance.SpeedController.TargetSpeed - 25f);
     }
 }
+

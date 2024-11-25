@@ -1,9 +1,3 @@
-using System;
-using Sets;
-using UnityEditor;
-using UnityEditor.EditorTools;
-using UnityEditor.Rendering;
-using UnityEditor.ShortcutManagement;
 using UnityEngine;
 
 namespace Sets

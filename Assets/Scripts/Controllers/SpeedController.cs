@@ -3,15 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
-using Attributes;
 using State_Machine.GameStates;
 
 namespace Controllers
 {
   public class SpeedController : MonoBehaviour
   {
-    [SerializeField, Attributes.ReadOnly, Tooltip("The current speed of the game [m/s]")] private float _speed;
-    [SerializeField, Attributes.ReadOnly, Tooltip("The current speed of the game [m/s]")] private float _acceleration;
+    [SerializeField, Tooltip("The current speed of the game [m/s]")] private float _speed;
+    [SerializeField, Tooltip("The current speed of the game [m/s]")] private float _acceleration;
     
     public float Speed
     {

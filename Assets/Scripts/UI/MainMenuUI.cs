@@ -20,6 +20,7 @@ namespace UI
         {
             if (!PlayerPrefs.HasKey("NotFirstTime"))
             {
+                PlayerPrefs.SetInt("NotFirstTime", 1);
                 PlayerPrefs.SetInt("SavedHighScore", 0);
                 _audioManager.ResetSliders();
                 PlayerPrefs.Save();

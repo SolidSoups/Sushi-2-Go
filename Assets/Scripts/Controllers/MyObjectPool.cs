@@ -6,11 +6,11 @@ using Random = UnityEngine.Random;
 
 namespace Controllers
 {
-    public class MyObjectPool : MonoBehaviour, IControllable
+    public class MyObjectPool : MonoBehaviour
     {
         List<Set> pool = new List<Set>();
 
-        [Header("Refrences")] [SerializeField] private SetSpawner _setSpawner;
+        [SerializeField] private SetSpawner _setSpawner;
 
         [Header("Settings")]
         [SerializeField] private int poolSizePerSet = 10;
@@ -21,19 +21,14 @@ namespace Controllers
 
         private GameObject _poolContainer;
     
-        public void Initialize()
+        private void Awake()
         {
+            _setSpawner = GameObject.FindGameObjectWithTag("SetSpawner").GetComponent<SetSpawner>();
+            
             LoadPool();
             _poolContainer = new GameObject("PoolContainer");
             _poolContainer.transform.SetParent(transform);
         }
-
-        public void DoUpdate()
-        {
-            throw new NotImplementedException();
-        }
-    
-        public void DoFixedUpdate(){}
 
         public Set GetRandomSet()
         {

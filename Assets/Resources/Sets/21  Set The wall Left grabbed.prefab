@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3079309795899151173, guid: cde7ca4087253c044aa4d86402bd4aef, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 317.36002
+      value: 294.76
       objectReference: {fileID: 0}
     - target: {fileID: 3079309795899151173, guid: cde7ca4087253c044aa4d86402bd4aef, type: 3}
       propertyPath: m_LocalRotation.w
@@ -96,7 +96,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4743791119833308072, guid: 9c0a468692be2844fb9d97d43837c9d1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 315.31998
+      value: 292.71997
       objectReference: {fileID: 0}
     - target: {fileID: 4743791119833308072, guid: 9c0a468692be2844fb9d97d43837c9d1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -684,7 +684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2994727721589544417, guid: b247668b5bc34be4da8c5410d0f4203e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 314.9
+      value: 292.3
       objectReference: {fileID: 0}
     - target: {fileID: 2994727721589544417, guid: b247668b5bc34be4da8c5410d0f4203e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -890,11 +890,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3302521240586479596, guid: 5bd3cdc52cf8a354696c9c93df846998, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3302521240586479596, guid: 5bd3cdc52cf8a354696c9c93df846998, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.110223e-16
       objectReference: {fileID: 0}
     - target: {fileID: 3302521240586479596, guid: 5bd3cdc52cf8a354696c9c93df846998, type: 3}
       propertyPath: m_LocalPosition.z
@@ -930,7 +930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4624875056910035911, guid: 5bd3cdc52cf8a354696c9c93df846998, type: 3}
       propertyPath: Length
-      value: 350
+      value: 345.8
       objectReference: {fileID: 0}
     - target: {fileID: 4624875056910035911, guid: 5bd3cdc52cf8a354696c9c93df846998, type: 3}
       propertyPath: NeedsHands

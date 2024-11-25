@@ -109,7 +109,6 @@ namespace AudioScripts
             float musicvol = (float)PlayerPrefs.GetFloat("MusicVolume");
             float vfxvol = (float)PlayerPrefs.GetFloat("VFXVolume");
             float bvol = (float)PlayerPrefs.GetFloat("BackgroundVolume");
-            Debug.Log($"Music Volume: {musicvol}, VFX: {vfxvol}, Background: {bvol}");
             musicSlider.value = musicvol;
             VFXSlider.value = vfxvol;
             BackgroundSlider.value = bvol;

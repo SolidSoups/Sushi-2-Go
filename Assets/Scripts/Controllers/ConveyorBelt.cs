@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Attributes;
 using Controllers.Controller;
 using Events;
 using MySingelton;
@@ -19,7 +18,7 @@ namespace Controllers
     [SerializeField] private int _numberOfBelts = 3;
     public int NumberOfBelts => _numberOfBelts;
     [SerializeField, Range(0, -5)] private int _conveyorDespawnDistance = -1;
-    [SerializeField, ReadOnly] private float _moveZPosition;
+    [SerializeField] private float _moveZPosition;
 
     private void OnValidate()
     {
