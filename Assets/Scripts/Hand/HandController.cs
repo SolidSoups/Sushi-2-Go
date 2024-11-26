@@ -54,7 +54,7 @@ namespace Hand
         public bool IsPlaying { get; private set; }
         
         // STRATEGIES
-        private IHandTimeValidator _handTimeValidator;
+        private IHandValidator _handValidator;
     
         [Header("Positions")] 
         [SerializeField] private Vector3 _hiddenPosition;
@@ -81,14 +81,14 @@ namespace Hand
         private void Start()
         {
             // Initialize strategy
-            _handTimeValidator = new ClassicHandTimeValidator(
+            _handValidator = new HandHasEnoughTime(
                 Singelton.Instance.SpeedController,
                 Singelton.Instance.DifficultyController
             );
-            ClassicHandTimeValidator.HiddenToIdleDistance = Mathf.Abs(_idlePosition.x - _hiddenPosition.x);
-            ClassicHandTimeValidator.HiddenToIdleSpeed = _hiddenToIdleSpeed;
-            ClassicHandTimeValidator.AnimationTiming = _animationTiming;
-            ClassicHandTimeValidator.PlaceTiming = _placeTiming;
+            HandHasEnoughTime.HiddenToIdleDistance = Mathf.Abs(_idlePosition.x - _hiddenPosition.x);
+            HandHasEnoughTime.HiddenToIdleSpeed = _hiddenToIdleSpeed;
+            HandHasEnoughTime.GrabAnimationTiming = _animationTiming;
+            HandHasEnoughTime.PlaceAnimationTiming = _placeTiming;
         }
 
         private void Update()
@@ -148,7 +148,15 @@ namespace Hand
             return true;
         }
 
-        private bool HasEnoughTime(float distance, GrabType grabType) => _handTimeValidator.HasEnoughTime(distance, grabType);
+        private bool HasEnoughTime(float distance, GrabType grabType)
+        {
+            HandHasEnoughTimeArguments newArgs = new HandHasEnoughTimeArguments
+            {
+                DistanceToObstacle = distance,
+                GrabType = grabType
+            };
+            return _handValidator.IsValid(newArgs);
+        }
 
         void CheckQueue()
         {
