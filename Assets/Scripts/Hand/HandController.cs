@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Controllers;
@@ -51,6 +52,9 @@ namespace Hand
         private float _currentAnimationTiming;
 
         public bool IsPlaying { get; private set; }
+        
+        // STRATEGIES
+        private IHandTimeValidator _handTimeValidator;
     
         [Header("Positions")] 
         [SerializeField] private Vector3 _hiddenPosition;
@@ -72,6 +76,19 @@ namespace Hand
             _currentHiddenToIdleSpeed = _hiddenToIdleSpeed;
             _currentAnimationTiming = _animationTiming;
             _diffC = Singelton.Instance.DifficultyController;
+        }
+
+        private void Start()
+        {
+            // Initialize strategy
+            _handTimeValidator = new ClassicHandTimeValidator(
+                Singelton.Instance.SpeedController,
+                Singelton.Instance.DifficultyController
+            );
+            ClassicHandTimeValidator.HiddenToIdleDistance = Mathf.Abs(_idlePosition.x - _hiddenPosition.x);
+            ClassicHandTimeValidator.HiddenToIdleSpeed = _hiddenToIdleSpeed;
+            ClassicHandTimeValidator.AnimationTiming = _animationTiming;
+            ClassicHandTimeValidator.PlaceTiming = _placeTiming;
         }
 
         private void Update()
@@ -131,32 +148,7 @@ namespace Hand
             return true;
         }
 
-        private bool HasEnoughTime(float distance, GrabType grabType)
-        {
-            // calculate time for hand to appear
-            float handDistanceToCover = Mathf.Abs(_idlePosition.x - _hiddenPosition.x);
-            float secondsToCover = handDistanceToCover / _currentHiddenToIdleSpeed;
-        
-            // calculate time until impact
-            float d = Mathf.Abs(distance);
-            float a = Singelton.Instance.SpeedController.Acceleration;
-            float v = Singelton.Instance.SpeedController.Speed;
-
-            float p = v / a;
-            float q = -2 * d / a;
-
-            float timeTillImpact = -p + Mathf.Sqrt(p * p - q);
-
-            float animationSpeed = grabType == GrabType.GRABBED ? _animationTiming : _placeTiming;
-            float timingNeeded = animationSpeed / _diffC.SpeedScale + secondsToCover*2;
-
-            if (timeTillImpact <= timingNeeded)
-            {
-                return false;
-            }
-
-            return true;
-        }
+        private bool HasEnoughTime(float distance, GrabType grabType) => _handTimeValidator.HasEnoughTime(distance, grabType);
 
         void CheckQueue()
         {
