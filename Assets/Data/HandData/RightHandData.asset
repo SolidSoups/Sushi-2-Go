@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: RightHandData
+  m_EditorClassIdentifier: Assembly-CSharp:Hand:HandData
+  HandName: Right
+  MovementSpeed: 2
+  GrabAnimationTiming: 0.4
+  PlaceAnimationTiming: 0.4
+  HiddenPosition: {x: 56, y: 1, z: 49}
+  IdlePosition: {x: 48, y: 1, z: 49}
+  AnimationPosition: {x: 33, y: 1, z: 49}
