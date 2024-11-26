@@ -55,9 +55,9 @@ namespace Hand
         public bool IsPlaying { get; private set; }
         
         // STRATEGIES
-        private IHandValidator _handHasEnoughTime;
-        private IHandValidator _handIsReadyForGrab;
-        private IHandValidator _handIsObstacleStillValid;
+        private IHandValidator _hasEnoughTimeStrategy;
+        private IHandValidator _isReadyForGrabStrategy;
+        private IHandValidator _isObstacleValidStrategy;
     
         [Header("Positions")] 
         [SerializeField] private Vector3 _hiddenPosition;
@@ -83,25 +83,25 @@ namespace Hand
 
         private void Start()
         {
-            // Initialize strategy
-            _handHasEnoughTime = new HandHasEnoughTime(
+            // Initialize strategies
+            _hasEnoughTimeStrategy = new HasEnoughTimeStrategy(
                 Singelton.Instance.SpeedController,
                 Singelton.Instance.DifficultyController
             );
-            HandHasEnoughTime.HiddenToIdleDistance = Mathf.Abs(_idlePosition.x - _hiddenPosition.x);
-            HandHasEnoughTime.HiddenToIdleSpeed = _hiddenToIdleSpeed;
-            HandHasEnoughTime.GrabAnimationTiming = _grabAnimationTiming;
-            HandHasEnoughTime.PlaceAnimationTiming = _placeAnimationTiming;
+            HasEnoughTimeStrategy.HiddenToIdleDistance = Mathf.Abs(_idlePosition.x - _hiddenPosition.x);
+            HasEnoughTimeStrategy.HiddenToIdleSpeed = _hiddenToIdleSpeed;
+            HasEnoughTimeStrategy.GrabAnimationTiming = _grabAnimationTiming;
+            HasEnoughTimeStrategy.PlaceAnimationTiming = _placeAnimationTiming;
 
-            _handIsReadyForGrab = new HandIsReadyForGrab(
+            _isReadyForGrabStrategy = new IsReadyForGrabStrategy(
                 Singelton.Instance.SpeedController
             );
-            HandIsReadyForGrab.MyZPosition = transform.position.z;
-            HandIsReadyForGrab.GrabAnimationTiming = _grabAnimationTiming;
-            HandIsReadyForGrab.PlaceAnimationTiming = _placeAnimationTiming;
+            IsReadyForGrabStrategy.MyZPosition = transform.position.z;
+            IsReadyForGrabStrategy.GrabAnimationTiming = _grabAnimationTiming;
+            IsReadyForGrabStrategy.PlaceAnimationTiming = _placeAnimationTiming;
 
-            _handIsObstacleStillValid = new HandIsObstacleStillValid();
-            HandIsObstacleStillValid.MyZPosition = transform.position.z;
+            _isObstacleValidStrategy = new IsObstacleValidStrategy();
+            IsObstacleValidStrategy.MyZPosition = transform.position.z;
         }
 
         private void Update()
@@ -123,7 +123,7 @@ namespace Hand
             }
         
             // second case, we do not have enough time at all
-            if (!HasEnoughTime(distance, obstacle.GrabType))
+            if (!_hasEnoughTimeStrategy.IsValid(distance, obstacle.GrabType))
             {
                 return false;
             }
@@ -134,7 +134,7 @@ namespace Hand
                 Obstacle lastObstacle = ObstacleList.Last.Value; 
                 float lastObstacleZPosition = lastObstacle.transform.position.z;
                 float lDist = obstacleZPosition - lastObstacleZPosition;
-                if(!HasEnoughTime(lDist, obstacle.GrabType))
+                if (!_hasEnoughTimeStrategy.IsValid(lDist, obstacle.GrabType))
                 {
                     return false;
                 }
@@ -143,7 +143,7 @@ namespace Hand
             {
                 float nextObstacleZPosition = _nextObstacle.transform.position.z; 
                 float nDist = obstacleZPosition - nextObstacleZPosition;
-                if(!HasEnoughTime(nDist, obstacle.GrabType))
+                if (!_hasEnoughTimeStrategy.IsValid(nDist, obstacle.GrabType))
                 {
                     return false;
                 }
@@ -159,11 +159,6 @@ namespace Hand
         
             CheckQueue();
             return true;
-        }
-
-        private bool HasEnoughTime(float distance, GrabType grabType)
-        {
-            return _handHasEnoughTime.IsValid(distance, grabType);
         }
 
         void CheckQueue()
@@ -183,22 +178,6 @@ namespace Hand
             StartCoroutine(PerformAnimations());
         }
 
-
-        private bool IsReadyForGrab(Obstacle obstacle)
-        { 
-            return _handIsReadyForGrab.IsValid(obstacle.transform.position.z, obstacle.GrabType);   
-        }
-
-        private bool IsObstacleStillValid(Obstacle obstacle)
-        {
-            if (!obstacle)
-            {
-                Debug.Log("Obstacle doesn't exist");
-                return false;
-            }
-            return _handIsObstacleStillValid.IsValid(obstacle.transform.position.z, default);
-        }
-
         private bool _timeToDoObjectThing = false;
         private bool _hasAnimationEnded = false;
         private IEnumerator PerformAnimations()
@@ -208,7 +187,8 @@ namespace Hand
             _mesh.enabled = true;
 
             yield return new WaitUntil(() => MoveToPositionFromPosition(_hiddenPosition, _idlePosition));
-            if (!IsObstacleStillValid(_nextObstacle))
+            if (!_nextObstacle || 
+                !_isObstacleValidStrategy.IsValid(_nextObstacle.transform.position.z, default))
             {
                 Debug.LogError("The obstacle is not at a valid position for grabbing (ignorable error)");
                 transform.position = _idlePosition;
@@ -220,7 +200,8 @@ namespace Hand
             }
 
             transform.position = _idlePosition;
-            yield return new WaitUntil(() => IsReadyForGrab(_nextObstacle));
+            yield return new WaitUntil(() => _isReadyForGrabStrategy
+                .IsValid(_nextObstacle.transform.position.z, _nextObstacle.GrabType));
         
         
             transform.position = _animationPosition;

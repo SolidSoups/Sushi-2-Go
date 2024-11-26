@@ -9,7 +9,7 @@ namespace Hand
     public bool IsValid(float distance, GrabType grabType);
   }
 
-  public class HandIsObstacleStillValid : IHandValidator
+  public class IsObstacleValidStrategy : IHandValidator
   {
     public static float MyZPosition;
     
@@ -20,14 +20,14 @@ namespace Hand
   }
   
   
-  public class HandIsReadyForGrab : IHandValidator
+  public class IsReadyForGrabStrategy : IHandValidator
   {
     readonly SpeedController _speedController;
     public static float MyZPosition;
     public static float GrabAnimationTiming;
     public static float PlaceAnimationTiming;
 
-    public HandIsReadyForGrab(SpeedController speedController)
+    public IsReadyForGrabStrategy(SpeedController speedController)
     {
       _speedController = speedController;
     }
@@ -42,7 +42,7 @@ namespace Hand
     }
   }
   
-  public class HandHasEnoughTime : IHandValidator
+  public class HasEnoughTimeStrategy : IHandValidator
   {
     readonly SpeedController _speedController;
     readonly DifficultyController _difficultyController;
@@ -51,7 +51,7 @@ namespace Hand
     public static float GrabAnimationTiming;
     public static float PlaceAnimationTiming;
 
-    public HandHasEnoughTime(SpeedController speedController, DifficultyController difficultyController)
+    public HasEnoughTimeStrategy(SpeedController speedController, DifficultyController difficultyController)
     {
       _speedController = speedController;
       _difficultyController = difficultyController;
