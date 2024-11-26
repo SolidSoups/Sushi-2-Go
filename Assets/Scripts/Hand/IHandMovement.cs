@@ -1,4 +1,5 @@
 ﻿using Controllers;
+using MySingelton;
 using UnityEngine;
 
 namespace Hand
@@ -11,16 +12,11 @@ namespace Hand
 
   public class MoveHandStrategy : IHandMovement
   {
-    readonly DifficultyController _difficultyController;
+    readonly DifficultyController _difficultyController = Singelton.Instance.DifficultyController;
     public float HiddenToIdleSpeed;
     public Vector3 HiddenPosition;
     public Vector3 IdlePosition;
     public Transform HandTransform;
-
-    public MoveHandStrategy(DifficultyController difficultyController)
-    {
-      _difficultyController = difficultyController;
-    }
 
     private bool MoveFromPositionToPosition(Vector3 fromPosition, Vector3 toPosition)
     {

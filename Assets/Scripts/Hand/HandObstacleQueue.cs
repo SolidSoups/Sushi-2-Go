@@ -11,24 +11,19 @@ namespace Hand
         
     private LinkedList<Obstacle> _obstacleList = new LinkedList<Obstacle>();
 
-    public Obstacle NextObstacle { get; private set; } = null;
+    // TODO should be private setter
+    public Obstacle NextObstacle { get;  private set; } = null;
 
-    
-    // refactoring methods
-    public void AddLast(Obstacle obstacle) => _obstacleList.AddLast(obstacle);
-    public int Count => _obstacleList.Count;
-    public Obstacle Last => _obstacleList.Last.Value;
-    public Obstacle First => _obstacleList.First.Value;
-    public void RemoveFirst() => _obstacleList.RemoveFirst();
-    
-    
-    
-    
+    public bool CanDequeue()
+    {
+      return !NextObstacle && _obstacleList.Count > 0;
+    }
+
+    public void ClearNextObstacle() => NextObstacle = null;
     
     public bool TryDequeueNextObstacle()
     {
-      NextObstacle = null;
-      if (_obstacleList.Count == 0 )
+      if (!CanDequeue())
         return false;
      
       NextObstacle = _obstacleList.First.Value;
@@ -46,6 +41,7 @@ namespace Hand
     {
       if (!CanAttachObstacle(obstacle))
         return false;
+      
       _obstacleList.AddLast(obstacle);
 
       // TODO, where should this go???

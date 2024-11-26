@@ -50,13 +50,12 @@ namespace Hand
         // VALIDATION STRATEGIES
         private IHandValidator _hasEnoughTimeStrategy;
         private IHandValidator _isReadyForGrabStrategy;
-        private IHandValidator _isObstacleValidStrategy;
         // HAND MOVEMENT STRATEGIES
         private IHandMovement _movementStrategy;
         
 
         // next obstacle data
-        private Obstacle _nextObstacle;
+        //private Obstacle _nextObstacle;
         private Obstacle _obstacleCopy;
         private Renderer _nextObstacleRenderer;
         private Renderer _obstacleCopyRenderer;
@@ -80,26 +79,19 @@ namespace Hand
         private void Start()
         {
             // Initialize validation strategies
-            _hasEnoughTimeStrategy = new HasEnoughTimeStrategy(
-                Singelton.Instance.SpeedController,
-                Singelton.Instance.DifficultyController
-            );
+            _hasEnoughTimeStrategy = new HasEnoughTimeStrategy();
             HasEnoughTimeStrategy.HiddenToIdleDistance = Mathf.Abs(_handData.IdlePosition.x - _handData.HiddenPosition.x);
             HasEnoughTimeStrategy.HiddenToIdleSpeed = _handData.MovementSpeed;
             HasEnoughTimeStrategy.GrabAnimationTiming = _handData.GrabAnimationTiming;
             HasEnoughTimeStrategy.PlaceAnimationTiming = _handData.PlaceAnimationTiming;
 
-            _isReadyForGrabStrategy = new IsReadyForGrabStrategy(
-                Singelton.Instance.SpeedController
-            );
+            _isReadyForGrabStrategy = new IsReadyForGrabStrategy();
             IsReadyForGrabStrategy.MyZPosition = transform.position.z;
             IsReadyForGrabStrategy.GrabAnimationTiming = _handData.GrabAnimationTiming;
             IsReadyForGrabStrategy.PlaceAnimationTiming = _handData.PlaceAnimationTiming;
 
-            _isObstacleValidStrategy = new IsObstacleValidStrategy();
-            IsObstacleValidStrategy.MyZPosition = transform.position.z;
             // Initialize movement strategy
-            _movementStrategy = new MoveHandStrategy(Singelton.Instance.DifficultyController)
+            _movementStrategy = new MoveHandStrategy
             {
                 HiddenToIdleSpeed = _handData.MovementSpeed,
                 HiddenPosition = _handData.HiddenPosition,
@@ -115,71 +107,33 @@ namespace Hand
             _animator.speed = _diffC.SpeedScale;
         }
 
-        private bool useOld;
+
         public bool TryAttachObstacle(Obstacle obstacle)
         {
-            if (!CanAttachObstacle(obstacle))
-                return false;
-            
-            if(useOld)
-                ObstacleList.AddLast(obstacle);
-            else
-                _handObstacleQueue.AddLast(obstacle);
-        
-            if (obstacle.GrabType == GrabType.PLACED)
+            bool returnValue = _handObstacleQueue.TryAddObstacleLast(obstacle);
+            if (returnValue)
             {
-                obstacle.IsVisible = false;
+                CheckQueue();
+                return true;
             }
-        
-            CheckQueue();
-            return true;
+
+            return false;
         }
-        public bool CanAttachObstacle(Obstacle obstacle)
-        {
-            float distance = obstacle.transform.position.z - transform.position.z;
-
-            if (distance <= 0)
-                return false;
-        
-            if (!_hasEnoughTimeStrategy.IsValid(distance, obstacle.GrabType))
-                return false;
-
-            int count = useOld ? ObstacleList.Count : _handObstacleQueue.Count;
-            if (count != 0)
-            {
-                Obstacle lastObstacle = useOld? ObstacleList.Last.Value : _handObstacleQueue.Last;
-                float lDist = obstacle.transform.position.z - lastObstacle.transform.position.z;
-                if (!_hasEnoughTimeStrategy.IsValid(lDist, obstacle.GrabType))
-                    return false;
-            }
-            else if(_nextObstacle)
-            {
-                float nDist = obstacle.transform.position.z - _nextObstacle.transform.position.z;
-                if (!_hasEnoughTimeStrategy.IsValid(nDist, obstacle.GrabType))
-                    return false;
-            }
-
-            return true;
-        }
-        
 
         void CheckQueue()
         {
-            int count = useOld? ObstacleList.Count : _handObstacleQueue.Count;
-            if (_nextObstacle || count == 0 || IsPlaying)
+            if (IsPlaying)
                 return;
 
-            _nextObstacle = useOld? ObstacleList.First.Value : _handObstacleQueue.First;
+            if (!_handObstacleQueue.TryDequeueNextObstacle())
+                return;
+
             // create a copy
-            _obstacleCopy = Instantiate(_nextObstacle);
+            _obstacleCopy = Instantiate(_handObstacleQueue.NextObstacle);//_nextObstacle);
             _obstacleCopy.transform.parent = _handBone.transform;
             _obstacleCopy.transform.position = new Vector3(0, -3.33f, 33f);
             _obstacleCopy.IsVisible = false;
         
-            if(useOld)
-                ObstacleList.RemoveFirst();
-            else
-                _handObstacleQueue.RemoveFirst();
             StartCoroutine(PerformAnimations());
         }
 
@@ -190,11 +144,13 @@ namespace Hand
             IsPlaying = true;
             transform.position = _handData.HiddenPosition;
             _mesh.enabled = true;
+            Obstacle nextObstacle = _handObstacleQueue.NextObstacle;
 
             yield return new WaitUntil(() => _movementStrategy.MoveFromHiddenToIdle());
-            if (!_nextObstacle || 
-                !_isObstacleValidStrategy.IsValid(_nextObstacle.transform.position.z, default))
+            if (!nextObstacle || nextObstacle.transform.position.z - transform.position.z <= 0 )
             {
+                Debug.Log($"!Next Obstacle: {!nextObstacle}");
+                Debug.Log($"obstacle Z: {nextObstacle.transform.position.z} - transform z : {transform.position.z}");
                 Debug.LogError("The obstacle is not at a valid position for grabbing (ignorable error)");
                 transform.position = _handData.IdlePosition;
                 yield return new WaitUntil(() => _movementStrategy.MoveFromIdleToHidden());
@@ -206,11 +162,11 @@ namespace Hand
 
             transform.position = _handData.IdlePosition;
             yield return new WaitUntil(() => _isReadyForGrabStrategy
-                .IsValid(_nextObstacle.transform.position.z, _nextObstacle.GrabType));
+                .IsValid(nextObstacle.transform.position.z, nextObstacle.GrabType));
         
         
             transform.position = _handData.AnimationPosition;
-            if(_nextObstacle.GrabType == GrabType.PLACED)
+            if(nextObstacle.GrabType == GrabType.PLACED)
             {
                 _obstacleCopy.IsVisible = true;
                 _animator.SetTrigger("DoPlace");
@@ -223,16 +179,16 @@ namespace Hand
             _timeToDoObjectThing = false;
             yield return new WaitUntil(() => _timeToDoObjectThing);
 
-            if (_nextObstacle.GrabType == GrabType.GRABBED)
+            if (nextObstacle.GrabType == GrabType.GRABBED)
             {
-                _nextObstacle.IsVisible = false;
+                nextObstacle.IsVisible = false;
                 _obstacleCopy.IsVisible = true;
                 _obstacleCopy.transform.localPosition = Vector3.zero;
                 OnPlaySound?.Raise(this, _grabSound); 
             }
-            else if(_nextObstacle.GrabType == GrabType.PLACED)
+            else if(nextObstacle.GrabType == GrabType.PLACED)
             {
-                _nextObstacle.IsVisible = true;
+                nextObstacle.IsVisible = true;
                 _obstacleCopy.IsVisible = false;
                 OnPlaySound?.Raise(this, _placeSound);
             }
@@ -253,9 +209,10 @@ namespace Hand
         {
             Destroy(_obstacleCopy.gameObject);
             // reset values
-            _nextObstacle = null;
+            _handObstacleQueue.ClearNextObstacle();
+
             //_nextGrabType = GrabType.NONE;
-        
+
         }
 
         public void OnHandAnimationEnd()
@@ -270,7 +227,7 @@ namespace Hand
 
         public void HideObstacle()
         {
-            _nextObstacle.IsVisible = false;
+            _handObstacleQueue.NextObstacle.IsVisible = false;
             _obstacleCopy.IsVisible = false;
             _mesh.enabled = false;
         }

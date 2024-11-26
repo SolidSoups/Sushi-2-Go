@@ -1,4 +1,5 @@
 ﻿using Controllers;
+using MySingelton;
 using Sets;
 using UnityEngine;
 
@@ -8,30 +9,14 @@ namespace Hand
   {
     public bool IsValid(float distance, GrabType grabType);
   }
-
-  public class IsObstacleValidStrategy : IHandValidator
-  {
-    public static float MyZPosition;
-    
-    public bool IsValid(float distance, GrabType _)
-    {
-      return (distance - MyZPosition) >= 0;
-    }
-  }
-  
   
   public class IsReadyForGrabStrategy : IHandValidator
   {
-    readonly SpeedController _speedController;
+    readonly SpeedController _speedController = Singelton.Instance.SpeedController;
     public static float MyZPosition;
     public static float GrabAnimationTiming;
     public static float PlaceAnimationTiming;
 
-    public IsReadyForGrabStrategy(SpeedController speedController)
-    {
-      _speedController = speedController;
-    }
-    
     public bool IsValid(float distance, GrabType grabType)
     {
       float timing = grabType == GrabType.GRABBED ? GrabAnimationTiming : PlaceAnimationTiming;
@@ -44,19 +29,13 @@ namespace Hand
   
   public class HasEnoughTimeStrategy : IHandValidator
   {
-    readonly SpeedController _speedController;
-    readonly DifficultyController _difficultyController;
+    readonly SpeedController _speedController = Singelton.Instance.SpeedController;
+    readonly DifficultyController _difficultyController = Singelton.Instance.DifficultyController;
     public static float HiddenToIdleDistance;
     public static float HiddenToIdleSpeed;
     public static float GrabAnimationTiming;
     public static float PlaceAnimationTiming;
 
-    public HasEnoughTimeStrategy(SpeedController speedController, DifficultyController difficultyController)
-    {
-      _speedController = speedController;
-      _difficultyController = difficultyController;
-    }
-        
     public bool IsValid(float distance, GrabType grabType)
     {
       float secondsToShow = HiddenToIdleDistance / (HiddenToIdleSpeed * _difficultyController.SpeedScale);
