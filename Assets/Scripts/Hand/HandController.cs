@@ -22,9 +22,10 @@ namespace Hand
         [SerializeField] private float _hiddenToIdleSpeed = 2f;
         private float _currentHiddenToIdleSpeed;
     
+        [FormerlySerializedAs("_animationTiming")]
         [Header("Timing")] 
-        [SerializeField] private float _animationTiming = 0.6f;
-        [SerializeField] private float _placeTiming = 0.5f;
+        [SerializeField] private float _grabAnimationTiming = 0.6f;
+        [FormerlySerializedAs("_placeTiming")] [SerializeField] private float _placeAnimationTiming = 0.5f;
 
         [Header("Events")] 
         public GameEvent OnPlaySound;
@@ -41,12 +42,12 @@ namespace Hand
                 switch (_nextGrabType)
                 {
                     case GrabType.PLACED:
-                        return _placeTiming / _diffC.SpeedScale;
+                        return _placeAnimationTiming / _diffC.SpeedScale;
                     case GrabType.GRABBED:
-                        return _animationTiming / _diffC.SpeedScale;
+                        return _grabAnimationTiming / _diffC.SpeedScale;
                 }
 
-                return Mathf.Max(_animationTiming, _placeTiming) / _diffC.SpeedScale;
+                return Mathf.Max(_grabAnimationTiming, _placeAnimationTiming) / _diffC.SpeedScale;
             }
         }
         private float _currentAnimationTiming;
@@ -54,7 +55,8 @@ namespace Hand
         public bool IsPlaying { get; private set; }
         
         // STRATEGIES
-        private IHandValidator _handValidator;
+        private IHandValidator _handHasEnoughTime;
+        private IHandValidator _handIsReadyForGrab;
     
         [Header("Positions")] 
         [SerializeField] private Vector3 _hiddenPosition;
@@ -74,21 +76,28 @@ namespace Hand
         {
             _mesh.enabled = false;
             _currentHiddenToIdleSpeed = _hiddenToIdleSpeed;
-            _currentAnimationTiming = _animationTiming;
+            _currentAnimationTiming = _grabAnimationTiming;
             _diffC = Singelton.Instance.DifficultyController;
         }
 
         private void Start()
         {
             // Initialize strategy
-            _handValidator = new HandHasEnoughTime(
+            _handHasEnoughTime = new HandHasEnoughTime(
                 Singelton.Instance.SpeedController,
                 Singelton.Instance.DifficultyController
             );
             HandHasEnoughTime.HiddenToIdleDistance = Mathf.Abs(_idlePosition.x - _hiddenPosition.x);
             HandHasEnoughTime.HiddenToIdleSpeed = _hiddenToIdleSpeed;
-            HandHasEnoughTime.GrabAnimationTiming = _animationTiming;
-            HandHasEnoughTime.PlaceAnimationTiming = _placeTiming;
+            HandHasEnoughTime.GrabAnimationTiming = _grabAnimationTiming;
+            HandHasEnoughTime.PlaceAnimationTiming = _placeAnimationTiming;
+
+            _handIsReadyForGrab = new HandIsReadyForGrab(
+                Singelton.Instance.SpeedController
+            );
+            HandIsReadyForGrab.MyZPosition = transform.position.z;
+            HandIsReadyForGrab.GrabAnimationTiming = _grabAnimationTiming;
+            HandIsReadyForGrab.PlaceAnimationTiming = _placeAnimationTiming;
         }
 
         private void Update()
@@ -150,12 +159,12 @@ namespace Hand
 
         private bool HasEnoughTime(float distance, GrabType grabType)
         {
-            HandHasEnoughTimeArguments newArgs = new HandHasEnoughTimeArguments
+            DistanceAndGrabTypeArguments newArgs = new DistanceAndGrabTypeArguments
             {
-                DistanceToObstacle = distance,
+                Distance = distance,
                 GrabType = grabType
             };
-            return _handValidator.IsValid(newArgs);
+            return _handHasEnoughTime.IsValid(newArgs);
         }
 
         void CheckQueue()
@@ -175,15 +184,15 @@ namespace Hand
             StartCoroutine(PerformAnimations());
         }
 
+
         private bool IsReadyForGrab(Obstacle obstacle)
-        {
-            float d = Singelton.Instance.SpeedController.Speed * _currentAnimationTiming +
-                      (Singelton.Instance.SpeedController.Acceleration * _currentAnimationTiming * _currentAnimationTiming) / 2f;
-            float zPos = transform.position.z;
-            float oZPos = obstacle.transform.position.z;
-            if (oZPos - zPos <= d)
-                return true;
-            return false;
+        { 
+            DistanceAndGrabTypeArguments args = new DistanceAndGrabTypeArguments()
+            {
+                Distance = obstacle.transform.position.z,
+                GrabType = obstacle.GrabType
+            };
+            return _handIsReadyForGrab.IsValid(args);   
         }
 
         private bool IsObstacleStillValid(Obstacle obstacle)
