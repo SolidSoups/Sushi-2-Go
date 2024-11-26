@@ -1253,6 +1253,10 @@ PrefabInstance:
       value: Left Hand
       objectReference: {fileID: 0}
     - target: {fileID: 2097078248159426338, guid: ddde6e8b28f942747b9caa1208d1ff74, type: 3}
+      propertyPath: _handData
+      value: 
+      objectReference: {fileID: 11400000, guid: d4a5c8b9e7ac23a4c82d9ae8a6204dba, type: 2}
+    - target: {fileID: 2097078248159426338, guid: ddde6e8b28f942747b9caa1208d1ff74, type: 3}
       propertyPath: _handName
       value: Left
       objectReference: {fileID: 0}
@@ -1291,6 +1295,14 @@ PrefabInstance:
     - target: {fileID: 2097078248159426338, guid: ddde6e8b28f942747b9caa1208d1ff74, type: 3}
       propertyPath: _animationPosition.z
       value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 2097078248159426338, guid: ddde6e8b28f942747b9caa1208d1ff74, type: 3}
+      propertyPath: _grabAnimationTiming
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2097078248159426338, guid: ddde6e8b28f942747b9caa1208d1ff74, type: 3}
+      propertyPath: _placeAnimationTiming
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8348797882044165656, guid: ddde6e8b28f942747b9caa1208d1ff74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1931,7 +1943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4457232120661604458, guid: 1ec8e300c76d1ea42a5825e29f7e175c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 4.999878
+      value: 4.9999084
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3086,6 +3098,10 @@ PrefabInstance:
       value: Right Hand
       objectReference: {fileID: 0}
     - target: {fileID: 2097078248159426338, guid: ddde6e8b28f942747b9caa1208d1ff74, type: 3}
+      propertyPath: _handData
+      value: 
+      objectReference: {fileID: 11400000, guid: 66bdbd105108ff648ab45232036c998d, type: 2}
+    - target: {fileID: 2097078248159426338, guid: ddde6e8b28f942747b9caa1208d1ff74, type: 3}
       propertyPath: _handName
       value: Right
       objectReference: {fileID: 0}
@@ -3116,6 +3132,14 @@ PrefabInstance:
     - target: {fileID: 2097078248159426338, guid: ddde6e8b28f942747b9caa1208d1ff74, type: 3}
       propertyPath: _animationPosition.z
       value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 2097078248159426338, guid: ddde6e8b28f942747b9caa1208d1ff74, type: 3}
+      propertyPath: _grabAnimationTiming
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2097078248159426338, guid: ddde6e8b28f942747b9caa1208d1ff74, type: 3}
+      propertyPath: _placeAnimationTiming
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8348797882044165656, guid: ddde6e8b28f942747b9caa1208d1ff74, type: 3}
       propertyPath: m_LocalPosition.x
