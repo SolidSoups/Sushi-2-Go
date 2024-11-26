@@ -27,18 +27,16 @@ namespace Hand
         public Vector3 IdlePosition;
         public Vector3 AnimationPosition;
     }
-    
-    
+
     public class HandController : MonoBehaviour
     {
-        private bool useOld;
+        private Animator _animator;
+        private SkinnedMeshRenderer _mesh;
         
         [Header("Hand Data")]
         [SerializeField] private HandData _handData;
         
         [Header("References")]
-        [SerializeField] private Animator _animator;
-        [SerializeField] private SkinnedMeshRenderer _mesh;
         [FormerlySerializedAs("_bone")] [SerializeField] private GameObject _handBone;
 
         [Header("Events")] 
@@ -48,9 +46,6 @@ namespace Hand
         public string _placeSound;
         public string _grabSound;
         public string _scarySound;
-
-
-        public bool IsPlaying { get; private set; }
         
         // VALIDATION STRATEGIES
         private IHandValidator _hasEnoughTimeStrategy;
@@ -58,21 +53,29 @@ namespace Hand
         private IHandValidator _isObstacleValidStrategy;
         // HAND MOVEMENT STRATEGIES
         private IHandMovement _movementStrategy;
+        
 
+        // next obstacle data
         private Obstacle _nextObstacle;
-        private GrabType _nextGrabType;
         private Obstacle _obstacleCopy;
         private Renderer _nextObstacleRenderer;
         private Renderer _obstacleCopyRenderer;
+        // Handqueue
         private LinkedList<Obstacle> ObstacleList = new LinkedList<Obstacle>();
+        private HandObstacleQueue _handObstacleQueue;
     
         private DifficultyController _diffC;
+        public bool IsPlaying { get; private set; }
 
         private void Awake()
         {
-            _mesh.enabled = false;
             _diffC = Singelton.Instance.DifficultyController;
-        }
+            
+            // get references
+            _animator = GetComponentInChildren<Animator>();
+            _mesh = GetComponentInChildren<SkinnedMeshRenderer>();
+            _mesh.enabled = false;
+        }   
 
         private void Start()
         {
@@ -103,6 +106,8 @@ namespace Hand
                 IdlePosition = _handData.IdlePosition,
                 HandTransform = transform
             };
+
+            _handObstacleQueue = new HandObstacleQueue(transform, _hasEnoughTimeStrategy);
         }
 
         private void Update()
@@ -110,11 +115,16 @@ namespace Hand
             _animator.speed = _diffC.SpeedScale;
         }
 
+        private bool useOld;
         public bool TryAttachObstacle(Obstacle obstacle)
         {
             if (!CanAttachObstacle(obstacle))
                 return false;
-            ObstacleList.AddLast(obstacle);
+            
+            if(useOld)
+                ObstacleList.AddLast(obstacle);
+            else
+                _handObstacleQueue.AddLast(obstacle);
         
             if (obstacle.GrabType == GrabType.PLACED)
             {
@@ -134,9 +144,10 @@ namespace Hand
             if (!_hasEnoughTimeStrategy.IsValid(distance, obstacle.GrabType))
                 return false;
 
-            if (ObstacleList.Count != 0)
+            int count = useOld ? ObstacleList.Count : _handObstacleQueue.Count;
+            if (count != 0)
             {
-                Obstacle lastObstacle = ObstacleList.Last.Value;
+                Obstacle lastObstacle = useOld? ObstacleList.Last.Value : _handObstacleQueue.Last;
                 float lDist = obstacle.transform.position.z - lastObstacle.transform.position.z;
                 if (!_hasEnoughTimeStrategy.IsValid(lDist, obstacle.GrabType))
                     return false;
@@ -154,18 +165,21 @@ namespace Hand
 
         void CheckQueue()
         {
-            if (_nextObstacle || ObstacleList.Count == 0 || IsPlaying)
+            int count = useOld? ObstacleList.Count : _handObstacleQueue.Count;
+            if (_nextObstacle || count == 0 || IsPlaying)
                 return;
 
-            _nextObstacle = ObstacleList.First.Value;
-            _nextGrabType = _nextObstacle.GrabType;
+            _nextObstacle = useOld? ObstacleList.First.Value : _handObstacleQueue.First;
             // create a copy
             _obstacleCopy = Instantiate(_nextObstacle);
             _obstacleCopy.transform.parent = _handBone.transform;
             _obstacleCopy.transform.position = new Vector3(0, -3.33f, 33f);
             _obstacleCopy.IsVisible = false;
         
-            ObstacleList.RemoveFirst();
+            if(useOld)
+                ObstacleList.RemoveFirst();
+            else
+                _handObstacleQueue.RemoveFirst();
             StartCoroutine(PerformAnimations());
         }
 
@@ -196,7 +210,7 @@ namespace Hand
         
         
             transform.position = _handData.AnimationPosition;
-            if(_nextGrabType == GrabType.PLACED)
+            if(_nextObstacle.GrabType == GrabType.PLACED)
             {
                 _obstacleCopy.IsVisible = true;
                 _animator.SetTrigger("DoPlace");
@@ -209,14 +223,14 @@ namespace Hand
             _timeToDoObjectThing = false;
             yield return new WaitUntil(() => _timeToDoObjectThing);
 
-            if (_nextGrabType == GrabType.GRABBED)
+            if (_nextObstacle.GrabType == GrabType.GRABBED)
             {
                 _nextObstacle.IsVisible = false;
                 _obstacleCopy.IsVisible = true;
                 _obstacleCopy.transform.localPosition = Vector3.zero;
                 OnPlaySound?.Raise(this, _grabSound); 
             }
-            else if(_nextGrabType == GrabType.PLACED)
+            else if(_nextObstacle.GrabType == GrabType.PLACED)
             {
                 _nextObstacle.IsVisible = true;
                 _obstacleCopy.IsVisible = false;
@@ -240,7 +254,7 @@ namespace Hand
             Destroy(_obstacleCopy.gameObject);
             // reset values
             _nextObstacle = null;
-            _nextGrabType = GrabType.NONE;
+            //_nextGrabType = GrabType.NONE;
         
         }
 
