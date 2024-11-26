@@ -57,6 +57,7 @@ namespace Hand
         // STRATEGIES
         private IHandValidator _handHasEnoughTime;
         private IHandValidator _handIsReadyForGrab;
+        private IHandValidator _handIsObstacleStillValid;
     
         [Header("Positions")] 
         [SerializeField] private Vector3 _hiddenPosition;
@@ -98,6 +99,9 @@ namespace Hand
             HandIsReadyForGrab.MyZPosition = transform.position.z;
             HandIsReadyForGrab.GrabAnimationTiming = _grabAnimationTiming;
             HandIsReadyForGrab.PlaceAnimationTiming = _placeAnimationTiming;
+
+            _handIsObstacleStillValid = new HandIsObstacleStillValid();
+            HandIsObstacleStillValid.MyZPosition = transform.position.z;
         }
 
         private void Update()
@@ -159,12 +163,7 @@ namespace Hand
 
         private bool HasEnoughTime(float distance, GrabType grabType)
         {
-            DistanceAndGrabTypeArguments newArgs = new DistanceAndGrabTypeArguments
-            {
-                Distance = distance,
-                GrabType = grabType
-            };
-            return _handHasEnoughTime.IsValid(newArgs);
+            return _handHasEnoughTime.IsValid(distance, grabType);
         }
 
         void CheckQueue()
@@ -187,12 +186,7 @@ namespace Hand
 
         private bool IsReadyForGrab(Obstacle obstacle)
         { 
-            DistanceAndGrabTypeArguments args = new DistanceAndGrabTypeArguments()
-            {
-                Distance = obstacle.transform.position.z,
-                GrabType = obstacle.GrabType
-            };
-            return _handIsReadyForGrab.IsValid(args);   
+            return _handIsReadyForGrab.IsValid(obstacle.transform.position.z, obstacle.GrabType);   
         }
 
         private bool IsObstacleStillValid(Obstacle obstacle)
@@ -202,9 +196,7 @@ namespace Hand
                 Debug.Log("Obstacle doesn't exist");
                 return false;
             }
-            float myZPosition = transform.position.z;
-            float obstacleZPosition = obstacle.transform.position.z;
-            return (obstacleZPosition - myZPosition) >= 0;
+            return _handIsObstacleStillValid.IsValid(obstacle.transform.position.z, default);
         }
 
         private bool _timeToDoObjectThing = false;
