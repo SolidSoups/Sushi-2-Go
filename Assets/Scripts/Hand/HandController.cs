@@ -54,10 +54,12 @@ namespace Hand
 
         public bool IsPlaying { get; private set; }
         
-        // STRATEGIES
+        // VALIDATION STRATEGIES
         private IHandValidator _hasEnoughTimeStrategy;
         private IHandValidator _isReadyForGrabStrategy;
         private IHandValidator _isObstacleValidStrategy;
+        // HAND MOVEMENT STRATEGIES
+        private IHandMovement _movementStrategy;
     
         [Header("Positions")] 
         [SerializeField] private Vector3 _hiddenPosition;
@@ -83,7 +85,7 @@ namespace Hand
 
         private void Start()
         {
-            // Initialize strategies
+            // Initialize validation strategies
             _hasEnoughTimeStrategy = new HasEnoughTimeStrategy(
                 Singelton.Instance.SpeedController,
                 Singelton.Instance.DifficultyController
@@ -102,6 +104,14 @@ namespace Hand
 
             _isObstacleValidStrategy = new IsObstacleValidStrategy();
             IsObstacleValidStrategy.MyZPosition = transform.position.z;
+            // Initialize movement strategy
+            _movementStrategy = new MoveHandStrategy(Singelton.Instance.DifficultyController)
+            {
+                HiddenToIdleSpeed = _hiddenToIdleSpeed,
+                HiddenPosition = _hiddenPosition,
+                IdlePosition = _idlePosition,
+                HandTransform = transform
+            };
         }
 
         private void Update()
@@ -186,13 +196,13 @@ namespace Hand
             transform.position = _hiddenPosition;
             _mesh.enabled = true;
 
-            yield return new WaitUntil(() => MoveToPositionFromPosition(_hiddenPosition, _idlePosition));
+            yield return new WaitUntil(() => _movementStrategy.MoveFromHiddenToIdle());
             if (!_nextObstacle || 
                 !_isObstacleValidStrategy.IsValid(_nextObstacle.transform.position.z, default))
             {
                 Debug.LogError("The obstacle is not at a valid position for grabbing (ignorable error)");
                 transform.position = _idlePosition;
-                yield return new WaitUntil(() => MoveToPositionFromPosition(_idlePosition, _hiddenPosition));
+                yield return new WaitUntil(() => _movementStrategy.MoveFromIdleToHidden());
                 IsPlaying = false;
                 _mesh.enabled = false;
                 DropObstacle();
@@ -251,24 +261,6 @@ namespace Hand
             _nextObstacle = null;
             _nextGrabType = GrabType.NONE;
         
-        }
-    
-
-        private bool MoveToPositionFromPosition(Vector3 fromPosition, Vector3 toPosition)
-        {
-            float diff = toPosition.x - fromPosition.x;
-            Vector3 dir = diff > 0 ? Vector3.right : Vector3.left; 
-            Vector3 position = transform.position;
-            position += dir * (_currentHiddenToIdleSpeed * Time.deltaTime);
-            transform.position = position;
-        
-            if(dir == Vector3.left && transform.position.x < toPosition.x ||
-               dir == Vector3.right && transform.position.x > toPosition.x)
-            {
-                return true;
-            }
-
-            return false;
         }
 
         public void OnHandAnimationEnd()
