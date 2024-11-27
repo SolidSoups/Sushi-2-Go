@@ -8,50 +8,38 @@ namespace Hand
   {
     private readonly Transform _transform;
     private readonly IHandValidator _hasEnoughTimeStrategy;
-        
-    private LinkedList<Obstacle> _obstacleList = new LinkedList<Obstacle>();
-
-    // TODO should be private setter
-    public Obstacle NextObstacle { get;  private set; } = null;
-
-    public bool CanDequeue()
-    {
-      return !NextObstacle && _obstacleList.Count > 0;
-    }
-
-    public void ClearNextObstacle() => NextObstacle = null;
+    private readonly LinkedList<Obstacle> _obstacleList = new();
     
-    public bool TryDequeueNextObstacle()
-    {
-      if (!CanDequeue())
-        return false;
-     
-      NextObstacle = _obstacleList.First.Value;
-      _obstacleList.RemoveFirst();
-      return NextObstacle || TryDequeueNextObstacle();
-    }
-
+    
     public HandObstacleQueue(Transform transform, IHandValidator hasEnoughTimeStrategy)
     {
       _transform = transform;
       _hasEnoughTimeStrategy = hasEnoughTimeStrategy;
     }
 
-    public bool TryAddObstacleLast(Obstacle obstacle)
+    public bool TryDequeueNextObstacle(out Obstacle nextObstacle)
     {
-      if (!CanAttachObstacle(obstacle))
+      nextObstacle = null;
+      if(_obstacleList.Count == 0)
+        return false;
+     
+      nextObstacle = _obstacleList.First.Value;
+      _obstacleList.RemoveFirst();
+      return nextObstacle || TryDequeueNextObstacle(out nextObstacle);
+    }
+
+
+    public bool TryAddObstacleLast(Obstacle obstacle, Obstacle nextObstacle)
+    {
+      if (!CanAttachObstacle(obstacle, nextObstacle))
         return false;
       
       _obstacleList.AddLast(obstacle);
 
-      // TODO, where should this go???
-      if (obstacle.GrabType == GrabType.PLACED)
-        obstacle.IsVisible = false;
-
       return true;
     }
         
-    public bool CanAttachObstacle(Obstacle obstacle)
+    public bool CanAttachObstacle(Obstacle obstacle, Obstacle nextObstacle)
     {
       float distance = obstacle.transform.position.z - _transform.position.z;
 
@@ -67,9 +55,9 @@ namespace Hand
         if (!_hasEnoughTimeStrategy.IsValid(lDist, obstacle.GrabType))
           return false;
       }
-      else if(NextObstacle)
+      else if(nextObstacle)
       {
-        float nDist = obstacle.transform.position.z - NextObstacle.transform.position.z;
+        float nDist = obstacle.transform.position.z - nextObstacle.transform.position.z;
         if (!_hasEnoughTimeStrategy.IsValid(nDist, obstacle.GrabType))
           return false;
       }
