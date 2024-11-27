@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Events;
 using Player;
@@ -14,6 +15,7 @@ namespace State_Machine.GameStates
         [SerializeField] private UI_PlayerCanvas uiPlayerCanvas;
         [SerializeField] private CameraController _cameraController;
         [SerializeField] private UIbuttonFunctions _uibuttonFunctions;
+        [SerializeField] private UI_Controller _uiController;
 
         [FormerlySerializedAs("OnEnterGameOver")] [Header("Events")]
         public GameEvent OnPlaySounds;
@@ -35,7 +37,8 @@ namespace State_Machine.GameStates
             if(_deathSounds.Length != 0)
                 OnPlaySounds?.Raise(this, _deathSounds[randomIndex]);
 
-            StartCoroutine(TimedGameOverCanvas());
+            //StartCoroutine(TimedGameOverCanvas());
+            _uiController.DeathScreen.StartDelayedEnable();
         }
 
         private bool _isGameResetting = false;
