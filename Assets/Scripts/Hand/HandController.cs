@@ -50,7 +50,12 @@ namespace Hand
         private void Awake()
         {
             _animator = GetComponentInChildren<Animator>();
+            
             _handAnimationController = gameObject.AddComponent<HandAnimationController>();
+        }
+
+        private void Start()
+        {
             _handAnimationController.Initialize(_handData, _handBone);
             _handAnimationController.OnPlayScarySound += PlayScarySound;
             _handAnimationController.OnPlayGrabSound += PlayGrabSound;
