@@ -12,7 +12,6 @@ namespace State_Machine.GameStates
     {
         [Header("References")] 
         [SerializeField] private GameObject _gameOverCanvas;
-        [SerializeField] private UI_PlayerCanvas uiPlayerCanvas;
         [SerializeField] private CameraController _cameraController;
         [SerializeField] private UIbuttonFunctions _uibuttonFunctions;
         [SerializeField] private UI_Controller _uiController;

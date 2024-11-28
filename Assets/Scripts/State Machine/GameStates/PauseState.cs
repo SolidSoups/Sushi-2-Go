@@ -1,7 +1,6 @@
 using System.Collections;
 using Controllers;
 using TMPro;
-using UI;
 using UnityEngine;
 
 namespace State_Machine.GameStates
@@ -10,7 +9,6 @@ namespace State_Machine.GameStates
     {
         [SerializeField] private TextMeshProUGUI _countDownText;
         [SerializeField] private GameObject _countDownObj;
-        [SerializeField] private UI_PlayerCanvas uiPlayerCanvas;
         public GameObject PauseCanvas;
         public GameObject OptionsCanvas;
 

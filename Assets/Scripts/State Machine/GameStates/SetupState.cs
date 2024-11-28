@@ -13,7 +13,6 @@ namespace State_Machine.GameStates
     {
         [Header("Poster intro")] 
         [SerializeField] private UI_Controller _uiController;
-        [SerializeField] private GameObject _playerCanvas;
     
         public override void EnterState()
         {
@@ -29,7 +28,7 @@ namespace State_Machine.GameStates
                     {
                         _uiController.FadeToBlack.Reset();
                         _uiController.PosterIntro.gameObject.SetActive(false);
-                        _playerCanvas.SetActive(true);
+                        //_uiController.Player.gameObject.SetActive(true);
                         PlayerPrefs.SetInt("PlayPosterIntro", 0);
                         GameManager.Instance.SwitchState<PlayingState>();
                     });
@@ -37,7 +36,8 @@ namespace State_Machine.GameStates
             }
             else
             {
-                _playerCanvas.SetActive(true);
+                //_uiController.Player.gameObject.SetActive(true);
+                _uiController.PosterIntro.gameObject.SetActive(false);
                 GameManager.Instance.SwitchState<PlayingState>();
             }
         }

@@ -8,6 +8,7 @@ public class UI_Controller : MonoBehaviour
   public UI_DeathScreenCanvas DeathScreen;
   public UI_FadeToBlackCanvas FadeToBlack;
   public UI_PosterIntroCanvas PosterIntro;
+  public UI_PlayerCanvas Player;
 
   private void Awake()
   {

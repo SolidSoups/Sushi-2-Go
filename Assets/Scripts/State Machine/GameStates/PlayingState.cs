@@ -6,6 +6,7 @@ using Hand;
 using Player;
 using UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.SocialPlatforms.Impl;
 
 namespace State_Machine.GameStates
@@ -25,10 +26,9 @@ namespace State_Machine.GameStates
         
 
         [Header("UI")]
-        [SerializeField] private UI_PlayerCanvas uiPlayerCanvas;
         [SerializeField] private GameObject PauseCanvas;
         [SerializeField] private GameObject OptionsCanvas;
-        [SerializeField] private UI_Controller ui_Controller;
+        [FormerlySerializedAs("ui_Controller")] [SerializeField] private UI_Controller _uiController;
 
         [Header("Events")]
         public GameEvent OnPlayAudio;
@@ -73,8 +73,7 @@ namespace State_Machine.GameStates
             
             _conveyorController.UpdateController();
             
-            uiPlayerCanvas.SetHighScore(_scoreTimer.Score);
-            //uiPlayerCanvas.HighScoreUpdate(_scoreTimer.Score);
+            _uiController.Player.SetHighScore(_scoreTimer.Score);
             UpdatePlayerPrefsHighscore(_scoreTimer.Score);
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -103,9 +102,9 @@ namespace State_Machine.GameStates
         
             //updating the TMP
             //_finalScoreText.text = score.ToString();
-            ui_Controller.DeathScreen.SetScoreText(score);
+            _uiController.DeathScreen.SetScoreText(score);
             //_highScoreText.text =  PlayerPrefs.GetInt("SavedHighScore").ToString();
-            ui_Controller.DeathScreen.SetHighScoreText(PlayerPrefs.GetInt("SavedHighScore"));
+            _uiController.DeathScreen.SetHighScoreText(PlayerPrefs.GetInt("SavedHighScore"));
         }
 
         public override void FixedUpdateState()
