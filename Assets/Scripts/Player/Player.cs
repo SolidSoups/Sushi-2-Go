@@ -13,8 +13,7 @@ namespace Player
         // this is a player script
         [Header("References")]
         [SerializeField] private Animator _animator;
-        [SerializeField] private string _obstatransformcleTag = "Obstacle";
-    
+
         [Header("Death")]
         [SerializeField] private Transform _cameraTransform;
         [SerializeField] private float _deathFlySpeed;
