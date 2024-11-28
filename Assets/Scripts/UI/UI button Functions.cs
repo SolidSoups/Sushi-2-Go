@@ -2,13 +2,15 @@ using System.Collections;
 using State_Machine.GameStates;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace UI
 {
     public class UIbuttonFunctions : MonoBehaviour
     {
         [SerializeField] private GameObject _optionCanvas;
-        [SerializeField] private FadeToBlackCanvas _fadeToBlackCanvas;
+        [FormerlySerializedAs("_fadeToBlackCanvas")] [SerializeField] private UI_FadeToBlackCanvas uiFadeToBlackCanvas;
+        [SerializeField] private UI_Controller _uiController;
         [SerializeField] private PauseState _pauseState;
 
         public void PlayButton()
@@ -23,15 +25,8 @@ namespace UI
 
         public void ResetGame()
         {
-            StartCoroutine(RestartGame());
-        }
-
-        private IEnumerator RestartGame()
-        {
-            _fadeToBlackCanvas.gameObject.SetActive(true); 
-            _fadeToBlackCanvas.StartFade();
-            yield return new WaitUntil(() => _fadeToBlackCanvas.IsFinished);
-            SceneManager.LoadScene(1);
+            //StartCoroutine(RestartGame());
+            _uiController.FadeToBlack.StartFade( () => SceneManager.LoadScene(1));
         }
 
         public void OpenSettings()
