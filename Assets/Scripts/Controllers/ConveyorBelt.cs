@@ -71,7 +71,6 @@ namespace Controllers
       SpawnConveyors();
       GenerateXPositions();
       OnLanePositionsGenerated?.Raise(this, _xPositions);      
-      Debug.Log($"Generated {_xPositions.Length} positions ");
     }
 
     public override void FixedUpdateController()
