@@ -46,6 +46,9 @@ namespace State_Machine.GameStates
         {
             base.UpdateState();
 
+            if (!_uiController.DeathScreenMenu.IsVisible)
+                return;
+
             if (Input.GetKeyDown(KeyCode.Space) && !_isGameResetting)
             {
                 _isGameResetting = true;
@@ -55,12 +58,6 @@ namespace State_Machine.GameStates
             {
                 GameManager.Instance.MainMenuScene();
             }
-        }
-
-        private IEnumerator TimedGameOverCanvas()
-        {
-            yield return new WaitForSecondsRealtime(_gameOverCanvasTimer);
-            _gameOverCanvas.SetActive(true);
         }
     }
 }

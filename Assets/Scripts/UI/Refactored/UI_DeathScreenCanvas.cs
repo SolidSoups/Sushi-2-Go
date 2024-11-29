@@ -30,6 +30,7 @@ public class UI_DeathScreenCanvas : MonoBehaviour
 
   public void SetScoreText(int score) => _scoreText.text = score.ToString();
   public void SetHighScoreText(int score) => _highScoreText.text = score.ToString();
+  public bool IsVisible { get; private set; }
 
 
   public void StartDelayedEnable() => StartCoroutine(DelayedEnable());
@@ -37,6 +38,7 @@ public class UI_DeathScreenCanvas : MonoBehaviour
   IEnumerator DelayedEnable()
   {
     yield return new WaitForSeconds(_enableDelay);
+    IsVisible = true;
     _canvas.enabled = true;
   }
 }
