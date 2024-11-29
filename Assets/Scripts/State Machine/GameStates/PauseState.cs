@@ -1,27 +1,26 @@
+using System;
 using System.Collections;
 using Controllers;
 using TMPro;
-using UI;
 using UnityEngine;
 
 namespace State_Machine.GameStates
 {
     public class PauseState : State
     {
-        [SerializeField] private TextMeshProUGUI _countDownText;
-        [SerializeField] private GameObject _countDownObj;
-        [SerializeField] private UI_PlayerCanvas uiPlayerCanvas;
-        public GameObject PauseCanvas;
-        public GameObject OptionsCanvas;
+        [Header("References")]
+        [SerializeField] private UI_Controller _uiController;
 
-        //..
+        private void Awake()
+        {
+            _uiController.PauseMenu.OnResumeToGame = () => GameManager.Instance.SwitchState<PlayingState>();
+        }
 
         public override void EnterState()
         {
             base.EnterState();
-            PauseCanvas.SetActive(true);
+            _uiController.PauseMenu.EnablePauseMenu();
             Time.timeScale = 0f;
-            timing = false;
         }
 
         public override void UpdateState()
@@ -29,46 +28,8 @@ namespace State_Machine.GameStates
         
             base.UpdateState();
 
-            if (!timing && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space)))
-            {
-                UnPause();  
-            }
-        }
-
-        public void UnPause()
-        {
-            PauseCanvas.SetActive(false);
-            OptionsCanvas.SetActive(false);
-        
-            StartCoroutine(Timer());
-        }
-
-        public override void ExitState()
-        {
-            base.ExitState();
-
-            StopAllCoroutines();
-
-        }
-
-        private bool timing = false;
-        private IEnumerator Timer()
-        {
-            timing = true;
-            _countDownObj.SetActive(true);
-
-            _countDownText.text = "3";
-            yield return new WaitForSecondsRealtime(1f);
-
-            _countDownText.text = "2";
-            yield return new WaitForSecondsRealtime(1f);
-
-            _countDownText.text = "1";
-            yield return new WaitForSecondsRealtime(1f);
-
-            _countDownObj.SetActive(false);
-        
-            GameManager.Instance.SwitchState<PlayingState>();
+            if (Input.GetKeyDown(KeyCode.Escape))
+                _uiController.PauseMenu.OnPressedEscape();
         }
     }
 }

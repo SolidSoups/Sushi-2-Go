@@ -191,5 +191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _blackPanel: {fileID: 8215039489467903685}
-  _fadeToBlackSeconds: 2
-  _delayAfterFinishSeconds: 1
+  _canvas: {fileID: 4442601839433909237}
+  _fadeToBlackSeconds: 0.7
+  _delayAfterFinishSeconds: 0.5

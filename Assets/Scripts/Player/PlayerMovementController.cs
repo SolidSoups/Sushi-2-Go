@@ -17,9 +17,7 @@ namespace Player
         [SerializeField] private float _playerSpeed = 3.5f;
         [SerializeField] float _jumpHeight = 4.5f;
         [SerializeField] float _gravityScale = 6f;
-        [SerializeField] float _difficultyDivider = 20f;
         private float _currentGravityScale;
-        private float _currentPlayerSpeed;
 
         private DifficultyController _difficultyController;
 
@@ -27,8 +25,8 @@ namespace Player
         // private fields
         //private List<InputList> inputBuffer = new List<InputList>(); //Input buffer
         private float[] _lanePositions;
-        private bool _isMoving = false;
-        private bool _isJumping = false;
+        private bool _isMoving;
+        private bool _isJumping;
         private bool _isGrounded = true;
 
 
@@ -62,7 +60,6 @@ namespace Player
         private void Awake()
         {
            _currentGravityScale = _gravityScale;
-           _currentPlayerSpeed = _playerSpeed;
         }
 
         private void Start()
@@ -86,8 +83,7 @@ namespace Player
             if (!IsInitialized || !GameManager.Instance.IsState<PlayingState>())
                 return;
 
-            _currentGravityScale = _gravityScale * _difficultyController.SpeedScale; 
-            _currentPlayerSpeed = _playerSpeed * _difficultyController.SpeedScale;
+            _currentGravityScale = _gravityScale * _difficultyController.SpeedScale;
             _animator.speed = _difficultyController.SpeedScale;
         
             GetHorizontalInput();
@@ -179,14 +175,12 @@ namespace Player
                 int randomIndex = UnityEngine.Random.Range(0, _jumpSounds.Length);
                 OnPlayerJump?.Raise(this, null);
                 OnPlaySound?.Raise(this, _jumpSounds[randomIndex]);
-                _maxHeight = float.MinValue;
             }
 
             
         }
 
-    
-        float _maxHeight = float.MinValue;
+
         private void DoJump()
         {
         

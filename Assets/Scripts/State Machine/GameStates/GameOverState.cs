@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
+using Controllers;
 using Events;
 using Player;
 using UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 namespace State_Machine.GameStates
@@ -11,9 +14,8 @@ namespace State_Machine.GameStates
     {
         [Header("References")] 
         [SerializeField] private GameObject _gameOverCanvas;
-        [SerializeField] private UI_PlayerCanvas uiPlayerCanvas;
         [SerializeField] private CameraController _cameraController;
-        [SerializeField] private UIbuttonFunctions _uibuttonFunctions;
+        [SerializeField] private UI_Controller _uiController;
 
         [FormerlySerializedAs("OnEnterGameOver")] [Header("Events")]
         public GameEvent OnPlaySounds;
@@ -35,7 +37,8 @@ namespace State_Machine.GameStates
             if(_deathSounds.Length != 0)
                 OnPlaySounds?.Raise(this, _deathSounds[randomIndex]);
 
-            StartCoroutine(TimedGameOverCanvas());
+            //StartCoroutine(TimedGameOverCanvas());
+            _uiController.DeathScreenMenu.StartDelayedEnable();
         }
 
         private bool _isGameResetting = false;
@@ -46,11 +49,11 @@ namespace State_Machine.GameStates
             if (Input.GetKeyDown(KeyCode.Space) && !_isGameResetting)
             {
                 _isGameResetting = true;
-                _uibuttonFunctions.ResetGame(); 
+                _uiController.ResetGame();
             }
             else if (Input.GetKeyDown(KeyCode.Escape))
             {
-                _uibuttonFunctions.MainMenu();
+                GameManager.Instance.MainMenuScene();
             }
         }
 

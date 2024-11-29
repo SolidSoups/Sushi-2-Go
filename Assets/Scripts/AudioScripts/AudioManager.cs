@@ -1,4 +1,6 @@
 using System;
+using Controllers;
+using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -7,14 +9,15 @@ namespace AudioScripts
 {
     public class AudioManager : MonoBehaviour
     {
-        [SerializeField] Slider musicSlider;
-        [SerializeField] Slider VFXSlider;
-        [SerializeField] Slider BackgroundSlider;
-
+        [Header("References")] 
+        [SerializeField] private GameObject _optionCanvas;
+        private IOptionsMenu _optionsMenu;
         [FormerlySerializedAs("sound")] public SoundsScript[] _sounds;
 
         private void Awake()
         {
+            _optionsMenu = _optionCanvas.GetComponent<IOptionsMenu>();
+            
             foreach(SoundsScript s in _sounds)
             {
                 s.source = gameObject.AddComponent<AudioSource>();
@@ -75,7 +78,6 @@ namespace AudioScripts
 
         public void OnChangedVolume()
         {
-            //AudioListener.volume = musicSlider.value;
             if(_sounds == null)
             {
                 Debug.LogError("Sound array is null");
@@ -90,13 +92,13 @@ namespace AudioScripts
                 switch (sound.type)
                 {
                     case SoundType.MUSIC:
-                        sound.source.volume = sound.volume * musicSlider.value; 
+                        sound.source.volume = sound.volume * _optionsMenu.MusicLevel; 
                         break;
                     case SoundType.VFX:
-                        sound.source.volume = sound.volume * VFXSlider.value; 
+                        sound.source.volume = sound.volume * _optionsMenu.SFXLevel;
                         break;
                     case SoundType.BACKGROUND:
-                        sound.source.volume = sound.volume * BackgroundSlider.value; 
+                        sound.source.volume = sound.volume * _optionsMenu.NoiseLevel; 
                         break;
                 }
             }
@@ -106,20 +108,17 @@ namespace AudioScripts
 
         public void Load()
         {
-            float musicvol = (float)PlayerPrefs.GetFloat("MusicVolume");
-            float vfxvol = (float)PlayerPrefs.GetFloat("VFXVolume");
-            float bvol = (float)PlayerPrefs.GetFloat("BackgroundVolume");
-            musicSlider.value = musicvol;
-            VFXSlider.value = vfxvol;
-            BackgroundSlider.value = bvol;
-
+            _optionsMenu.SetLevels(
+                PlayerPrefs.GetFloat("MusicVolume"),
+                PlayerPrefs.GetFloat("VFXVolume"),
+                PlayerPrefs.GetFloat("BackgroundVolume"));
         }
 
         private void Save()
         {
-            PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
-            PlayerPrefs.SetFloat("VFXVolume", VFXSlider.value);
-            PlayerPrefs.SetFloat("BackgroundVolume", BackgroundSlider.value);
+            PlayerPrefs.SetFloat("MusicVolume", _optionsMenu.MusicLevel);
+            PlayerPrefs.SetFloat("VFXVolume", _optionsMenu.SFXLevel);
+            PlayerPrefs.SetFloat("BackgroundVolume", _optionsMenu.NoiseLevel);
             PlayerPrefs.Save();
         }
     }

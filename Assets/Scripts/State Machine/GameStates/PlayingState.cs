@@ -6,6 +6,7 @@ using Hand;
 using Player;
 using UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.SocialPlatforms.Impl;
 
 namespace State_Machine.GameStates
@@ -25,9 +26,7 @@ namespace State_Machine.GameStates
         
 
         [Header("UI")]
-        [SerializeField] private UI_PlayerCanvas uiPlayerCanvas;
-        [SerializeField] private GameObject PauseCanvas;
-        [SerializeField] private GameObject OptionsCanvas;
+        [SerializeField] private UI_Controller _uiController;
 
         [Header("Events")]
         public GameEvent OnPlayAudio;
@@ -54,8 +53,7 @@ namespace State_Machine.GameStates
             OnPlayAudio?.Raise(this, _BackgroundSounds);
 
             // enable ui
-            PauseCanvas.SetActive(false);
-            OptionsCanvas.SetActive(false);
+            _uiController.PauseMenu.DisableAllCanvases();
         }
 
         public override void ExitState()
@@ -72,12 +70,38 @@ namespace State_Machine.GameStates
             
             _conveyorController.UpdateController();
             
-            uiPlayerCanvas.SetHighScore(_scoreTimer.Score);
-            uiPlayerCanvas.HighScoreUpdate(_scoreTimer.Score);
+            _uiController.Player.SetHighScore(_scoreTimer.Score);
+            UpdatePlayerPrefsHighscore(_scoreTimer.Score);
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 GameManager.Instance.SwitchState<PauseState>();
             }
+        }
+
+        void UpdatePlayerPrefsHighscore(int score)
+        {
+            //Checks if there are a highscore
+            if (PlayerPrefs.HasKey("SavedHighScore"))
+            {
+                //If the new score is higher than the saved one
+                if(score > PlayerPrefs.GetInt("SavedHighScore"))
+                {
+                    //Sets the new highscore
+                    PlayerPrefs.SetInt("SavedHighScore", score);
+                }   
+            }
+            else
+            {
+                //if there is no highscore. set it
+                PlayerPrefs.SetInt("SavedHighScore", score);
+            }
+            PlayerPrefs.Save();
+        
+            //updating the TMP
+            //_finalScoreText.text = score.ToString();
+            _uiController.DeathScreenMenu.SetScoreText(score);
+            //_highScoreText.text =  PlayerPrefs.GetInt("SavedHighScore").ToString();
+            _uiController.DeathScreenMenu.SetHighScoreText(PlayerPrefs.GetInt("SavedHighScore"));
         }
 
         public override void FixedUpdateState()

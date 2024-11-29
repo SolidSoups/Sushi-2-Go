@@ -29,13 +29,7 @@ namespace Controllers
     [SerializeField, Tooltip("The max speed of the game [m/s]")] private float _maxSpeed = 70f;
     [Header("Time")]
     [SerializeField, Tooltip("The time to reach the max speed [s]")] private float _time = 300;
-    
-    [Header("Acceleration Settings")]
-    [SerializeField, Tooltip("The min acceleration of the game [m/s]")] private float _minAcceleration = 0;
-    [SerializeField, Tooltip("The max acceleration of the game [m/s]")] private float _maxAcceleration = 10;
 
-    private bool _isAccelerating = false;
-    
     private void Awake()
     {
       Speed = _startSpeed;
@@ -57,7 +51,6 @@ namespace Controllers
     private IEnumerator AccelerateToTargetSpeed(float targetSpeed, float time)
     {
       Acceleration = (targetSpeed - Speed) / time;
-      _isAccelerating = true;
       while (true)
       {
         if (GameManager.Instance.IsState<GameOverState>())
@@ -77,7 +70,6 @@ namespace Controllers
           break;
         }
       }
-      _isAccelerating = false;
     }
   }
 }

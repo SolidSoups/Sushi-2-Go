@@ -334,14 +334,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c6755f840ee6044a1b9e5f620dd4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panel1: {fileID: 6954742072781928682}
-  _panel2: {fileID: 8036252819776947172}
-  _panel3: {fileID: 8238496830557876932}
-  _blackPanel: {fileID: 0}
-  _fadeFrom: 0
-  _fadeTo: 1
-  _fadeTimeSeconds: 1
-  _pauseTimeSeconds: 1
+  imagesInOrder:
+  - {fileID: 6954742072781928682}
+  - {fileID: 8036252819776947172}
+  - {fileID: 8238496830557876932}
+  fadeFrom: 0
+  fadeTo: 1
+  fadeTimeSeconds: 1
+  pauseTimeSeconds: 1
 --- !u!1 &6358011453217966094
 GameObject:
   m_ObjectHideFlags: 0
