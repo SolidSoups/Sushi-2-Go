@@ -1,4 +1,6 @@
 using System;
+using Controllers;
+using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -8,11 +10,14 @@ namespace AudioScripts
     public class AudioManager : MonoBehaviour
     {
         [Header("References")] 
-        [SerializeField] private UI_OptionCanvas _optionCanvas;
+        [SerializeField] private GameObject _optionCanvas;
+        private IOptionsMenu _optionsMenu;
         [FormerlySerializedAs("sound")] public SoundsScript[] _sounds;
 
         private void Awake()
         {
+            _optionsMenu = _optionCanvas.GetComponent<IOptionsMenu>();
+            
             foreach(SoundsScript s in _sounds)
             {
                 s.source = gameObject.AddComponent<AudioSource>();
@@ -87,13 +92,13 @@ namespace AudioScripts
                 switch (sound.type)
                 {
                     case SoundType.MUSIC:
-                        sound.source.volume = sound.volume * _optionCanvas.MusicLevel; 
+                        sound.source.volume = sound.volume * _optionsMenu.MusicLevel; 
                         break;
                     case SoundType.VFX:
-                        sound.source.volume = sound.volume * _optionCanvas.SFXLevel;
+                        sound.source.volume = sound.volume * _optionsMenu.SFXLevel;
                         break;
                     case SoundType.BACKGROUND:
-                        sound.source.volume = sound.volume * _optionCanvas.NoiseLevel; 
+                        sound.source.volume = sound.volume * _optionsMenu.NoiseLevel; 
                         break;
                 }
             }
@@ -103,8 +108,7 @@ namespace AudioScripts
 
         public void Load()
         {
-            Debug.Log($"_optionCanvas: {!!_optionCanvas}");
-            _optionCanvas.SetLevels(
+            _optionsMenu.SetLevels(
                 PlayerPrefs.GetFloat("MusicVolume"),
                 PlayerPrefs.GetFloat("VFXVolume"),
                 PlayerPrefs.GetFloat("BackgroundVolume"));
@@ -112,9 +116,9 @@ namespace AudioScripts
 
         private void Save()
         {
-            PlayerPrefs.SetFloat("MusicVolume", _optionCanvas.MusicLevel);
-            PlayerPrefs.SetFloat("VFXVolume", _optionCanvas.SFXLevel);
-            PlayerPrefs.SetFloat("BackgroundVolume", _optionCanvas.NoiseLevel);
+            PlayerPrefs.SetFloat("MusicVolume", _optionsMenu.MusicLevel);
+            PlayerPrefs.SetFloat("VFXVolume", _optionsMenu.SFXLevel);
+            PlayerPrefs.SetFloat("BackgroundVolume", _optionsMenu.NoiseLevel);
             PlayerPrefs.Save();
         }
     }

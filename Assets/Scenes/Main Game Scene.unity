@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5668719df1532e4fb21b5282aa99495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _optionCanvas: {fileID: 480065285}
+  _optionCanvas: {fileID: 480065277}
   _sounds:
   - name: Hand_GrabPlates
     type: 1
@@ -670,17 +670,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3115598833648656112, guid: a0539099055d5ea4d964aa0f8cf6883e, type: 3}
   m_PrefabInstance: {fileID: 8299065994698225030}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &480065285 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2345846876654621478, guid: a0539099055d5ea4d964aa0f8cf6883e, type: 3}
-  m_PrefabInstance: {fileID: 8299065994698225030}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480065277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2e5a732818b4bd094c71cc0fc634016, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &523503226
 GameObject:
   m_ObjectHideFlags: 0
@@ -2554,6 +2543,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 395576561}
     m_Modifications:
     - target: {fileID: 868149761269493077, guid: a0539099055d5ea4d964aa0f8cf6883e, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 868149761269493077, guid: a0539099055d5ea4d964aa0f8cf6883e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 363294584}
@@ -2588,6 +2581,10 @@ PrefabInstance:
     - target: {fileID: 4867098326780274137, guid: a0539099055d5ea4d964aa0f8cf6883e, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5054789641310180725, guid: a0539099055d5ea4d964aa0f8cf6883e, type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5054789641310180725, guid: a0539099055d5ea4d964aa0f8cf6883e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2632,6 +2629,10 @@ PrefabInstance:
     - target: {fileID: 5518024547622655174, guid: a0539099055d5ea4d964aa0f8cf6883e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221221908328412005, guid: a0539099055d5ea4d964aa0f8cf6883e, type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6221221908328412005, guid: a0539099055d5ea4d964aa0f8cf6883e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target

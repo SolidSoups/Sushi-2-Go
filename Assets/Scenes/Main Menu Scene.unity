@@ -1671,6 +1671,66 @@ Transform:
   - {fileID: 1487955126}
   m_Father: {fileID: 1686287621}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &498239233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 498239235}
+  - component: {fileID: 498239234}
+  m_Layer: 0
+  m_Name: UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &498239234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498239233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efdcc61dd80408248b8bfca364ef7f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  verboseLogs: 0
+  gizmosOnSelected: 0
+  customText: 0
+  customIcon: 0
+  customHighlight: 1
+  textColor:
+    serializedVersion: 2
+    rgba: 4289967027
+  iconColor:
+    serializedVersion: 2
+    rgba: 4289967027
+  highlightColor:
+    serializedVersion: 2
+    rgba: 4292845568
+  textStyle: 3
+  textAlignment: 1
+--- !u!4 &498239235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498239233}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 923.54456, y: 415.53558, z: 4.81921}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &558471567
 GameObject:
   m_ObjectHideFlags: 0
@@ -3092,9 +3152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5668719df1532e4fb21b5282aa99495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSlider: {fileID: 692848336}
-  VFXSlider: {fileID: 226890502}
-  BackgroundSlider: {fileID: 1487955127}
+  _optionCanvas: {fileID: 1869379802}
   _sounds:
   - name: MainMenu
     type: 0
@@ -6645,6 +6703,9 @@ MonoBehaviour:
   _creditCanvas: {fileID: 733590418}
   _controllCanvas: {fileID: 386619249}
   _audioManager: {fileID: 861719859}
+  _musicSlider: {fileID: 692848336}
+  _sfxSlider: {fileID: 226890502}
+  _noiseSlider: {fileID: 1487955127}
 --- !u!1 &1885531747
 GameObject:
   m_ObjectHideFlags: 0
@@ -7723,10 +7784,11 @@ SceneRoots:
   m_Roots:
   - {fileID: 1028327106}
   - {fileID: 1027734498}
+  - {fileID: 632316549}
+  - {fileID: 861719857}
+  - {fileID: 498239235}
+  - {fileID: 1869379804}
   - {fileID: 1443812522}
   - {fileID: 1686287621}
   - {fileID: 386619253}
   - {fileID: 733590422}
-  - {fileID: 632316549}
-  - {fileID: 1869379804}
-  - {fileID: 861719857}

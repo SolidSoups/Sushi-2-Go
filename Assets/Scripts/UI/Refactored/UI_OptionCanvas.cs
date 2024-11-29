@@ -1,9 +1,11 @@
 ﻿using System;
+using UI;
+using Unity.XR.OpenVR;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class UI_OptionCanvas : MonoBehaviour
+public class UI_OptionCanvas : MonoBehaviour, IOptionsMenu
 {
   [Header("References")] 
   [SerializeField] private Button _closeButton;
