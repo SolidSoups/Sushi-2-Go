@@ -199,19 +199,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4501273729960318556}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIbuttonFunctions, Assembly-CSharp
-        m_MethodName: MainMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &2816586653026301298
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,19 +486,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6049781915729432412}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIbuttonFunctions, Assembly-CSharp
-        m_MethodName: ResetGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &3880817550868956000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,6 +1484,8 @@ MonoBehaviour:
   _canvas: {fileID: 8135248223171474027}
   _scoreText: {fileID: 4309514523715315743}
   _highScoreText: {fileID: 4867826353691951160}
+  _respawnButton: {fileID: 1587376279445676145}
+  _mainMenuButton: {fileID: 7768849240358886035}
 --- !u!1 &8570829767993571558
 GameObject:
   m_ObjectHideFlags: 0

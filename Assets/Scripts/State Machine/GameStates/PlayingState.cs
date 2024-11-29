@@ -26,9 +26,7 @@ namespace State_Machine.GameStates
         
 
         [Header("UI")]
-        [SerializeField] private GameObject PauseCanvas;
-        [SerializeField] private GameObject OptionsCanvas;
-        [FormerlySerializedAs("ui_Controller")] [SerializeField] private UI_Controller _uiController;
+        [SerializeField] private UI_Controller _uiController;
 
         [Header("Events")]
         public GameEvent OnPlayAudio;
@@ -55,8 +53,7 @@ namespace State_Machine.GameStates
             OnPlayAudio?.Raise(this, _BackgroundSounds);
 
             // enable ui
-            PauseCanvas.SetActive(false);
-            OptionsCanvas.SetActive(false);
+            _uiController.PauseMenu.DisableAllCanvases();
         }
 
         public override void ExitState()
@@ -102,9 +99,9 @@ namespace State_Machine.GameStates
         
             //updating the TMP
             //_finalScoreText.text = score.ToString();
-            _uiController.DeathScreen.SetScoreText(score);
+            _uiController.DeathScreenMenu.SetScoreText(score);
             //_highScoreText.text =  PlayerPrefs.GetInt("SavedHighScore").ToString();
-            _uiController.DeathScreen.SetHighScoreText(PlayerPrefs.GetInt("SavedHighScore"));
+            _uiController.DeathScreenMenu.SetHighScoreText(PlayerPrefs.GetInt("SavedHighScore"));
         }
 
         public override void FixedUpdateState()

@@ -1,11 +1,5 @@
-using System.Collections;
 using Controllers;
-using Controllers.Controller;
-using Hand;
-using Player;
-using UI;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace State_Machine.GameStates
 {
@@ -13,7 +7,13 @@ namespace State_Machine.GameStates
     {
         [Header("Poster intro")] 
         [SerializeField] private UI_Controller _uiController;
-    
+
+        public override void ExitState()
+        {
+            base.ExitState();
+            _uiController.Player.gameObject.SetActive(true);
+        }
+
         public override void EnterState()
         {
             base.EnterState();

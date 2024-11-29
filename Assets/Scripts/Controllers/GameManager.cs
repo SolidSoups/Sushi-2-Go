@@ -1,5 +1,6 @@
 using State_Machine;
 using State_Machine.GameStates;
+using UnityEngine.SceneManagement;
 
 namespace Controllers
 {
@@ -28,5 +29,8 @@ namespace Controllers
         {
             FixedUpdateStateMachine();
         }
+
+        public void ResetScene() => SceneManager.LoadScene(1);
+        public void MainMenuScene() => SceneManager.LoadScene(0);
     }
 }
