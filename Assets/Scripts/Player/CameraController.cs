@@ -39,7 +39,6 @@ namespace Player
             position.x = middle;
             transform.position = position;
             
-            Debug.Log("Initialized Camera Controller");
             IsInitialized = true;
         }
 
