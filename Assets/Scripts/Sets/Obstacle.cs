@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using UnityEngine;
 
 namespace Sets
@@ -25,6 +27,21 @@ namespace Sets
             _childColliders = GetComponentsInChildren<Collider>();  
             myCollider = GetComponent<Collider>();
         }
+        
+#if UNITY_EDITOR
+        bool hasDebugged = false;
+        private void OnDrawGizmos()
+        {
+            Obstacle[] children = GetComponentsInChildren<Obstacle>();
+            if(children != null && children.Length > 1 && hasDebugged != true)
+            {
+                hasDebugged = true;
+                Debug.LogError("Obstacles cannot contain children obstacle components. Please remove the component and try again.\n" +
+                               "Objects causing problems:\n" + 
+                               string.Join(",\n", children.Select(x => x.gameObject.name).ToArray()));
+            }
+        }
+#endif
 
         public bool IsVisible
         {
@@ -49,6 +66,13 @@ namespace Sets
         public Vector3 OriginalPosition;
         public Quaternion OriginalRotation;
         public Vector3 OriginalScale;
+
+        public void ResetTransform()
+        {
+            this.transform.localPosition = OriginalPosition;
+            this.transform.localRotation = OriginalRotation;
+            this.transform.localScale = OriginalScale;
+        }
         public bool IsInitialized;
     }
 }

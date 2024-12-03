@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Gaskellgames;
 using Sets;
 using UnityEngine;
@@ -50,10 +51,7 @@ namespace Controllers
         if (set.transform.position.z + set.Length <= _setMover.turnEndAPosition.position.z)
         {
           _sets.Remove(set);
-          foreach (Obstacle obstacle in set.MyChildren)
-          {
-            obstacle.transform.localPosition = obstacle.OriginalPosition;
-          }
+          Array.ForEach(set.MyChildren, child => child.ResetTransform());
           continue;
         }
 
@@ -65,7 +63,7 @@ namespace Controllers
 
           if (dist <= 0f)
           {
-            obstacle.transform.localPosition = obstacle.OriginalPosition;
+            obstacle.ResetTransform();
             continue;
           }
           

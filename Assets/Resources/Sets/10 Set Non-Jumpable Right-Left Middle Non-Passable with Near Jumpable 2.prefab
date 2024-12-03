@@ -580,7 +580,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plate with yellow sushi
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5964569571516066681, guid: ee73a6c5e44b58543b5e243218b0ac78, type: 3}
+    - {fileID: 5112325564338067485, guid: ee73a6c5e44b58543b5e243218b0ac78, type: 3}
+    - {fileID: 4254014478013266521, guid: ee73a6c5e44b58543b5e243218b0ac78, type: 3}
+    - {fileID: 6495145419963020526, guid: ee73a6c5e44b58543b5e243218b0ac78, type: 3}
+    - {fileID: 6594447747202918794, guid: ee73a6c5e44b58543b5e243218b0ac78, type: 3}
+    - {fileID: 2733495791202883262, guid: ee73a6c5e44b58543b5e243218b0ac78, type: 3}
+    - {fileID: 8739726026769120587, guid: ee73a6c5e44b58543b5e243218b0ac78, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
