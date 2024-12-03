@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LeftHandData
   m_EditorClassIdentifier: Assembly-CSharp:Hand:HandData
   HandName: Left
-  MovementSpeed: 2
+  MovementSpeed: 4
   GrabAnimationTiming: 0.4
   PlaceAnimationTiming: 0.4
   HiddenPosition: {x: -44, y: 1, z: 49}
