@@ -81,6 +81,7 @@ namespace Sets
 
 
         private Obstacle[] _children;
+        public Obstacle[] MyChildren => _children;
         private bool _isInitialized = false;
         public void Initialize()
         {
