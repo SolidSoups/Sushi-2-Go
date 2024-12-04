@@ -10,35 +10,11 @@ namespace Controllers
   {
     private readonly SetMover _setMover;
     private readonly List<Set> _sets = new();
-
-    private struct KXMLine
-    {
-      public float k;
-      public float m;
-    }
-    private KXMLine line;
-
-    public (Vector3, Vector3) GetLinePoints(float x0, float x1)
-    {
-      var vX0 = CalculateIntersectionOnLine(x0);
-      var vX1 = CalculateIntersectionOnLine(x1);
-      Vector3 newVX0 = new Vector3(vX0.x, 0, vX0.y);
-      Vector3 newVX1 = new Vector3(vX1.x, 0, vX1.y);
-      return (
-        newVX0, newVX1
-      );
-    }
         
     public TurnAnimator(SetMover setMover)
     {
       _setMover = setMover;
             
-      // initialize intersection line
-      Vector2 start = GetLaneIntersection(0);
-      Vector2 end = GetLaneIntersection(2);
-      line = new KXMLine();
-      line.k = (end.y - start.y) / (end.x - start.x);
-      line.m = start.y - line.k * start.x;
     }
 
     public void Animate()
@@ -57,49 +33,47 @@ namespace Controllers
 
         foreach (Obstacle obstacle in set.MyChildren)
         {
-          Vector3 obstaclePosition = set.transform.position + obstacle.OriginalPosition;
-          Vector2 intersectionPoint = CalculateIntersectionOnLine(obstaclePosition.x);
-          float dist = obstaclePosition.z - intersectionPoint.y;
+          const float halfPI = Mathf.PI * 0.5f;
+          
+          Vector3 obPos = obstacle.GetRealPosition();
+          float rad = obPos.x - _setMover.turnStartAPosition.position.x;
+          float circD4 = rad * halfPI;
 
-          if (dist <= 0f)
+          var endAPos = _setMover.turnEndAPosition.position;
+          var startAPos = _setMover.turnStartAPosition.position; 
+          float dist = obPos.z - endAPos.z;
+          float distRatio = (dist / circD4);
+          // Debug.Log($"Dist: {dist}, circD4 {circD4}");
+          float angle = distRatio * halfPI;
+
+          if (angle > halfPI)
           {
+            // draw linearly
+            float newZ = startAPos.z + obPos.x - endAPos.x;
+            float newX = startAPos.x - (dist - circD4); 
+            
+            obstacle.transform.position = new Vector3(newX, obPos.y, newZ);
+            continue;
+          }
+
+          if (angle <= 0)
+          {
+            // reset 
             obstacle.ResetTransform();
             continue;
           }
-          
-          // translate position 
-          Vector3 newPosition = new Vector3(intersectionPoint.x - dist, obstaclePosition.y, intersectionPoint.y);
-          obstacle.transform.position = newPosition;
-        }        
-               
+
+          // draw on arc
+          float arcX = startAPos.x + rad * (float)Mathf.Cos(angle);
+          float arcZ = endAPos.z + rad * (float)Mathf.Sin(angle);
+          obstacle.transform.position = new Vector3(arcX, obPos.y, arcZ); 
+        }
+
       }
     }
     public void AddSet(Set set) => _sets.Add(set);
+    private float CalculateRadius(float x1) => _setMover.turnStartAPosition.position.x - x1;
 
-    private Vector2 CalculateIntersectionOnLine(float x)
-    {
-      return new Vector3(x, line.k * x + line.m);
-    }
-
-    private Vector2 GetLaneIntersection(int lane)
-    {
-      lane = Mathf.Clamp(lane, 0, 3);
-            
-      // start positions
-      Vector3 startAPosition = _setMover.turnStartAPosition.position;
-      Vector3 startBPosition = _setMover.turnStartBPosition.position;
-      Vector3 startABd3 = (startBPosition - startAPosition) / 3f;
-      Vector3 startPos = startABd3 / 2f + startABd3 * lane;
-            
-      // end positions
-      Vector3 endAPosition = _setMover.turnEndAPosition.position;
-      Vector3 endBPosition = _setMover.turnEndBPosition.position;
-      Vector3 endABd3 = (endBPosition - endAPosition) / 3f;
-      Vector3 endPos = endABd3 / 2f + endABd3 * lane;
-            
-      // intersection
-      return new Vector2(endAPosition.x + endPos.x, startAPosition.z + startPos.z);
-    }
        
   }
 }

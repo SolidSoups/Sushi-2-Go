@@ -73,6 +73,8 @@ namespace Sets
             this.transform.localRotation = OriginalRotation;
             this.transform.localScale = OriginalScale;
         }
+
+        public Vector3 GetRealPosition() => OwningSet.transform.position + OriginalPosition;
         public bool IsInitialized;
     }
 }

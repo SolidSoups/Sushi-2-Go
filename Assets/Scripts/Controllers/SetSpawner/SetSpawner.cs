@@ -133,12 +133,6 @@ namespace Controllers
             Gizmos.DrawSphere(startPosition, 0.5f);
             Gizmos.DrawLine(startPosition, endPosition);
             Gizmos.DrawSphere(endPosition, 0.5f);
-
-            if (Application.isPlaying)
-            {
-                (Vector3 start, Vector3 end) = _turnAnimator.GetLinePoints(-40, 40);
-                Gizmos.DrawLine(start, end);
-            }
         }
     }
 }
