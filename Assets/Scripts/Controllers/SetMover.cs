@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using Controllers.Controller;
 using MySingelton;
 using Sets;
@@ -25,9 +27,62 @@ namespace Controllers
     {
       if (_drawGizmos)
       {
-        GizmosDrawTurn();
+        //GizmosDrawSharpTurn();
+        DrawTurnBounds();
+        GizmosDrawArcTurn();
         GizmosDrawDespawn();
       }      
+    }
+
+    private void DrawTurnBounds()
+    {
+      Vector3 startA = turnStartAPosition.position;
+      Vector3 startB = turnStartBPosition.position;
+      Vector3 endA = turnEndAPosition.position;
+      Vector3 endB = turnEndBPosition.position;
+
+      Gizmos.color = new Color(229f/255f, 154f/255f, 35f/255f, 1);
+      Gizmos.DrawLine(startA, startB);
+      Gizmos.DrawLine(endA, endB);
+      Gizmos.DrawSphere(startA, 0.5f); 
+      Gizmos.DrawSphere(startB, 0.5f); 
+      Gizmos.DrawSphere(endA, 0.5f); 
+      Gizmos.DrawSphere(endB, 0.5f);
+    }
+
+    private void GizmosDrawArcTurn()
+    {
+      Vector3 startA = turnStartAPosition.position;
+      Vector3 startB = turnStartBPosition.position;
+      Vector3 endA = turnEndAPosition.position;
+      Vector3 endB = turnEndBPosition.position;
+
+      // precalculate offsets
+      Vector3 displacement = endB - endA;
+      Vector3 dispD3 = displacement / 3f;
+
+      float radius(float x0, float x1) => x0 - x1;
+      const int segments = 20;
+      for (int i = 0; i < 3; i++)
+      {
+        float xi = endA.x + dispD3.x / 2f + dispD3.x * i;
+        float rad = radius(startA.x, xi);
+        Vector3[] points = new Vector3[segments + 1];
+        for (int n = 0; n <= segments; n++)
+        {
+          float angle = ((float)n / segments) * Mathf.PI * 0.5f;
+          float newX = rad * (float)Math.Cos(angle);
+          float newY = rad * (float)Math.Sin(angle);
+
+          points[n] = new Vector3(startA.x - newX, endA.y, endA.z - newY);
+        }
+
+        Gizmos.color = Color.yellow;
+        for (int n = 1; n < points.Length; n++)
+        {
+          Gizmos.DrawLine(points[n - 1], points[n]);
+        }
+      }
     }
 
     private void GizmosDrawDespawn()
@@ -43,21 +98,13 @@ namespace Controllers
       Gizmos.DrawLine(new Vector3(-size.x/2, size.y/2, _despawnZPosition), new Vector3(size.x/2, -size.y/2, _despawnZPosition));
     }
 
-    private void GizmosDrawTurn()
+    private void GizmosDrawSharpTurn()
     {
       // Draw start and end of turn
       Vector3 startA = turnStartAPosition.position;
       Vector3 startB = turnStartBPosition.position;
       Vector3 endA = turnEndAPosition.position;
       Vector3 endB = turnEndBPosition.position;
-
-      Gizmos.color = new Color(229f/255f, 154f/255f, 35f/255f, 1);
-      Gizmos.DrawLine(startA, startB);
-      Gizmos.DrawLine(endA, endB);
-      Gizmos.DrawSphere(startA, 0.5f); 
-      Gizmos.DrawSphere(startB, 0.5f); 
-      Gizmos.DrawSphere(endA, 0.5f); 
-      Gizmos.DrawSphere(endB, 0.5f);
       
       Vector3 startABd3 = ( startB - startA )/3f;
       Vector3 endABd3 = (endB - endA)/3f;
