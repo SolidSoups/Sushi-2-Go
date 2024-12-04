@@ -10,21 +10,25 @@ namespace Controllers
   {
     private readonly SetMover _setMover;
     private readonly List<Set> _sets = new();
+    
+    private readonly Vector3 _endPosition;
+    private readonly Vector3 _startPosition;
         
     public TurnAnimator(SetMover setMover)
     {
       _setMover = setMover;
-            
+      _endPosition = _setMover.turnEndAPosition.position;
+      _startPosition = _setMover.turnStartAPosition.position; 
     }
-
-    public void Animate()
+    public void AddSet(Set set) => _sets.Add(set);
+    public void AnimateAll()
     {
       for(int i=_sets.Count - 1; i >= 0; i--)
       {
         Set set = _sets[i];
         
         // reset obstacles and return set
-        if (set.transform.position.z + set.Length <= _setMover.turnEndAPosition.position.z)
+        if (set.transform.position.z + set.Length <= _endPosition.z)
         {
           _sets.Remove(set);
           Array.ForEach(set.MyChildren, child => child.ResetTransform());
@@ -35,24 +39,27 @@ namespace Controllers
         {
           const float halfPI = Mathf.PI * 0.5f;
           
-          Vector3 obPos = obstacle.GetRealPosition();
-          float rad = obPos.x - _setMover.turnStartAPosition.position.x;
+          Vector3 obstaclePos = obstacle.GetRealPosition();
+          Quaternion obstacleOrgRotation = obstacle.OriginalRotation;
+          float rad = obstaclePos.x - _startPosition.x;
+          
           float circD4 = rad * halfPI;
-
-          var endAPos = _setMover.turnEndAPosition.position;
-          var startAPos = _setMover.turnStartAPosition.position; 
-          float dist = obPos.z - endAPos.z;
-          float distRatio = (dist / circD4);
-          // Debug.Log($"Dist: {dist}, circD4 {circD4}");
-          float angle = distRatio * halfPI;
+          float dist = obstaclePos.z - _endPosition.z;
+          float angle = dist / circD4 * halfPI;
+          
+          
 
           if (angle > halfPI)
           {
             // draw linearly
-            float newZ = startAPos.z + obPos.x - endAPos.x;
-            float newX = startAPos.x - (dist - circD4); 
+            float linearX = _startPosition.z + obstaclePos.x - _endPosition.x;
+            float linearZ = _startPosition.x - (dist - circD4);
+
+            Quaternion rotation = Quaternion.Euler(0, -90, 0);
+            Quaternion result = obstacleOrgRotation * rotation;
+            obstacle.transform.rotation = result;
             
-            obstacle.transform.position = new Vector3(newX, obPos.y, newZ);
+            obstacle.transform.position = new Vector3(linearZ, obstaclePos.y, linearX);
             continue;
           }
 
@@ -64,16 +71,15 @@ namespace Controllers
           }
 
           // draw on arc
-          float arcX = startAPos.x + rad * (float)Mathf.Cos(angle);
-          float arcZ = endAPos.z + rad * (float)Mathf.Sin(angle);
-          obstacle.transform.position = new Vector3(arcX, obPos.y, arcZ); 
+          Quaternion turnRotation = Quaternion.Euler(0, (angle / halfPI) * -90, 0);
+          Quaternion turnResult = obstacleOrgRotation * turnRotation;
+          obstacle.transform.rotation = turnResult;
+          float arcX = _startPosition.x + rad * Mathf.Cos(angle);
+          float arcZ = _endPosition.z + rad * Mathf.Sin(angle);
+          obstacle.transform.position = new Vector3(arcX, obstaclePos.y, arcZ); 
         }
 
       }
     }
-    public void AddSet(Set set) => _sets.Add(set);
-    private float CalculateRadius(float x1) => _setMover.turnStartAPosition.position.x - x1;
-
-       
   }
 }

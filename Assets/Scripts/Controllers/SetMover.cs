@@ -10,18 +10,28 @@ namespace Controllers
 {
   public class SetMover : Controllable
   {
-    [Header("Settings")] 
+    private TurnAnimator _turnAnimator;
+    public Transform turnStartAPosition;
+    public Transform turnEndAPosition;
+    
+    #region Sets
+    private readonly List<Set> _spawnedSets = new();
+    public void AddSet(Set set)
+    {
+      _spawnedSets.Add(set);
+      _turnAnimator.AddSet(set);
+      _turnAnimator.AnimateAll();
+    }
+
+    private GameObject _setParent;
+    #endregion
+    
+    #region Gizmos
+    [Header("Gizmo Settings")] 
     [SerializeField] private bool _drawGizmos = true;
     [SerializeField] private float _despawnZPosition = 5f;
-    public Transform turnStartAPosition;
     public Transform turnStartBPosition;
-    public Transform turnEndAPosition;
     public Transform turnEndBPosition;
-  
-    private List<GameObject> _spawnedSets = new List<GameObject>();
-    public void AddSet(GameObject set) => _spawnedSets.Add(set);
-  
-    private GameObject _setParent;
 
     private void OnDrawGizmos()
     {
@@ -98,45 +108,22 @@ namespace Controllers
       Gizmos.DrawLine(new Vector3(-size.x/2, size.y/2, _despawnZPosition), new Vector3(size.x/2, -size.y/2, _despawnZPosition));
     }
 
-    private void GizmosDrawSharpTurn()
-    {
-      // Draw start and end of turn
-      Vector3 startA = turnStartAPosition.position;
-      Vector3 startB = turnStartBPosition.position;
-      Vector3 endA = turnEndAPosition.position;
-      Vector3 endB = turnEndBPosition.position;
-      
-      Vector3 startABd3 = ( startB - startA )/3f;
-      Vector3 endABd3 = (endB - endA)/3f;
-      Vector3 startOffset = startABd3 / 2f + startA;
-      Vector3 endOffset = endABd3 / 2f + endA;
-      Gizmos.color = Color.yellow;
-      for (int i = 0; i < 3; i++)
-      {
-        Vector3 newEndPosition = endOffset + i * endABd3;
-        Vector3 newStartPosition = startOffset + i * startABd3;
-        Gizmos.DrawSphere(newEndPosition, 0.4f);
-        Gizmos.DrawSphere(newStartPosition, 0.4f);
-        
-        // draw line to intersection
-        Vector3 intersectionPoint = new Vector3(newEndPosition.x, newEndPosition.y, newStartPosition.z);
-        Gizmos.DrawLine(newEndPosition, intersectionPoint);
-        Gizmos.DrawLine(newStartPosition, intersectionPoint);
-      }
-    }
-
+    #endregion
+    
     public override void InitializeController()
     {
       base.InitializeController();
     
       _setParent = new GameObject("SetParent");   
-      _setParent.transform.parent = transform; 
+      _setParent.transform.parent = transform;
+      _turnAnimator = new TurnAnimator(this);
     }
 
     public override void FixedUpdateController()
     {
       base.FixedUpdateController();
       MoveSets();
+      _turnAnimator.AnimateAll();
     }
 
     private void MoveSets()
@@ -144,7 +131,7 @@ namespace Controllers
       float currentSpeed = Singelton.Instance.SpeedController.Speed;
       for (int i = _spawnedSets.Count - 1; i >= 0; i--)
       {
-        GameObject set = _spawnedSets[i];
+        Set set = _spawnedSets[i];
         if (!set)
           continue;
         Vector3 pos = set.transform.position;
@@ -152,18 +139,17 @@ namespace Controllers
         set.transform.position = pos;
       
         // check despawn
-        Set setComponent = set.GetComponent<Set>();
-        float z = pos.z + setComponent.Length;
+        float z = pos.z + set.Length;
         if (z <= _despawnZPosition)
         {
-          Despawn(setComponent);
+          Despawn(set);
         }
       } 
     }
 
     private void Despawn(Set set)
     {
-      _spawnedSets.Remove(set.gameObject);
+      _spawnedSets.Remove(set);
       // should be adding back to pool here 
       Singelton.Instance.ObjectPool.AddBackToPool(set);
     }

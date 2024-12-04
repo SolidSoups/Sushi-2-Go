@@ -23,7 +23,6 @@ namespace Controllers
         private SetMover _setMover;
         private HandDelegator _handDelegator;
         private ConveyorBelt _conveyorBelt;
-        private TurnAnimator _turnAnimator;
         
         [Header("Settings")]
         [SerializeField] private float _lengthToSpawnPoint = 5f;
@@ -40,7 +39,6 @@ namespace Controllers
             _setParent = new GameObject("Set Parent");
             _conveyorBelt = GameObject.FindGameObjectWithTag("ConveyorBelt").GetComponent<ConveyorBelt>();
 
-            _turnAnimator = new TurnAnimator(_setMover);
         }
 
         private void Update()
@@ -49,7 +47,6 @@ namespace Controllers
                 return;
             
             LoopSpawning();
-            _turnAnimator.Animate();
         }
 
         // Test method
@@ -101,11 +98,8 @@ namespace Controllers
         
             set.transform.parent = _setParent.transform;
             LatestSpawnedSet = set;
-            _setMover.AddSet(LatestSpawnedSet.gameObject);
-            _turnAnimator.AddSet(LatestSpawnedSet);
+            _setMover.AddSet(LatestSpawnedSet);
         }
-
-        
         
         
         private ConveyorBelt TryFindConveyorBelt()

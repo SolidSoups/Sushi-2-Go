@@ -184,7 +184,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Extras_1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 282521600392604150, guid: d2f9a28876918ea49a1b6a2cc803ee3c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
