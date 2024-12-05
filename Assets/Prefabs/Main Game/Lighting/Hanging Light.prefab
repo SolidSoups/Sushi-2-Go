@@ -288,15 +288,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4507296203001043240, guid: 40d109ecafceacc4094411741a43bda7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -40.86
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4507296203001043240, guid: 40d109ecafceacc4094411741a43bda7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 55.1
+      value: 79
       objectReference: {fileID: 0}
     - target: {fileID: 4507296203001043240, guid: 40d109ecafceacc4094411741a43bda7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4507296203001043240, guid: 40d109ecafceacc4094411741a43bda7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -329,6 +329,10 @@ PrefabInstance:
     - target: {fileID: 4538524178549736035, guid: 40d109ecafceacc4094411741a43bda7, type: 3}
       propertyPath: m_Name
       value: Spot Light (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470904241852343182, guid: 40d109ecafceacc4094411741a43bda7, type: 3}
+      propertyPath: m_Intensity
+      value: 1250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
