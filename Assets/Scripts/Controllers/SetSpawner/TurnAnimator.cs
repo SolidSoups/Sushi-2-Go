@@ -47,36 +47,31 @@ namespace Controllers
           float dist = obstaclePos.z - _endPosition.z;
           float angle = dist / circD4 * halfPI;
           
-          
-
-          if (angle > halfPI)
+          if (angle <= 0) // reset
           {
-            // draw linearly
-            float linearX = _startPosition.z + obstaclePos.x - _endPosition.x;
-            float linearZ = _startPosition.x - (dist - circD4);
-
-            Quaternion rotation = Quaternion.Euler(0, -90, 0);
-            Quaternion result = obstacleOrgRotation * rotation;
-            obstacle.transform.rotation = result;
-            
-            obstacle.transform.position = new Vector3(linearZ, obstaclePos.y, linearX);
-            continue;
-          }
-
-          if (angle <= 0)
-          {
-            // reset 
             obstacle.ResetTransform();
             continue;
           }
 
-          // draw on arc
-          Quaternion turnRotation = Quaternion.Euler(0, (angle / halfPI) * -90, 0);
-          Quaternion turnResult = obstacleOrgRotation * turnRotation;
-          obstacle.transform.rotation = turnResult;
-          float arcX = _startPosition.x + rad * Mathf.Cos(angle);
-          float arcZ = _endPosition.z + rad * Mathf.Sin(angle);
-          obstacle.transform.position = new Vector3(arcX, obstaclePos.y, arcZ); 
+          float newX, newZ;
+          Quaternion rotation, result;
+          if (angle > halfPI) // draw linearly
+          {
+            newX = _startPosition.x - (dist - circD4);
+            newZ = _startPosition.z + obstaclePos.x - _endPosition.x;
+
+            rotation = Quaternion.Euler(0, -90, 0);
+            result = obstacleOrgRotation * rotation;
+          }
+          else // draw on arc path
+          {
+            rotation = Quaternion.Euler(0, (angle / halfPI) * -90, 0);
+            result = obstacleOrgRotation * rotation;
+            newX = _startPosition.x + rad * Mathf.Cos(angle);
+            newZ = _endPosition.z + rad * Mathf.Sin(angle);
+          }
+          obstacle.transform.position = new Vector3(newX, obstaclePos.y, newZ); 
+          obstacle.transform.rotation = result;
         }
 
       }
