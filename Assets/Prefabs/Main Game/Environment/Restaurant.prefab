@@ -223,7 +223,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
+  m_ScaleInLightmap: 0.001
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -332,7 +332,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
+  m_ScaleInLightmap: 0.01
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -479,7 +479,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 2
+  m_ScaleInLightmap: 0.1
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -908,7 +908,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 2
+  m_ScaleInLightmap: 0.01
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -1232,7 +1232,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 2
+  m_ScaleInLightmap: 0.01
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -1341,7 +1341,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 2
+  m_ScaleInLightmap: 0.01
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -1665,9 +1665,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5104854360698348857, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 5284371994296456606, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Name
       value: Hanging Light (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190175354142972122, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7206116095551345591, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Intensity
@@ -1773,6 +1781,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260424915722464022}
     m_Modifications:
+    - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 1408840162778699028, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -2217,6 +2229,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6472008513472455461, guid: 61c3ca87e5d66fe418aa82e0f877dce2, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2286,6 +2302,10 @@ PrefabInstance:
     - target: {fileID: 354704901704852173, guid: 47a9a603ef4ad4649beb995140d6b222, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5452503773005952609, guid: 47a9a603ef4ad4649beb995140d6b222, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5812971993482434484, guid: 47a9a603ef4ad4649beb995140d6b222, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2399,6 +2419,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260424915722464022}
     m_Modifications:
+    - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1408840162778699028, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -2509,9 +2533,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5104854360698348857, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 5284371994296456606, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Name
       value: Hanging Light (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190175354142972122, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7206116095551345591, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Intensity
@@ -2599,6 +2631,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6472008513472455461, guid: 61c3ca87e5d66fe418aa82e0f877dce2, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2680,6 +2716,10 @@ PrefabInstance:
     - target: {fileID: 5208601722689731971, guid: 61c3ca87e5d66fe418aa82e0f877dce2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472008513472455461, guid: 61c3ca87e5d66fe418aa82e0f877dce2, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2871,6 +2911,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260424915722464022}
     m_Modifications:
+    - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1408840162778699028, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -2994,6 +3038,10 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 23409a0ba77572c4188787b5e7938d63, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 23409a0ba77572c4188787b5e7938d63, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 3e857ab823a6b0c449351eeb6b21281a, type: 2}
@@ -3023,6 +3071,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260424915722464022}
     m_Modifications:
+    - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1408840162778699028, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -3187,6 +3239,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 3216167555489055268, guid: 1e75052812b04f843861d477f9818b80, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 4605963834713538700, guid: 1e75052812b04f843861d477f9818b80, type: 3}
       propertyPath: m_Name
       value: Flower pot
@@ -3195,13 +3251,29 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 5417883009300625754, guid: 1e75052812b04f843861d477f9818b80, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 5990873238585746992, guid: 1e75052812b04f843861d477f9818b80, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 6093265470581644058, guid: 1e75052812b04f843861d477f9818b80, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996748952363724747, guid: 1e75052812b04f843861d477f9818b80, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7366395238719345462, guid: 1e75052812b04f843861d477f9818b80, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528230479482346334, guid: 1e75052812b04f843861d477f9818b80, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7907535841084135861, guid: 1e75052812b04f843861d477f9818b80, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3344,6 +3416,10 @@ PrefabInstance:
     - target: {fileID: 5208601722689731971, guid: 61c3ca87e5d66fe418aa82e0f877dce2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472008513472455461, guid: 61c3ca87e5d66fe418aa82e0f877dce2, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3621,6 +3697,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260424915722464022}
     m_Modifications:
+    - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1408840162778699028, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -3829,9 +3909,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5104854360698348857, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 5284371994296456606, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Name
       value: Hanging Light (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190175354142972122, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7206116095551345591, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Intensity
@@ -3918,6 +4006,10 @@ PrefabInstance:
     - target: {fileID: 5208601722689731971, guid: 61c3ca87e5d66fe418aa82e0f877dce2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472008513472455461, guid: 61c3ca87e5d66fe418aa82e0f877dce2, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4403,6 +4495,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 3758403543836324700, guid: a0a429aca08bcab4f8d8b257c6943a47, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4425750216313240050, guid: a0a429aca08bcab4f8d8b257c6943a47, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -4537,9 +4633,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5104854360698348857, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 5284371994296456606, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Name
       value: Hanging Light (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190175354142972122, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7206116095551345591, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Intensity
@@ -4563,6 +4667,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260424915722464022}
     m_Modifications:
+    - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1408840162778699028, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -4759,6 +4867,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2207126492641823753, guid: 625c4083658e4cf4ea2571553f55780f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726133733505774732, guid: 625c4083658e4cf4ea2571553f55780f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780524708292051104, guid: 625c4083658e4cf4ea2571553f55780f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488617982488945454, guid: 625c4083658e4cf4ea2571553f55780f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959155501994076624, guid: 625c4083658e4cf4ea2571553f55780f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865192086426034363, guid: 625c4083658e4cf4ea2571553f55780f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 9166544870494155037, guid: 625c4083658e4cf4ea2571553f55780f, type: 3}
       propertyPath: m_Name
       value: Tunnel open
@@ -4781,6 +4913,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260424915722464022}
     m_Modifications:
+    - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1408840162778699028, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -4961,6 +5097,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260424915722464022}
     m_Modifications:
+    - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1408840162778699028, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -5031,6 +5171,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260424915722464022}
     m_Modifications:
+    - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1408840162778699028, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -5101,6 +5245,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1450844990691613097}
     m_Modifications:
+    - target: {fileID: 4679716126500093620, guid: f994b7fd6d58aa64bb4539fbc9166f03, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 4743791119833308072, guid: f994b7fd6d58aa64bb4539fbc9166f03, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.69
@@ -5579,9 +5727,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5104854360698348857, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 5284371994296456606, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Name
       value: Hanging Light (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190175354142972122, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7206116095551345591, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Intensity
@@ -6025,6 +6181,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3155823056414073364, guid: 6efc5fc7dc868d34fb53326741037567, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 3515974480224830401, guid: 6efc5fc7dc868d34fb53326741037567, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -6119,6 +6279,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6472008513472455461, guid: 61c3ca87e5d66fe418aa82e0f877dce2, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6137,6 +6301,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260424915722464022}
     m_Modifications:
+    - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1408840162778699028, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -6535,6 +6703,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260424915722464022}
     m_Modifications:
+    - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1408840162778699028, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -6688,6 +6860,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260424915722464022}
     m_Modifications:
+    - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -7084,6 +7260,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: b69847faa2e6c0547bb0f43d6acfee0a, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b69847faa2e6c0547bb0f43d6acfee0a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bba46ef75ed921643839be84aa9c7503, type: 2}
@@ -7203,6 +7383,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260424915722464022}
     m_Modifications:
+    - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1408840162778699028, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -7273,6 +7457,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260424915722464022}
     m_Modifications:
+    - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1408840162778699028, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -7481,9 +7669,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5104854360698348857, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 5284371994296456606, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Name
       value: Hanging Light (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190175354142972122, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7206116095551345591, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Intensity
@@ -7507,6 +7703,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260424915722464022}
     m_Modifications:
+    - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -7891,9 +8091,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5104854360698348857, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 5284371994296456606, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Name
       value: Hanging Light (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190175354142972122, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7206116095551345591, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Intensity
@@ -7980,6 +8188,10 @@ PrefabInstance:
     - target: {fileID: 5208601722689731971, guid: 61c3ca87e5d66fe418aa82e0f877dce2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472008513472455461, guid: 61c3ca87e5d66fe418aa82e0f877dce2, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8077,6 +8289,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3619743583775390697}
     m_Modifications:
+    - target: {fileID: 7948373493292482066, guid: 91dc0eb6f792c074e8215af1796000c5, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8452895741700710343, guid: 91dc0eb6f792c074e8215af1796000c5, type: 3}
       propertyPath: m_Name
       value: Chair 2
@@ -8257,6 +8473,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260424915722464022}
     m_Modifications:
+    - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1408840162778699028, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -8536,9 +8756,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5104854360698348857, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 5284371994296456606, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Name
       value: Hanging Light (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190175354142972122, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7206116095551345591, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Intensity
@@ -8958,9 +9186,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5104854360698348857, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 5284371994296456606, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Name
       value: Hanging Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190175354142972122, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7206116095551345591, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Intensity
@@ -9125,6 +9361,10 @@ PrefabInstance:
     - target: {fileID: 5208601722689731971, guid: 61c3ca87e5d66fe418aa82e0f877dce2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472008513472455461, guid: 61c3ca87e5d66fe418aa82e0f877dce2, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9548,9 +9788,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5104854360698348857, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 5284371994296456606, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Name
       value: Hanging Light (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190175354142972122, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7206116095551345591, guid: 8111b2e26d53d604ea98d5babccb02a0, type: 3}
       propertyPath: m_Intensity
@@ -9574,6 +9822,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260424915722464022}
     m_Modifications:
+    - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 616369561860961473, guid: 8059dc7498ebf0440a9942009358306e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

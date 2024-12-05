@@ -533,6 +533,10 @@ PrefabInstance:
       value: 31.8
       objectReference: {fileID: 0}
     - target: {fileID: 4624875056910035911, guid: 5bd3cdc52cf8a354696c9c93df846998, type: 3}
+      propertyPath: NeedsHands
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4624875056910035911, guid: 5bd3cdc52cf8a354696c9c93df846998, type: 3}
       propertyPath: SpawnChance
       value: 0.98
       objectReference: {fileID: 0}
