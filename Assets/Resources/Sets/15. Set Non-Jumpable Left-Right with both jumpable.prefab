@@ -258,7 +258,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plate with onigiri
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7694207770094797404, guid: c47e54e09c3594c43b74458495a30955, type: 3}
+    - {fileID: 333710022542585370, guid: c47e54e09c3594c43b74458495a30955, type: 3}
+    - {fileID: 9052238972174710900, guid: c47e54e09c3594c43b74458495a30955, type: 3}
+    - {fileID: 5484784516731716617, guid: c47e54e09c3594c43b74458495a30955, type: 3}
+    - {fileID: 8631887671304552052, guid: c47e54e09c3594c43b74458495a30955, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -756,7 +761,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plate with red sushi
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5964569571516066681, guid: 40903f27fb5856845a40ec63e7dfbaf8, type: 3}
+    - {fileID: 5112325564338067485, guid: 40903f27fb5856845a40ec63e7dfbaf8, type: 3}
+    - {fileID: 4254014478013266521, guid: 40903f27fb5856845a40ec63e7dfbaf8, type: 3}
+    - {fileID: 6495145419963020526, guid: 40903f27fb5856845a40ec63e7dfbaf8, type: 3}
+    - {fileID: 6594447747202918794, guid: 40903f27fb5856845a40ec63e7dfbaf8, type: 3}
+    - {fileID: 2733495791202883262, guid: 40903f27fb5856845a40ec63e7dfbaf8, type: 3}
+    - {fileID: 8739726026769120587, guid: 40903f27fb5856845a40ec63e7dfbaf8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

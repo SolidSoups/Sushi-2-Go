@@ -38,6 +38,7 @@ namespace Controllers
             _setMover = GameObject.FindGameObjectWithTag("SetMover").GetComponent<SetMover>();
             _setParent = new GameObject("Set Parent");
             _conveyorBelt = GameObject.FindGameObjectWithTag("ConveyorBelt").GetComponent<ConveyorBelt>();
+
         }
 
         private void Update()
@@ -97,10 +98,8 @@ namespace Controllers
         
             set.transform.parent = _setParent.transform;
             LatestSpawnedSet = set;
-            _setMover.AddSet(LatestSpawnedSet.gameObject);
+            _setMover.AddSet(LatestSpawnedSet);
         }
-
-        
         
         
         private ConveyorBelt TryFindConveyorBelt()

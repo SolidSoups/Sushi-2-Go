@@ -118,7 +118,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Extras_1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5701691517748035669, guid: d2f9a28876918ea49a1b6a2cc803ee3c, type: 3}
+    - {fileID: 2079272901789063238, guid: d2f9a28876918ea49a1b6a2cc803ee3c, type: 3}
+    - {fileID: 4193846175484066466, guid: d2f9a28876918ea49a1b6a2cc803ee3c, type: 3}
+    - {fileID: 6490641824186790873, guid: d2f9a28876918ea49a1b6a2cc803ee3c, type: 3}
+    - {fileID: 5112325564338067485, guid: d2f9a28876918ea49a1b6a2cc803ee3c, type: 3}
+    - {fileID: 4254014478013266521, guid: d2f9a28876918ea49a1b6a2cc803ee3c, type: 3}
+    - {fileID: 6495145419963020526, guid: d2f9a28876918ea49a1b6a2cc803ee3c, type: 3}
+    - {fileID: 6594447747202918794, guid: d2f9a28876918ea49a1b6a2cc803ee3c, type: 3}
+    - {fileID: 2733495791202883262, guid: d2f9a28876918ea49a1b6a2cc803ee3c, type: 3}
+    - {fileID: 8739726026769120587, guid: d2f9a28876918ea49a1b6a2cc803ee3c, type: 3}
+    - {fileID: 365825896952359578, guid: d2f9a28876918ea49a1b6a2cc803ee3c, type: 3}
+    - {fileID: 1740076754802229492, guid: d2f9a28876918ea49a1b6a2cc803ee3c, type: 3}
+    - {fileID: 61137798389242076, guid: d2f9a28876918ea49a1b6a2cc803ee3c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -862,7 +875,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plate with green sushi 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5964569571516066681, guid: 96d7af8588f7c944c82d2ade1b8aed45, type: 3}
+    - {fileID: 5701691517748035669, guid: 96d7af8588f7c944c82d2ade1b8aed45, type: 3}
+    - {fileID: 2079272901789063238, guid: 96d7af8588f7c944c82d2ade1b8aed45, type: 3}
+    - {fileID: 4193846175484066466, guid: 96d7af8588f7c944c82d2ade1b8aed45, type: 3}
+    - {fileID: 6490641824186790873, guid: 96d7af8588f7c944c82d2ade1b8aed45, type: 3}
+    - {fileID: 5112325564338067485, guid: 96d7af8588f7c944c82d2ade1b8aed45, type: 3}
+    - {fileID: 4254014478013266521, guid: 96d7af8588f7c944c82d2ade1b8aed45, type: 3}
+    - {fileID: 6495145419963020526, guid: 96d7af8588f7c944c82d2ade1b8aed45, type: 3}
+    - {fileID: 6594447747202918794, guid: 96d7af8588f7c944c82d2ade1b8aed45, type: 3}
+    - {fileID: 2733495791202883262, guid: 96d7af8588f7c944c82d2ade1b8aed45, type: 3}
+    - {fileID: 8739726026769120587, guid: 96d7af8588f7c944c82d2ade1b8aed45, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

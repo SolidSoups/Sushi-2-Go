@@ -130,7 +130,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sake Variant 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6449218881997704633, guid: 9c0a468692be2844fb9d97d43837c9d1, type: 3}
+    - {fileID: 3981301363667672715, guid: 9c0a468692be2844fb9d97d43837c9d1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
