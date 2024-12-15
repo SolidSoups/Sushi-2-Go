@@ -11,7 +11,6 @@ namespace State_Machine.GameStates
         public override void ExitState()
         {
             base.ExitState();
-            _uiController.Player.gameObject.SetActive(true);
         }
 
         public override void EnterState()
@@ -28,8 +27,8 @@ namespace State_Machine.GameStates
                     {
                         _uiController.FadeToBlack.Reset();
                         _uiController.PosterIntro.gameObject.SetActive(false);
-                        //_uiController.Player.gameObject.SetActive(true);
                         PlayerPrefs.SetInt("PlayPosterIntro", 0);
+                        _uiController.Player.gameObject.SetActive(true);
                         GameManager.Instance.SwitchState<PlayingState>();
                     });
                 });

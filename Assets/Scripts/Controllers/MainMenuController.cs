@@ -24,14 +24,32 @@ namespace Controllers
     }
     private void Start()
     {
+      // DebugPlayerPrefs();
       if (!PlayerPrefs.HasKey("NotFirstTime"))
       {
+        UI_DebugController.Instance.AddToQueue("Set up PlayerPrefs"); 
         PlayerPrefs.SetInt("NotFirstTime", 1);
         PlayerPrefs.SetInt("SavedHighScore", 0);
+        UI_DebugController.Instance.AddToQueue("Set PlayerPrefs.SavedHighScore to 0"); 
         _audioManager.ResetSliders();
         PlayerPrefs.Save();
       }
+      else
+        UI_DebugController.Instance.AddToQueue("PlayerPrefs already set up");
       _audioManager.Play(this, "MainMenu");        
+      
+      
+      // UI_DebugController.Instance.AddToQueue("Finished Start");
+    }
+    
+    
+
+    private void DebugPlayerPrefs()
+    {
+      PlayerPrefs.DeleteKey("NotFirstTime");
+      UI_DebugController.Instance.AddToQueue("Deleted PlayerPrefs.NotFirstTime");
+      PlayerPrefs.Save();
+      UI_DebugController.Instance.AddToQueue("Saved PlayerPrefs");
     }
 
     private void Update()

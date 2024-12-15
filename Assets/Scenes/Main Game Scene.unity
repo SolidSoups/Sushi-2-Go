@@ -1985,6 +1985,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4151587540201211588, guid: 1ec8e300c76d1ea42a5825e29f7e175c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2548,7 +2552,11 @@ PrefabInstance:
     - target: {fileID: 3192506486829449668, guid: f62ebfde1b918144aa0eb91b97f0d4ac, type: 3}
       propertyPath: '_overWriteSets.Array.data[0]'
       value: 
-      objectReference: {fileID: 2145461825848086856, guid: 82304c98ad497904a9dfdece6f8db7cd, type: 3}
+      objectReference: {fileID: 2145461825848086856, guid: 9ecbcddcc5136604e9a30bc68bf19810, type: 3}
+    - target: {fileID: 3192506486829449668, guid: f62ebfde1b918144aa0eb91b97f0d4ac, type: 3}
+      propertyPath: '_overWriteSets.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2145461825848086856, guid: afa2d4cea30b56747814e3102ec825f9, type: 3}
     - target: {fileID: 3362242079466075694, guid: f62ebfde1b918144aa0eb91b97f0d4ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.93311
@@ -2592,6 +2600,10 @@ PrefabInstance:
     - target: {fileID: 5829027468663706039, guid: f62ebfde1b918144aa0eb91b97f0d4ac, type: 3}
       propertyPath: _time
       value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 5829027468663706039, guid: f62ebfde1b918144aa0eb91b97f0d4ac, type: 3}
+      propertyPath: _speed
+      value: 69
       objectReference: {fileID: 0}
     - target: {fileID: 5829027468663706039, guid: f62ebfde1b918144aa0eb91b97f0d4ac, type: 3}
       propertyPath: _startSpeed
