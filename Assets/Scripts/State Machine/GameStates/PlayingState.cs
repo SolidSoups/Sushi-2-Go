@@ -15,9 +15,7 @@ namespace State_Machine.GameStates
     {
         [Header("Settings")]
         [SerializeField] private int ScorePerSecond = 10;
-        private void OnValidate() => _scoreTimer.ScorePerSecond = ScorePerSecond;
         private ScoreTimer _scoreTimer = new();
-        public ScoreTimer ScoreTimer => _scoreTimer;
         
         [Header("References")]
         private ConveyorController _conveyorController; 
@@ -39,13 +37,14 @@ namespace State_Machine.GameStates
         private void Awake()
         {
             _conveyorController = GameObject.FindGameObjectWithTag("ConveyorController").GetComponent<ConveyorController>();
+            _scoreTimer = new();
+            _scoreTimer.ScorePerSecond = ScorePerSecond;
         }
 
 
         public override void EnterState()
         {
             base.EnterState();
-            _scoreTimer.Initialize();
             Time.timeScale = 1f;
             
             // setup audio
